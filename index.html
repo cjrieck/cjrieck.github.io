@@ -414,7 +414,7 @@
 			//     }
 			// });
 
-			$(function(){
+			function(){
 				var elemID = $(".ui-state-active").attr('id');
 				
 				if ($(".flow_description").length > 0)
@@ -424,7 +424,7 @@
 
 				$("#books").append("<a class='flow_description'></a>");
 				$(".flow_description").href = coverFlowDict[elemID];
-			});
+			};
 
 			$("#name").click(function(){
 				$("body,html").animate({
