@@ -256,36 +256,6 @@
                 <img class="item" id="sorcerersandmen" href="http://www.barnesandnoble.com/w/of-sorcerers-and-men-michael-dc-drout/1113142949?ean=9780760785232&itm=1&usri=9780760785232" target="_blank" src="./img/sorcerersandmen.jpg" title="Of Sorcerers and Men: Tolkien and the Roots of Modern Fantasy Literature (Portable Professor Series)"/>
 			    
 			</div>
-
-
-			<!-- <div class="ContentFlow" id="myFlow">
-	            <div class="loadIndicator"><div class="indicator"></div></div>
-	            <div class="flow">
-	                <img class="item" href="http://michaeldrout.com/beowulfaloud/index.html" target="_blank" src="./img/bwfaloud.jpg" title="Beowulf Aloud"/>
-
-	                <img class="item" href="http://anglosaxonaloud.michaeldrout.com/" target="_blank" src="./img/angloaloud.jpg" title="Anglo Saxon Aloud"/>
-	                
-
-	                <img class="item" href="http://beowulfandthecritics.com/" target="_blank" src="./img/beocritics.png" title="Beowulf and the Critics"/>
-
-	                <img class="item" href="http://howtraditionworks.com/" target="_blank" src="./img/howtraditionworks.jpg" title="How Tradition Works"/>
-
-	                <img class="item" href="http://www.amazon.com/J-R-R-Tolkien-Encyclopedia-Scholarship-Assessment/dp/0415969425" target="_blank" src="./img/tolkienencyclopedia.jpg" title="Tolkien Encyclopedia"/>
-
-	                <img class="item" href="http://www.recordedbooks.com/index.cfm?fuseaction=scholar.show_professors&prof_id=44" target="_blank" src="./img/ms.png" title="Modern Scholar Series"/>
-
-	                <img class="item" href="http://www.barnesandnoble.com/w/of-sorcerers-and-men-michael-dc-drout/1113142949?ean=9780760785232&itm=1&usri=9780760785232" target="_blank" src="./img/sorcerersandmen.jpg" title="Of Sorcerers and Men: Tolkien and the Roots of Modern Fantasy Literature (Portable Professor Series)"/>
-	                
-	            </div>
-	            <div class="globalCaption"></div>
-	            <div class="scrollbar">
-	            	<div class="slider">
-	            		<div class="position">
-	            		</div>
-	            	</div>
-	            </div>
-        	</div> -->
-        	<!-- <script src="./ContentFlow/contentflow.js" load="white"></script> -->
         	
 		</section>
 
@@ -320,7 +290,7 @@
 	<script type="text/javascript">
 		$(document).ready(function(){
 
-
+			//scroll to top on page load
 			$(function(){
 				
 				$("body,html").animate({
@@ -333,13 +303,6 @@
 			$("#nav_bio").addClass("active");
 
 			$('#coverflow').coverflow();
-
-			// $(this).scrollTop(0);
-			// $('html').animate({scrollTop:0}, 1);
-		 //    $('body').animate({scrollTop:0}, 1);
-
-
-			//scroll to top on page load
 					
 			// for stacked nav sections
 			var navDict = {
@@ -350,13 +313,13 @@
 			};
 
 			var coverFlowDict = {
-				"#bwfaloud" : "http://michaeldrout.com/beowulfaloud/index.html"
-				"#angloaloud" : "http://anglosaxonaloud.michaeldrout.com/"
-				"#beocritics" : "http://beowulfandthecritics.com/"
-				"#tradition" : "http://howtraditionworks.com"
-				"#tolkeinencyclopedia" : "http://www.amazon.com/J-R-R-Tolkien-Encyclopedia-Scholarship-Assessment/dp/0415969425"
-				"#scholar" : "http://www.recordedbooks.com/index.cfm?fuseaction=scholar.show_professors&prof_id=44"
-				"#sorcerersandmen" : "http://www.barnesandnoble.com/w/of-sorcerers-and-men-michael-dc-drout/1113142949?ean=9780760785232&itm=1&usri=9780760785232"
+				"#bwfaloud" : ["Beowulf Aloud", "http://michaeldrout.com/beowulfaloud/index.html"],
+				"#angloaloud" : ["Anglosaxon Aloud", "http://anglosaxonaloud.michaeldrout.com/"],
+				"#beocritics" : ["Beowulf and the Critics", "http://beowulfandthecritics.com/"],
+				"#tradition" : ["How Tradition Works", "http://howtraditionworks.com"],
+				"#tolkeinencyclopedia" : ["Tolkein Encyclopedia","http://www.amazon.com/J-R-R-Tolkien-Encyclopedia-Scholarship-Assessment/dp/0415969425"],
+				"#scholar" : ["Scholar", "http://www.recordedbooks.com/index.cfm?fuseaction=scholar.show_professors&prof_id=44"],
+				"#sorcerersandmen" : ["Sorcerers and Men", "http://www.barnesandnoble.com/w/of-sorcerers-and-men-michael-dc-drout/1113142949?ean=9780760785232&itm=1&usri=9780760785232"]
 			};
 
 			var pixelHeight = 0;
@@ -401,30 +364,31 @@
 					$(".stacked_nav_item").siblings().removeClass("active");
 					$("#nav_news").addClass("active");
 				}
-				// e.preventDefault();
 				return false;
 			});
-
-			// change margin top based on window height
-			// $("div#outerstart").css("margin-top",function () {
-			//     if ($(window).height() < 805) {
-			//         return "0px";  
-			//     } else {
-			//         return ($(window).height() -805)+"px";
-			//     }
-			// });
-
-			function(){
+			
+			function contentFlowChange(){
 				var elemID = $(".ui-state-active").attr('id');
 				
+				console.log(elemID);
+
 				if ($(".flow_description").length > 0)
 				{
 					$(".flow_description").remove();
 				}
 
+				
 				$("#books").append("<a class='flow_description'></a>");
-				$(".flow_description").href = coverFlowDict[elemID];
+				
+				$(".flow_description").text(function(){
+					return coverFlowDict["#"+elemID][0];
+				});
+
+				$(".flow_description").href = coverFlowDict["#"+elemID][1];
+
 			};
+
+			$("#coverflow").trigger("itemclick", contentFlowChange);
 
 			$("#name").click(function(){
 				$("body,html").animate({
@@ -432,13 +396,6 @@
 				}, 800);
 				return false;
 			});
-
-			var myNewFlow = new ContentFlow("myFlow", {
-		    	reflectionHeight: 0.25,
-		    	flowSpeedFactor: 0.5
-		    });
-
-		    myNewFlow.init();
 
 		});
 	</script>
@@ -499,8 +456,6 @@
 		});
 
 	</script>
-	
-	<!-- // <script src="./ContentFlow/contentflow.js"></script> -->
 </body>
 
 </html

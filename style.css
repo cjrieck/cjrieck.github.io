@@ -331,7 +331,8 @@ img title {
 }
 
 .flow_description {
-    
+    color: black;
+    font-size: 500px;
 }
 
 #news {
