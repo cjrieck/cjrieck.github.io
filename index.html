@@ -238,24 +238,25 @@
 			<div id="coverflow">
 		    <!-- these children will be part of the coverflow -->
 			    
-			    <img class="item" href="http://michaeldrout.com/beowulfaloud/index.html" target="_blank" src="./img/bwfaloud.jpg" title="Beowulf Aloud"/>
+			    <img class="item" id="bwfaloud" href="http://michaeldrout.com/beowulfaloud/index.html" target="_blank" src="./img/bwfaloud.jpg" title="Beowulf Aloud"/>
 			    
 			    
 			    
-                <img class="item" href="http://anglosaxonaloud.michaeldrout.com/" target="_blank" src="./img/angloaloud.jpg" title="Anglo Saxon Aloud"/>
+                <img class="item" id="angloaloud" href="http://anglosaxonaloud.michaeldrout.com/" target="_blank" src="./img/angloaloud.jpg" title="Anglo Saxon Aloud"/>
                 
 
-                <img class="item" href="http://beowulfandthecritics.com/" target="_blank" src="./img/beocritics.png" title="Beowulf and the Critics"/>
+                <img class="item" id="beocritics" href="http://beowulfandthecritics.com/" target="_blank" src="./img/beocritics.png" title="Beowulf and the Critics"/>
 
-                <a href="http://howtraditionworks.com/"><img class="item" target="_blank" src="./img/howtraditionworks.jpg" title="How Tradition Works"/></a>
+                <img class="item" id="tradition" target="_blank" src="./img/howtraditionworks.jpg" title="How Tradition Works"/>
 
-                <img class="item" href="http://www.amazon.com/J-R-R-Tolkien-Encyclopedia-Scholarship-Assessment/dp/0415969425" target="_blank" src="./img/tolkienencyclopedia.jpg" title="Tolkien Encyclopedia"/>
+                <img class="item" id="tolkeinencyclopedia" href="http://www.amazon.com/J-R-R-Tolkien-Encyclopedia-Scholarship-Assessment/dp/0415969425" target="_blank" src="./img/tolkienencyclopedia.jpg" title="Tolkien Encyclopedia"/>
 
-                <img class="item" href="http://www.recordedbooks.com/index.cfm?fuseaction=scholar.show_professors&prof_id=44" target="_blank" src="./img/ms.png" title="Modern Scholar Series"/>
+                <img class="item" id="scholar" href="http://www.recordedbooks.com/index.cfm?fuseaction=scholar.show_professors&prof_id=44" target="_blank" src="./img/ms.png" title="Modern Scholar Series"/>
 
-                <img class="item" href="http://www.barnesandnoble.com/w/of-sorcerers-and-men-michael-dc-drout/1113142949?ean=9780760785232&itm=1&usri=9780760785232" target="_blank" src="./img/sorcerersandmen.jpg" title="Of Sorcerers and Men: Tolkien and the Roots of Modern Fantasy Literature (Portable Professor Series)"/>
+                <img class="item" id="sorcerersandmen" href="http://www.barnesandnoble.com/w/of-sorcerers-and-men-michael-dc-drout/1113142949?ean=9780760785232&itm=1&usri=9780760785232" target="_blank" src="./img/sorcerersandmen.jpg" title="Of Sorcerers and Men: Tolkien and the Roots of Modern Fantasy Literature (Portable Professor Series)"/>
 			    
 			</div>
+
 
 			<!-- <div class="ContentFlow" id="myFlow">
 	            <div class="loadIndicator"><div class="indicator"></div></div>
@@ -348,6 +349,16 @@
 				"#nav_news" : "#news"
 			};
 
+			var coverFlowDict = {
+				"#bwfaloud" : "http://michaeldrout.com/beowulfaloud/index.html"
+				"#angloaloud" : "http://anglosaxonaloud.michaeldrout.com/"
+				"#beocritics" : "http://beowulfandthecritics.com/"
+				"#tradition" : "http://howtraditionworks.com"
+				"#tolkeinencyclopedia" : "http://www.amazon.com/J-R-R-Tolkien-Encyclopedia-Scholarship-Assessment/dp/0415969425"
+				"#scholar" : "http://www.recordedbooks.com/index.cfm?fuseaction=scholar.show_professors&prof_id=44"
+				"#sorcerersandmen" : "http://www.barnesandnoble.com/w/of-sorcerers-and-men-michael-dc-drout/1113142949?ean=9780760785232&itm=1&usri=9780760785232"
+			};
+
 			var pixelHeight = 0;
 
 			//on stacked nav click
@@ -402,6 +413,18 @@
 			//         return ($(window).height() -805)+"px";
 			//     }
 			// });
+
+			$(function(){
+				var elemID = $(".ui-state-active").attr('id');
+				
+				if ($(".flow_description").length > 0)
+				{
+					$(".flow_description").remove();
+				}
+
+				$("#books").append("<a class='flow_description'></a>");
+				$(".flow_description").href = coverFlowDict[elemID];
+			});
 
 			$("#name").click(function(){
 				$("body,html").animate({
