@@ -56,10 +56,12 @@ div {
 	min-width: 750px;
 	height: 450px;
 	background-image: url(../img/comp-back.jpg);
+	background-repeat: no-repeat;
 	background-size: cover;
 	background-position: 0px -100px;
-	/*z-index: -9999;*/
 	/*position: absolute;*/
+	background-attachment: fixed;
+	z-index: -999;
 
 	-webkit-filter: blur(5px);
 	-moz-filter: blur(5px);
@@ -69,10 +71,10 @@ div {
 }
 
 #about {
+	height: 800px;
 	box-shadow: 0 -10px 2px gray;
-	height: 600px;
-	/*position: absolute;*/
-	z-index: 9999;
+	top: 450px;
+	background-color: white;
 }
 
 
