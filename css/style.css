@@ -44,35 +44,47 @@ table {
 }
 
 /* ------------- Begin Website Styling -------------*/
+@font-face {
+	font-family: CustomBebas;
+	src:url("../fonts/BebasNeue.otf");
+}
+
 * {
 	box-sizing: border-box;
 }
 
-div {
+div{
 	display: block;
 }
 
-#name {
-	min-width: 750px;
-	height: 450px;
-	background-image: url(../img/comp-back.jpg);
-	background-repeat: no-repeat;
-	background-size: cover;
-	background-position: 0px -100px;
-	/*position: absolute;*/
-	background-attachment: fixed;
-	z-index: -999;
-
-	-webkit-filter: blur(5px);
-	-moz-filter: blur(5px);
-	-o-filter: blur(5px);
-	-ms-filter: blur(5px);
-	filter: blur(5px);
+.intro {
+	z-index: -1;
+	position: relative;
 }
+	#name {
+		min-width: 750px;
+		height: 450px;
+		background-image: url(../img/comp-back.png);
+		background-repeat: no-repeat;
+		background-size: cover;
+		background-position: 0px -100px;
+		background-attachment: fixed;
+	}
+		span {
+			width: 100%;
+			top: 180px;
+			font-family: 'CustomBebas', Helvetica, Arial, sans-serif;
+			font-size: 100px;
+			text-align: center;
+			margin: 0 auto;
+			position: fixed;
+			color: black;
+		}
 
 #about {
 	height: 800px;
-	box-shadow: 0 -10px 2px gray;
+	box-shadow: 0 -1px 0px gray;
+	border-top: 1px thin gray;
 	top: 450px;
 	background-color: white;
 }
