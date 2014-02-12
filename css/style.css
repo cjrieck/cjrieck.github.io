@@ -83,10 +83,10 @@ div{
 
 #about {
 	height: 800px;
-	box-shadow: 0 -1px 0px gray;
-	border-top: 1px thin gray;
+	box-shadow: 0 2px 4px gray;
+	/*border-top: 1px thin black;*/
 	top: 450px;
-	background-color: white;
+	background-color: black;
 }
 
 
