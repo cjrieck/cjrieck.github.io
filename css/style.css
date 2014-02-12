@@ -62,26 +62,26 @@ div{
 nav {
 	min-width: 800px;
 	width: 100%;
-	z-index: 9999;
+	z-index: 2;
 	position: fixed;
 }
 
-#name {
+/*#name {
 	border: none;
 	position: absolute;
 	float: left;
-}
+}*/
 
-#name span {
+/*#name span {
 	font-size: 50px;
-}
+}*/
 
-#name a {
+/*#name a {
 	display: block;
 	padding: 4px 30px;
 	color: #757575;
 	text-decoration: none;
-}
+}*/
 
 nav ul ul {
 	width: 100%;
