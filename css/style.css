@@ -189,3 +189,7 @@ nav ul li {
 	background-color: white;
 }
 
+    .project {
+        height: 300px;
+        border-bottom: 1px thin black;
+    }
