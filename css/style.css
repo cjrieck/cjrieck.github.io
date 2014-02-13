@@ -56,6 +56,8 @@ table {
 body {
 	font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
 	font-weight: 300;
+	height: 1900px;
+	/*width: 1800px;*/
 }
 
 div{
@@ -153,11 +155,34 @@ nav ul li {
 		}
 
 #about {
-	height: 900px;
+	height: 500px;
 	box-shadow: 0 2px 4px gray;
 	top: 450px;
 	background-color: black;
 }
+
+	.wrapper {
+		min-width: 50%;
+		max-width: 50%;
+		height: 100%;
+		float: left;
+		margin: 0 auto;
+		/*background-color: white;*/
+	}
+		#description {
+			height: 50%;
+			/*background-color: red;*/
+			color: white;
+			margin: 17.5% 20%;
+			font-size: 40px;
+		}
+		
+	.odd {
+		min-width: 50%;
+		max-width: 50%;
+		height: 100%;
+		float: right;
+	}	
 
 #projects {
 	height: 1000px;

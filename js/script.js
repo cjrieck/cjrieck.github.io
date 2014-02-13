@@ -12,13 +12,13 @@ $(function () {
 		
 		var currPos = $(window).scrollTop();
 
-		if (currPos < offset && !atTop)
+		if (currPos < offset/2 && !atTop)
 		{
 
 			$('#navbar').animate({top: '-100%'}, 500);
 			atTop = true;
 
-		} else if (currPos >= offset && atTop) {
+		} else if (currPos >= offset/2 && atTop) {
 
 			$('#navbar').animate({top: '0%'}, 500);
 			atTop = false;
@@ -26,7 +26,7 @@ $(function () {
 
 		console.log(projectsTop);
 
-		if (currPos > projectsTop) {
+		if (currPos > projectsTop-50) {
 			$('#navbar ul').stop().animate({
 					backgroundColor: '#ffffff'
 				}, 100);
@@ -53,7 +53,7 @@ $(function () {
 			$('#twitter').attr('src', 'img/twitter_white.png');
 			$('#linkedin').attr('src', 'img/linkedin_white.png');
 			$('#github').attr('src', 'img/octocat_white.png');
-			
+
 		}
 
 	});
