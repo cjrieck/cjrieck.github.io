@@ -167,14 +167,14 @@ nav ul li {
 		height: 100%;
 		float: left;
 		margin: 0 auto;
-		/*background-color: white;*/
 	}
 		#description {
 			height: 50%;
-			/*background-color: red;*/
 			color: white;
-			margin: 17.5% 20%;
+			margin: 25% 20%;
 			font-size: 40px;
+
+			opacity: 0;
 		}
 		
 	.odd {

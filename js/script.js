@@ -12,16 +12,21 @@ $(function () {
 		
 		var currPos = $(window).scrollTop();
 
-		if (currPos < offset/2 && !atTop)
+		if (currPos < offset*2/3 && !atTop)
 		{
 
 			$('#navbar').animate({top: '-100%'}, 500);
 			atTop = true;
 
-		} else if (currPos >= offset/2 && atTop) {
+		} else if (currPos >= offset*2/3 && atTop) {
 
 			$('#navbar').animate({top: '0%'}, 500);
 			atTop = false;
+
+			$('#description').animate({
+				opacity: '1',
+				margin: '17.5% 20%'
+			}, 500)
 		}
 
 		console.log(projectsTop);
