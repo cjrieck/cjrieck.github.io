@@ -1,13 +1,25 @@
-$(document).ready(function(){
-	window.scrollTo(0,0);
-});
+// $(document).ready(function(){
+// 	window.scrollTo(0,0);
+// });
 
-$(function () {
+$(function() {
+
+	// $('html, body').scrollTo(0,0);
+	// $('html, body').stop().animate({
+	// 	scrollTop: 0
+	// }, 10);
 
 	var atTop = !$(document).scrollTop();
 
 	var offset = $('.container').offset().top;
 	var projectsTop = $('#projects').offset().top;
+
+	$('#name').click(function(){
+		$('html, body').stop().animate({
+			scrollTop: $('.container').offset().top
+		}, 1000);
+		return false;
+	});
 
 	$(window).scroll(function() {
 
@@ -71,12 +83,6 @@ $(function () {
 
 		}
 
-	});
-
-	$('#nav_title a').click(function(){
-		$(window).animate({
-			scrollTop: $('#about').offset().top
-		}, 800);
 	});
 	
 });
