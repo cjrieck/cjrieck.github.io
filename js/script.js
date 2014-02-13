@@ -33,7 +33,7 @@ $(function () {
 
 		console.log(projectsTop);
 
-		if (currPos > projectsTop-50) {
+		if (currPos > projectsTop-50) { // change nav to black, icons and text to white
 			$('#navbar ul').stop().animate({
 					backgroundColor: '#ffffff'
 				}, 100);
@@ -42,11 +42,15 @@ $(function () {
 					color: '#000000'
 				}, 100);
 
+			$('#nav_title a').stop().animate({
+					color: '#000000'
+				}, 100);
+
 			$('#twitter').attr('src', 'img/twitter_black.png');
 			$('#linkedin').attr('src', 'img/linkedin_black.png');
 			$('#github').attr('src', 'img/octocat_black.png');	
 		
-		} else {
+		} else { // change nav to white, icons and text to black
 		
 			$('#navbar ul').stop().animate({
 					backgroundColor: '#000000',
@@ -57,12 +61,22 @@ $(function () {
 					color: '#ffffff'
 				}, 100);
 
+			$('#nav_title a').stop().animate({
+					color: '#ffffff'
+				}, 100);
+
 			$('#twitter').attr('src', 'img/twitter_white.png');
 			$('#linkedin').attr('src', 'img/linkedin_white.png');
 			$('#github').attr('src', 'img/octocat_white.png');
 
 		}
 
+	});
+
+	$('#nav_title a').click(function(){
+		$(window).animate({
+			scrollTop: $('#about').offset().top
+		}, 800);
 	});
 	
 });

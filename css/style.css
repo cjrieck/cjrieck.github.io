@@ -128,13 +128,30 @@ nav ul li {
 			/*padding: 0px 10px; */
 		}
 
+#name {
+    border: none;
+    position: absolute;
+    float: left;
+}
+
+#nav_title {
+    font-size: 35px;
+}
+
+#name a {
+    display: block;
+    padding: 4px 30px;
+    /*color: #757575;*/
+    color: white;
+    text-decoration: none;
+}
 /* Cleanup CSS for nav bar */
 
 .intro {
 	z-index: -1;
 	position: relative;
 }
-	#name {
+	#intro_name {
 		min-width: 750px;
 		height: 450px;
 		background-image: url(../img/comp-back.png);
@@ -143,7 +160,7 @@ nav ul li {
 		background-position: 0px -100px;
 		background-attachment: fixed;
 	}
-		span {
+		#intro_title {
 			width: 100%;
 			top: 180px;
 			font-family: 'CustomBebas', Helvetica, Arial, sans-serif;
