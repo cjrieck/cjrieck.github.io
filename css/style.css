@@ -97,8 +97,9 @@ nav ul li {
 
 	transition: opacity 0.2s ease;
 	-webkit-transition: opacity 0.2s ease;
-	-moz-transition: opacity 0.2s ease;
-	-o-transition: opacity 0.2s ease;
+	-ms-transition: opactiy 0.2s ease;
+    -moz-transition: opacity 0.2s ease;
+	o-transition: opacity 0.2s ease;
 
 
 
