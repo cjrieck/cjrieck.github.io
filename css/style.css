@@ -126,6 +126,11 @@ nav ul li {
 			height: 50px;
 		}
 
+		#resume {
+			width: 30px;
+			height: 30px;
+		}
+
 #name {
     border: none;
     position: absolute;
