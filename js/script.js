@@ -1,7 +1,7 @@
 $(document).ready(function(){
 	$('html, body').animate({
 		scrollTop: 0
-	}, 'slow');
+	}, 'fast');
 });
 
 $(function() {
@@ -40,7 +40,7 @@ $(function() {
 			}, 500)
 		}
 
-		console.log(projectsTop);
+		// console.log(projectsTop);
 
 		if (currPos > projectsTop-50) { // change nav to black, icons and text to white
 			$('#navbar ul').stop().animate({
