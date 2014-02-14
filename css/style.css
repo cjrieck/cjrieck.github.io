@@ -57,7 +57,6 @@ body {
 	font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
 	font-weight: 300;
 	height: 1900px;
-	/*width: 1800px;*/
 }
 
 div{
@@ -125,7 +124,6 @@ nav ul li {
 		nav ul li a img {
 			width: 50px;
 			height: 50px;
-			/*padding: 0px 10px; */
 		}
 
 #name {
@@ -141,7 +139,6 @@ nav ul li {
 #name a {
     display: block;
     padding: 4px 30px;
-    /*color: #757575;*/
     color: white;
     text-decoration: none;
 }
@@ -179,8 +176,8 @@ nav ul li {
 }
 
 	.wrapper {
-		min-width: 50%;
-		max-width: 50%;
+		min-width: 49%;
+		max-width: 49%;
 		height: 100%;
 		float: left;
 		margin: 0 auto;
@@ -193,20 +190,69 @@ nav ul li {
 
 			opacity: 0;
 		}
-		
-	.odd {
-		min-width: 50%;
-		max-width: 50%;
-		height: 100%;
-		float: right;
-	}	
+
 
 #projects {
-	height: 1000px;
+	height: 1500px;
 	background-color: white;
 }
 
+.even{
+	background-color: #f8f8f8;
+}
+
     .project {
-        height: 300px;
-        border-bottom: 1px thin black;
+        height: 350px;
+        border-bottom: 1px solid #d8d8d8;
+        overflow: hidden;
     }
+
+.contentRight {
+	float: right;
+	width: 49%;
+}
+
+.contentLeft {
+	float: left;
+	width: 49%;
+}
+
+.projImage {
+	max-width: 100%;
+	/*padding-top: 10px;*/
+	margin-top: 50px;
+	height: 800px;
+	margin-left: 20%;
+}
+
+	.even .projImage {
+		/*margin-left: 35%;*/
+	}
+
+.project-description {
+	min-width: 30%;
+	margin-left: 20%;
+	padding-top: 50px;
+}
+
+	.even .project-description {
+		min-width: 30%;
+		/*margin-left: 10%;*/
+		padding-top: 50px;
+}
+	
+	p {
+		width: 70%;
+		margin: 0;
+	}
+
+	.title {
+		font-family: 'CustomBebas', Helvetica, Arial, sans-serif;
+		font-size: 35px;
+	}
+
+#rubiks {
+	min-width: 366px;
+	margin-left: 30%;
+	height: 310px;
+}
