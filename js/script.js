@@ -1,13 +1,10 @@
-// $(document).ready(function(){
-// 	window.scrollTo(0,0);
-// });
+$(document).ready(function(){
+	$('html, body').animate({
+		scrollTop: 0
+	}, 'slow');
+});
 
 $(function() {
-
-	// $('html, body').scrollTo(0,0);
-	// $('html, body').stop().animate({
-	// 	scrollTop: 0
-	// }, 10);
 
 	var atTop = !$(document).scrollTop();
 
@@ -60,7 +57,9 @@ $(function() {
 
 			$('#twitter').attr('src', 'img/twitter_black.png');
 			$('#linkedin').attr('src', 'img/linkedin_black.png');
-			$('#github').attr('src', 'img/octocat_black.png');	
+			$('#github').attr('src', 'img/octocat_black.png');
+
+			// $('#resume').css('-webkit-filter', 'invert(100%)');	
 		
 		} else { // change nav to white, icons and text to black
 		
