@@ -278,10 +278,15 @@ nav ul li {
 	height: 310px;
 }
 
+#python {
+	margin-top: 25px;
+	height: 300px;
+}
+
 .footer-wrapper {
 	width: 100%;
 	/*height: 75px;*/
-	opacity: 0.5;	
+	/*opacity: 0.5;	*/
 	/*position: fixed;*/
 	position: relative;
 	/*background-color: black;*/
@@ -291,7 +296,7 @@ nav ul li {
 	.footer {
 		width: 100%;
 		height: 150px;
-		background-color: blue;
+		background-color: black;
 		bottom: 0;
 		color: white;
 		position: fixed;
