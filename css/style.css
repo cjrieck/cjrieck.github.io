@@ -283,6 +283,10 @@ nav ul li {
 	height: 300px;
 }
 
+#fork {
+	float: right;
+}
+
 .fill {
 	height: 300px;
 }
