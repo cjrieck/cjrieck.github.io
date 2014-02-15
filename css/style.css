@@ -235,15 +235,14 @@ nav ul li {
 
 .projImage {
 	max-width: 100%;
-	/*padding-top: 10px;*/
 	margin-top: 50px;
 	height: 800px;
 	margin-left: 20%;
 }
 
-	.even .projImage {
-		/*margin-left: 35%;*/
-	}
+	/*.even .projImage {
+		margin-left: 35%;
+	}*/
 
 .project-description {
 	min-width: 30%;
@@ -253,7 +252,6 @@ nav ul li {
 
 	.even .project-description {
 		min-width: 30%;
-		/*margin-left: 10%;*/
 		padding-top: 50px;
 	}
 	
@@ -268,7 +266,6 @@ nav ul li {
 	}
 
 	.project-detail-description {
-		/*width: 100%;*/
 		overflow: visible;
 	}
 
@@ -293,20 +290,27 @@ nav ul li {
 
 .footer-wrapper {
 	width: 100%;
-	/*height: 75px;*/
-	/*opacity: 0.5;	*/
-	/*position: fixed;*/
 	position: relative;
-	/*background-color: black;*/
 	bottom: 0;
 	z-index: -2;
 }
 	.footer {
 		width: 100%;
 		height: 350px;
-		background-color: black;
+		background: #2c3e50;
+		background-image: -webkit-radial-gradient(50% 10px, circle cover, #4a4a4a, #2b2b2b);
+		background-image: -moz-radial-gradient(50% 10px, circle cover, #4a4a4a, #2b2b2b);  
+	    background-image: -ms-radial-gradient(50% 10px, circle cover, #4a4a4a, #2b2b2b); /* IE10+ */  
+	    background-image: -o-radial-gradient(50% 10px, circle cover, #4a4a4a, #2b2b2b); /* Opera (13?) */  
+
+		/*background-image: url(../img/matte.jpg);
+		background-attachment: fixed;*/	
 		bottom: 0;
 		color: white;
 		position: fixed;
 		
 	}
+
+video {
+	
+}

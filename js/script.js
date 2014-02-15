@@ -27,15 +27,15 @@ $(function() {
 		if (currPos < offset*2/3 && !atTop)
 		{
 
-			$('#navbar').animate({top: '-100%'}, 500);
+			$('#navbar').stop().animate({top: '-100%'}, 800);
 			atTop = true;
 
 		} else if (currPos >= offset*2/3 && atTop) {
 
-			$('#navbar').animate({top: '0%'}, 500);
+			$('#navbar').stop().animate({top: '0%'}, 800);
 			atTop = false;
 
-			$('#description').animate({
+			$('#description').stop().animate({
 				opacity: '1',
 				margin: '17.5% 20%'
 			}, 500)
