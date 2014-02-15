@@ -1,7 +1,8 @@
 $(document).ready(function(){
-	$('html, body').animate({
+	$('html, body').stop().animate({
 		scrollTop: 0
 	}, 'fast');
+	return false;
 });
 
 $(function() {
