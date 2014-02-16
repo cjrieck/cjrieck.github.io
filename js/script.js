@@ -24,11 +24,16 @@ $(function() {
 		
 		var currPos = $(window).scrollTop();
 
+		// nav bar appear code
 		if (currPos < offset*2/3 && !atTop)
 		{
 
 			$('#navbar').stop().animate({top: '-100%'}, 800);
 			atTop = true;
+
+			$('#intro_title').stop().animate({
+				opacity: '1'
+			}, 10);
 
 		} else if (currPos >= offset*2/3 && atTop) {
 
@@ -38,11 +43,14 @@ $(function() {
 			$('#description').stop().animate({
 				opacity: '1',
 				margin: '17.5% 20%'
-			}, 500)
+			}, 500);
+
+			$('#intro_title').stop().animate({
+				opacity: '0'
+			}, 10);
 		}
 
-		// console.log(projectsTop);
-
+		// nav bar coloring code
 		if (currPos > projectsTop-50) { // change nav to black, icons and text to white
 			$('#navbar ul').stop().animate({
 					backgroundColor: '#ffffff'
