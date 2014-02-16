@@ -23,7 +23,7 @@ $(function() {
 
 		
 		var currPos = $(window).scrollTop();
-		console.log(currPos);
+
 		// nav bar appear code
 		if (currPos < offset*2/3 && !atTop)
 		{
@@ -68,8 +68,6 @@ $(function() {
 			$('#linkedin').attr('src', 'img/linkedin_black.png');
 			$('#github').attr('src', 'img/octocat_black.png');
 
-			// $('#resume').css('-webkit-filter', 'invert(100%)');	
-		
 		} else { // change nav to white, icons and text to black
 		
 			$('#navbar ul').stop().animate({
@@ -90,19 +88,5 @@ $(function() {
 			$('#github').attr('src', 'img/octocat_white.png');
 
 		}
-
-		// if (currPos + $(window).height() == $(document).height() {
-		// 	$('.footer-wrapper').css('z-index', 7);
-		// }
-
-		// else {
-		// 	$('.footer-wrapper').css('z-index', -1);
-		// }
-
 	});
-
-	// $('#resume').click(function(){
-	// 	alert("Clicked!");
-	// });
-	
 });
