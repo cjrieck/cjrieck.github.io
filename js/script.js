@@ -1,7 +1,7 @@
 $(document).ready(function(){
 	$('html, body').stop().animate({
 		scrollTop: 0
-	}, 'slow');
+	}, 1500);
 	return false;
 });
 
