@@ -64,6 +64,11 @@ div{
 	display: block;
 }
 
+a {
+	text-decoration: none;
+	color: black;
+}
+
 a, img {
 	cursor: auto;
 }
@@ -196,7 +201,7 @@ nav ul li {
 		max-width: 49%;
 		height: 100%;
 		float: left;
-		margin: 0 auto;
+		/*margin: 0 auto;*/
 	}
 		#description {
 			height: 50%;
@@ -205,6 +210,13 @@ nav ul li {
 			font-size: 40px;
 
 			opacity: 0;
+		}
+
+		#my-picture {
+			float: right;
+			background-image: url(../img/clayton-gray.JPG);
+			background-repeat: no-repeat;
+			background-size: 820px;
 		}
 
 
@@ -315,4 +327,9 @@ video {
 	margin-top: 70px;
 	position: absolute;
 	margin-left: 225px;
+}
+
+iframe {
+	margin-left: 50px;
+	margin-top: 85px;
 }
