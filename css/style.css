@@ -70,9 +70,24 @@ a, img {
 	cursor: pointer;
 }
 
+video {
+	float: left;
+	margin-top: 70px;
+	position: absolute;
+	margin-left: 32%; /* Keeps video centered on screen */
+}
+
+iframe {
+	margin-left: 50px;
+	margin-top: 85px;
+	box-shadow: 0px 0px 30px gray;
+	border-radius: 2px;
+}
+
 .container {
 	height: 2250px; /* change size accordingly (based on projects and footer size) */
 	min-height: 2250px;
+	min-width: 1000px;
 	z-index: 3;
 }
 /* Cleanup CSS for nav bar */
@@ -111,9 +126,6 @@ nav ul li {
 	-ms-transition: opactiy 0.2s ease;
     -moz-transition: opacity 0.2s ease;
 	o-transition: opacity 0.2s ease;
-
-
-
 }
 
 	nav ul li:hover {
@@ -131,8 +143,8 @@ nav ul li {
 		display: block;
 		color: #757575;
 		text-decoration: none;
-
 	}
+
 		nav ul li a img {
 			width: 50px;
 			height: 50px;
@@ -167,6 +179,7 @@ nav ul li {
 	z-index: -1;
 	position: relative;
 }
+
 	#intro_name {
 		min-width: 750px;
 		height: 450px;
@@ -176,6 +189,7 @@ nav ul li {
 		background-position: 0px -100px;
 		background-attachment: fixed;
 	}
+
 		#intro_title {
 			width: 100%;
 			top: 180px;
@@ -217,84 +231,80 @@ nav ul li {
 			background-size: 820px;
 		}
 
-
 #projects {
 	height: 1400px;
 	background-color: white;
+}
+
+.project {
+    height: 350px;
+    border-bottom: 1px solid #d8d8d8;
+    overflow: hidden;
 }
 
 .even{
 	background-color: #f8f8f8;
 }
 
-    .project {
-        height: 350px;
-        border-bottom: 1px solid #d8d8d8;
-        overflow: hidden;
-    }
-
-.contentRight {
-	float: right;
-	width: 49%;
-}
-
-.contentLeft {
-	float: left;
-	width: 49%;
-
-	position: relative;
-}
-
-.projImage {
-	max-width: 100%;
-	margin-top: 50px;
-	height: 800px;
-	margin-left: 20%;
-}
-
-.project-description {
-	min-width: 30%;
-	margin-left: 20%;
-	padding-top: 50px;
-}
-
-	.even .project-description {
-		min-width: 30%;
-		padding-top: 50px;
+	.contentRight {
+		float: right;
+		width: 49%;
 	}
+
+	.contentLeft {
+		float: left;
+		width: 49%;
+
+		position: relative;
+	}
+
+		.projImage {
+			max-width: 100%;
+			margin-top: 50px;
+			height: 800px;
+			margin-left: 20%;
+		}
+
+		.project-description {
+			min-width: 30%;
+			margin-left: 20%;
+			padding-top: 50px;
+		}
+
+		.even .project-description {
+			min-width: 30%;
+			padding-top: 50px;
+		}
 	
-	p {
-		max-width: 70%;
-		margin: 0;
-	}
+		p {
+			max-width: 70%;
+			margin: 0;
+		}
 
-	.title {
-		font-family: 'CustomBebas', Helvetica, Arial, sans-serif;
-		font-size: 35px;
-	}
+			.title {
+				font-family: 'CustomBebas', Helvetica, Arial, sans-serif;
+				font-size: 35px;
+			}
 
-	.project-detail-description {
-		overflow: visible;
-	}
+		.project-detail-description {
+			overflow: visible;
+		}
 
-#rubiks {
-	min-width: 366px;
-	margin-left: 30%;
-	height: 310px;
-}
+		#rubiks {
+			min-width: 366px;
+			margin-left: 30%;
+			height: 310px;
+		}
 
-#python {
-	margin-top: 25px;
-	height: 300px;
-}
+		#fork {
+			float: right;
+		}
 
-#fork {
-	float: right;
-}
-
-.fill {
-	height: 300px;
-}
+		#python {
+			margin-top: 0;
+			padding-top: 65px;
+			height: 300px;
+		}
 
 .footer-wrapper {
 	width: 100%;
@@ -302,6 +312,7 @@ nav ul li {
 	bottom: 0;
 	z-index: -2;
 }
+
 	.footer {
 		width: 100%;
 		height: 350px;
@@ -310,45 +321,26 @@ nav ul li {
 		background-image: -moz-radial-gradient(50% 10px, circle cover, #4a4a4a, #2b2b2b);  
 	    background-image: -ms-radial-gradient(50% 10px, circle cover, #4a4a4a, #2b2b2b); /* IE10+ */  
 	    background-image: -o-radial-gradient(50% 10px, circle cover, #4a4a4a, #2b2b2b); /* Opera (13?) */  
-
-		/*background-image: url(../img/matte.jpg);
-		background-attachment: fixed;*/	
 		bottom: 0;
 		color: white;
 		position: fixed;
-		
 	}
 
+		.connect {
+			font-family: 'CustomBebas', Helvetica, Arial, sans-serif;
+			font-size: 100px;
 
-video {
-	float: left;
-	margin-top: 70px;
-	position: absolute;
-	margin-left: 32%; /* Keeps video centered on screen */
-}
+			margin-top: 145px;
+			margin-left: 25%;
+		}
 
-iframe {
-	margin-left: 50px;
-	margin-top: 85px;
-	box-shadow: 0px 0px 30px gray;
-	border-radius: 2px;
-}
+			.connect a {
+				position: relative;
 
-.connect {
-	font-family: 'CustomBebas', Helvetica, Arial, sans-serif;
-	font-size: 100px;
+				float: left;
+				margin: 0px 30px;
 
-	margin-top: 145px;
-	margin-left: 25%;
-}
-
-	.connect a {
-		position: relative;
-
-		float: left;
-		margin: 0px 30px;
-
-		display: block;
-		cursor: pointer;
-		color: white;
-	}
+				display: block;
+				cursor: pointer;
+				color: white;
+			}
