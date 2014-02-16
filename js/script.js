@@ -1,7 +1,7 @@
 $(document).ready(function(){
 	$('html, body').stop().animate({
 		scrollTop: 0
-	}, 1500);
+	}, 1750);
 	return false;
 });
 
@@ -11,6 +11,7 @@ $(function() {
 
 	var offset = $('.container').offset().top;
 	var projectsTop = $('#projects').offset().top;
+	var lastScroll = 0;
 
 	$('#name').click(function(){
 		$('html, body').stop().animate({
@@ -23,6 +24,7 @@ $(function() {
 
 		
 		var currPos = $(window).scrollTop();
+		var pos = $(this).scrollTop();
 
 		// nav bar appear code
 		if (currPos < offset*2/3 && !atTop)
@@ -89,11 +91,20 @@ $(function() {
 
 		}
 
+		// scroll to bottom when half way through footer
+		if (pos > lastScroll && $(window).scrollTop() + $(window).height() >= $(document).height()-150) {
+			$('html, body').stop().animate({
+				scrollTop: $(document).height()
+			}, 500);
+		}
+
 		if($(window).scrollTop() + $(window).height() == $(document).height()) {
 	       $('.footer-wrapper').css('z-index', 1);
 	    } else {
 	    	$('.footer-wrapper').css('z-index', -2);
 	    }
+
+	    lastScroll = pos;
 
 	});
 });
