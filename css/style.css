@@ -68,6 +68,7 @@ a, img {
 	text-decoration: none;
 	color: black;
 	cursor: pointer;
+	outline: none;
 }
 
 video {
