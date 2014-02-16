@@ -231,6 +231,8 @@ nav ul li {
 .contentLeft {
 	float: left;
 	width: 49%;
+
+	position: relative;
 }
 
 .projImage {
@@ -239,10 +241,6 @@ nav ul li {
 	height: 800px;
 	margin-left: 20%;
 }
-
-	/*.even .projImage {
-		margin-left: 35%;
-	}*/
 
 .project-description {
 	min-width: 30%;
@@ -311,6 +309,10 @@ nav ul li {
 		
 	}
 
+
 video {
-	
+	float: left;
+	margin-top: 70px;
+	position: absolute;
+	margin-left: 225px;
 }
