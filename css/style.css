@@ -59,7 +59,7 @@ body {
 	font-weight: 300;
 	height: 2200px;
 	min-width: 750px;
-	z-index: 1;
+	z-index: 3;
 }
 
 div{
@@ -75,7 +75,7 @@ a, img {
 .container {
 	height: 2250px; /* change size accordingly (based on projects and footer size) */
 	min-height: 2250px;
-	z-index: 1;
+	z-index: 3;
 }
 /* Cleanup CSS for nav bar */
 
@@ -83,7 +83,7 @@ nav {
 	top: -100%;
 	min-width: 1000px;
 	width: 100%;
-	z-index: 2;
+	z-index: 4;
 	position: fixed;
 }
 
@@ -343,14 +343,14 @@ iframe {
 	margin-top: 145px;
 	margin-left: 25%;
 }
-
+/*
 	.connect div {
 		float: left;
 		margin: 0px 30px;
-	}
+	}*/
 
 	.connect a {
-		/*position: relative;*/
+		position: relative;
 
 		float: left;
 		margin: 0px 30px;
@@ -359,5 +359,5 @@ iframe {
 		cursor: pointer;
 		color: white;
 
-		/*z-index: 3;*/
+		/*z-index: 6;*/
 	}

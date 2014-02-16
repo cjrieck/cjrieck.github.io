@@ -23,7 +23,7 @@ $(function() {
 
 		
 		var currPos = $(window).scrollTop();
-
+		console.log(currPos);
 		// nav bar appear code
 		if (currPos < offset*2/3 && !atTop)
 		{
@@ -91,6 +91,18 @@ $(function() {
 
 		}
 
+		// if (currPos + $(window).height() == $(document).height() {
+		// 	$('.footer-wrapper').css('z-index', 7);
+		// }
+
+		// else {
+		// 	$('.footer-wrapper').css('z-index', -1);
+		// }
+
 	});
+
+	// $('#resume').click(function(){
+	// 	alert("Clicked!");
+	// });
 	
 });
