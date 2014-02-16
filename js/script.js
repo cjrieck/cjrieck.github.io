@@ -88,5 +88,12 @@ $(function() {
 			$('#github').attr('src', 'img/octocat_white.png');
 
 		}
+
+		if($(window).scrollTop() + $(window).height() == $(document).height()) {
+	       $('.footer-wrapper').css('z-index', 1);
+	    } else {
+	    	$('.footer-wrapper').css('z-index', -2);
+	    }
+
 	});
 });
