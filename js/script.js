@@ -95,7 +95,7 @@ $(function() {
 		if (pos > lastScroll && $(window).scrollTop() + $(window).height() >= $(document).height()-150) {
 			$('html, body').stop().animate({
 				scrollTop: $(document).height()
-			}, 500);
+			}, 250);
 		}
 
 		if($(window).scrollTop() + $(window).height() == $(document).height()) {

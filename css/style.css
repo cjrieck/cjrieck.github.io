@@ -230,7 +230,8 @@ nav ul li {
 			float: right;
 			background-image: url(../img/clayton-gray.JPG);
 			background-repeat: no-repeat;
-			background-size: 820px;
+			background-size: 950px;
+			background-position: 20px;
 		}
 
 #projects {
