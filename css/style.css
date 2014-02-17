@@ -230,8 +230,7 @@ nav ul li {
 			float: right;
 			background-image: url(../img/clayton-gray.JPG);
 			background-repeat: no-repeat;
-			background-size: 950px;
-			background-position: 20px;
+			background-size: 860px;
 		}
 
 #projects {
@@ -336,6 +335,7 @@ nav ul li {
 			font-family: 'CustomBebas', Helvetica, Arial, sans-serif;
 			font-size: 100px;
 			margin-left: 25%;
+			margin-right: 25%;
 			margin-top: 110px;
 			width: 100%;
 			min-width: 1000px;
@@ -348,3 +348,26 @@ nav ul li {
 				cursor: pointer;
 				color: white;
 			}
+
+@media only screen and (min-width : 1900px) {
+	#my-picture {
+		float: right;
+		background-image: url(../img/clayton-gray.JPG);
+		background-repeat: no-repeat;
+		background-size: 950px;
+		background-position: 20px;
+	}
+
+	.connect {
+			margin-left: 30%;
+		}
+}
+
+@media only screen and (min-width : 2000px) {
+	#my-picture {
+		float: right;
+		background-image: url(../img/clayton-gray.JPG);
+		background-repeat: no-repeat;
+		background-size: 860px;
+	}
+}
