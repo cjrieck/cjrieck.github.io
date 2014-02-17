@@ -349,7 +349,16 @@ nav ul li {
 				color: white;
 			}
 
-@media only screen and (min-width : 1900px) {
+@media only screen and (min-width : 1224px) {
+	#my-picture {
+		float: right;
+		background-image: url(../img/clayton-gray.JPG);
+		background-repeat: no-repeat;
+		background-size: 760px;
+	}
+}
+
+@media only screen and (min-width : 1824px) {
 	#my-picture {
 		float: right;
 		background-image: url(../img/clayton-gray.JPG);
@@ -361,13 +370,4 @@ nav ul li {
 	.connect {
 			margin-left: 30%;
 		}
-}
-
-@media only screen and (min-width : 2000px) {
-	#my-picture {
-		float: right;
-		background-image: url(../img/clayton-gray.JPG);
-		background-repeat: no-repeat;
-		background-size: 860px;
-	}
 }
