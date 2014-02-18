@@ -281,6 +281,7 @@ nav ul li {
 		p {
 			max-width: 70%;
 			margin: 0;
+			line-height: 25px;
 		}
 
 			.title {
