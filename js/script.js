@@ -1,7 +1,7 @@
 $(document).ready(function(){
 	$('html, body').stop().animate({
 		scrollTop: 0
-	}, 1750);
+	}, 1000);
 	return false;
 });
 
@@ -91,8 +91,8 @@ $(function() {
 
 		}
 
-		// scroll to bottom when half way through footer
-		if (pos > lastScroll && $(window).scrollTop() + $(window).height() >= $(document).height()-150) {
+		// scroll to bottom when 3/4 way through footer
+		if (pos > lastScroll && $(window).scrollTop() + $(window).height() >= $(document).height()-75) {
 			$('html, body').stop().animate({
 				scrollTop: $(document).height()
 			}, 250);
