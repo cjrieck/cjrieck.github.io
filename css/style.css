@@ -182,6 +182,7 @@ nav ul li {
 }
 
 	#intro_name {
+		/*position: static;*/
 		min-width: 750px;
 		height: 450px;
 		background-image: url(../img/comp-back.png);
@@ -191,6 +192,7 @@ nav ul li {
 		/*position: static;*/
 		/*background-position: static;*/
 		background-attachment: fixed;
+		background-position: fixed;
 	}
 
 		#intro_title {
@@ -315,11 +317,11 @@ nav ul li {
 	width: 100%;
 	position: relative;
 	bottom: 0;
-	z-index: -2;
+	z-index: -5;
 }
 
 	.footer {
-		z-index: -3;
+		z-index: -6;
 		width: 100%;
 		height: 300px;
 		background: #2c3e50;
