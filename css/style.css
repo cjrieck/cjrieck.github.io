@@ -318,6 +318,8 @@ nav ul li {
 	position: relative;
 	bottom: 0;
 	z-index: -5;
+
+	opacity: 0;
 }
 
 	.footer {

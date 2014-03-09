@@ -50,6 +50,10 @@ $(function() {
 			$('#intro_title').stop().animate({
 				opacity: '0'
 			}, 10);
+
+			$('.footer-wrapper').stop().animate({
+				opacity: '1'
+			}, 10);
 		}
 
 		// nav bar coloring code
