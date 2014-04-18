@@ -55,7 +55,7 @@ table {
 body {
 	font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
 	font-weight: 300;
-	height: 2500px;
+	height: 2850px;
 	min-width: 750px;
 	z-index: 4;
 }
@@ -86,8 +86,8 @@ iframe {
 }
 
 .container {
-	height: 2550px; /* change size accordingly (based on projects and footer size) */
-	min-height: 2550px;
+	height: 2900px; /* change size accordingly (based on projects and footer size) */
+	min-height: 2900px;
 	min-width: 1000px;
 	z-index: 3;
 }
@@ -269,6 +269,13 @@ nav ul li {
 			margin-top: 50px;
 			height: 800px;
 			margin-left: 20%;
+		}
+
+		#drout {
+			width: 500px;
+			height: 300px;
+			margin-left: 100px;
+			margin-top: 35px;
 		}
 
 		.project-description {
