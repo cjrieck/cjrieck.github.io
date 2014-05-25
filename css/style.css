@@ -99,6 +99,20 @@ nav {
 	width: 100%;
 	z-index: 4;
 	position: fixed;
+
+	-webkit-transition: top 0.6s ease;
+	-moz-transition: top 0.6s ease;
+	-o-transition: top 0.6s ease;
+	transition: top 0.6s ease;
+}
+
+nav.active {
+	top: 0%;
+
+	-webkit-transition: top 0.6s ease;
+	-moz-transition: top 0.6s ease;
+	-o-transition: top 0.6s ease;
+	transition: top 0.6s ease;
 }
 
 nav ul {
@@ -106,11 +120,26 @@ nav ul {
 	margin: 0 auto;
 	float: right;
 	width: 100%;
-	background-color: rgba(0,0,0,.80);
+	background-color: #000000;
+	/*opacity: 0.8;*/
 	box-shadow: 0px 0px 9px rgba(0,0,0,0.15);
 	padding: 0 20px;
 	list-style: none;
 	display: inline-table;
+
+	-webkit-transition: background-color 0.4s ease;
+	-moz-transition: background-color 0.4s ease;
+	-o-transition: background-color 0.4s ease;
+	transition: background-color 0.4s ease;
+}
+
+nav ul.white {
+	background-color: #ffffff;
+
+	-webkit-transition: background-color 0.4s ease;
+	-moz-transition: background-color 0.4s ease;
+	-o-transition: background-color 0.4s ease;
+	transition: background-color 0.4s ease;
 }
 
 nav ul li {
@@ -144,6 +173,20 @@ nav ul li {
 		display: block;
 		color: #757575;
 		text-decoration: none;
+
+		-webkit-transition: color 0.1s ease;
+		-moz-transition: color 0.1s ease;
+		-o-transition: color 0.1s ease;
+		transition: color 0.1s ease;
+	}
+
+	nav ul li a.white {
+		color: #000000;
+
+		-webkit-transition: color 0.1s ease;
+		-moz-transition: color 0.1s ease;
+		-o-transition: color 0.1s ease;
+		transition: color 0.1s ease;
 	}
 
 		nav ul li a img {
@@ -166,6 +209,22 @@ nav ul li {
 
 #nav_title {
     font-size: 35px;
+}
+
+#nav_title a {
+	-webkit-transition: color 0.1s ease;
+	-moz-transition: color 0.1s ease;
+	-o-transition: color 0.1s ease;
+	transition: color 0.1s ease;
+}
+
+#nav_title a.black {
+	color: #000000;
+
+	-webkit-transition: color 0.1s ease;
+	-moz-transition: color 0.1s ease;
+	-o-transition: color 0.1s ease;
+	transition: color 0.1s ease;
 }
 
 #name a {
@@ -228,6 +287,17 @@ nav ul li {
 			font-size: 40px;
 
 			opacity: 0;
+
+
+			-webkit-transition: opacity 0.5s ease,
+								margin 0.5s ease;
+			transition: opacity 0.5s ease,
+						margin 0.5s ease;
+		}
+
+		#description.showing {
+			opacity: 1;
+			margin: 17.5% 20%;
 		}
 
 		#my-picture {
