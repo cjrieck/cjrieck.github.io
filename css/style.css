@@ -86,10 +86,10 @@ iframe {
 }
 
 .container {
-	height: 2900px; /* change size accordingly (based on projects and footer size) */
-	min-height: 2900px;
+	/*height: 100%;  change size accordingly (based on projects and footer size) */
+	/*min-height: 2900px;*/
 	min-width: 1000px;
-	z-index: 3;
+	/*z-index: 3;*/
 }
 /* Cleanup CSS for nav bar */
 
@@ -425,26 +425,18 @@ nav ul li {
 .footer-wrapper {
 	width: 100%;
 	position: relative;
-	bottom: 0;
-	/*z-index: -5;*/
 
-	opacity: 0;
+	background: #2c3e50;
+	background-image: -webkit-radial-gradient(50% 10px, circle cover, #4a4a4a, #2b2b2b);
+	background-image: -moz-radial-gradient(50% 10px, circle cover, #4a4a4a, #2b2b2b);  
+    background-image: -ms-radial-gradient(50% 10px, circle cover, #4a4a4a, #2b2b2b); /* IE10+ */  
+    background-image: -o-radial-gradient(50% 10px, circle cover, #4a4a4a, #2b2b2b); /* Opera (13?) */ 
 }
 
 	.footer {
-		z-index: -6;
 		width: 100%;
-		height: 300px;
-		background: #2c3e50;
-		background-image: -webkit-radial-gradient(50% 10px, circle cover, #4a4a4a, #2b2b2b);
-		background-image: -moz-radial-gradient(50% 10px, circle cover, #4a4a4a, #2b2b2b);  
-	    background-image: -ms-radial-gradient(50% 10px, circle cover, #4a4a4a, #2b2b2b); /* IE10+ */  
-	    background-image: -o-radial-gradient(50% 10px, circle cover, #4a4a4a, #2b2b2b); /* Opera (13?) */  
-		bottom: 0;
+		height: 300px;	
 		color: white;
-
-		margin-top: 300px;
-		position: fixed;
 	}
 
 		.connect {
