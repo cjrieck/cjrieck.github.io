@@ -529,7 +529,7 @@ nav ul li {
 		}
 
 		.connectLink {
-			float: left;
+			padding: 0 0;
 			display: block;
 			margin: 0 auto;
 		}
