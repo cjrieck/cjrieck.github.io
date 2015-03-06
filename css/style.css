@@ -488,6 +488,11 @@ nav ul li {
 }
 
 @media (max-width: 1000px) {
+
+	#description {
+		font-size: 35px;
+	}
+
 	.project {
 		height: 550px;
 
