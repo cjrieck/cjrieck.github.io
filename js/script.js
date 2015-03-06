@@ -1,4 +1,6 @@
 $(document).ready(function(){
+	// Calculate height of page here
+
 	$('html, body').stop().animate({
 		scrollTop: 0
 	}, 1000);

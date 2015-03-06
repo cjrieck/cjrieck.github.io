@@ -318,6 +318,26 @@ nav ul li {
     overflow: hidden;
 }
 
+.noggin {
+	background-repeat: no-repeat;
+	background-image: url(../img/moose_and_zee.png);
+	background-size: cover;
+	background-position: center;
+}
+
+#nogginTitle {
+	font-family: arial, sans-serif;
+	font-weight: bold;
+	font-size: 40px;
+	color: #2B2C6C;
+}
+
+.nogginContentLeft {
+	font-family: Arial, sans-serif;
+	font-weight: bold;
+	color: #2B2C6C;
+}
+
 .odd {
 	background-color: #fff;
 }
@@ -350,6 +370,14 @@ nav ul li {
 			height: 300px;
 			margin-left: 140px;
 			margin-top: 35px;
+		}
+
+		#nogginLogo {
+			width: 300px;
+			height: 194px;
+			margin-left: 200px;
+			margin-top: 100px;
+			position: center;
 		}
 
 		.project-description {
