@@ -240,21 +240,16 @@ nav ul li {
 
 .intro {
 	z-index: -1;
-	position: relative;
+	min-width: 750px;
+	height: 450px;
+	/*position: relative;*/
 }
 
-	#intro_name {
-		/*position: static;*/
-		min-width: 750px;
-		height: 450px;
-		background-image: url(../img/comp-back.png);
-		background-repeat: no-repeat;
-		background-size: cover;
-		background-position: 0px -100px;
-		/*position: static;*/
-		/*background-position: static;*/
-		background-attachment: fixed;
-		background-position: fixed;
+	.intro_img {
+		z-index: -1;
+		position: fixed;
+		height: auto;
+		width: 100%;
 	}
 
 		#intro_title {
@@ -266,7 +261,7 @@ nav ul li {
 			margin: 0 auto;
 			position: fixed;
 			color: black;
-			/*z-index: -1;*/
+			z-index: -1;
 		}
 
 #about {

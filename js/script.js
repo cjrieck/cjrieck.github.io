@@ -39,22 +39,12 @@ $(function() {
 				$('#navbar').removeClass("active");
 				atTop = true;
 
-				// name on blurred picture
-				$('#intro_title').stop().animate({
-					opacity: '1'
-				}, 10);
-
 			} else if (currPos >= offset*2/3 && atTop) {
 
 				$('#navbar').addClass("active");
 				atTop = false;
 
 				$('#description').addClass("showing");
-
-				// name on blurred image at top
-				$('#intro_title').stop().animate({
-					opacity: '0'
-				}, 10);
 			}
 
 			// nav bar coloring code
