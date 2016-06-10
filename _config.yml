@@ -1,6 +1,6 @@
 # SITE CONFIGURATION
-baseurl: "" # the subpath of your site, e.g. /blog/
-url: "https://example.com" # the base hostname & protocol for your site
+baseurl: "/" # the subpath of your site, e.g. /blog/
+url: "https://cjrieck.github.io" # the base hostname & protocol for your site
 
 # THEME-SPECIFIC CONFIGURATION
 theme:
@@ -12,9 +12,7 @@ theme:
 
   # Header and footer text
   header_text: >
-     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-
-     <p>Remove all header text in <code>_config.yml</code> to disable this feature.</p>
+     <p>I have a passion for design from a visual, user, and functionality perspective, and I do what I do to make the lives of others easier.</p>
   header_text_feature_image:
   footer_text: >
    Powered by <a href="http://jekyllrb.com">Jekyll</a> with <a href="https://rohanchandra.github.io/project/type/">Type Theme</a>
