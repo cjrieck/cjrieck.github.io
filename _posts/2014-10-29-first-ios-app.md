@@ -5,7 +5,7 @@ title: Creating Your First iOS App
 
 Everyone has a phone. I don't mean a [Motorola Razr](http://parade.condenast.com/wp-content/uploads/2013/04/motorola-razr.jpg) either... (even though those were pretty sweet back in the day). People have devices more powerful than the computer that landed us on the moon for the first time (and they could also stream our music while doing it!). We live in a fast paced world where people have grown impatient and will pay large sums of money for the convenience of being able to find any piece of information they want, when they want it and without moving a finger. That's the world we live in today. Apps are at the center of it all. They act as a gateway to this vast ocean of information and make our lives easier to live. Today I'll be going over the code in the [iOS Starter Kit](https://github.com/cjrieck/ios-quick-start) I've made to help *you* make the lives of others easier.
 
-##The File Structure
+# The File Structure
 Xcode is both a blessing and a curse for sure. It helps us developers a lot with autocompletion and a lot of under the hood type of things. It helps developers out even more now with the advent of [Alcatraz](http://alcatraz.io), the official package manager for Xcode. Definitely install it if you don't have it. Personally, I recommend [Fuzzy Autocomplete](https://github.com/FuzzyAutocomplete/FuzzyAutocompletePlugin) at the bare minimum. I guarantee you'll never learn every single method's spelling and word ordering on every single object by heart. This plugin helps **TREMENDOUSLY**.
 Anyways, if you were to create your own Xcode project the directory structure of your app would look like this:
 
@@ -17,10 +17,10 @@ This is pretty bad to say the least. There's no structure. All of the files are 
 
 This looks a lot better. Now all of the relevant files are grouped together in clearly defined Groups (or folders). You should always implement good file structures for your apps. It'll make the lives of other developers and your life much easier in the long run. *But* it's not as easy as moving files around in Xcode... the changes to the file structure in Xcode won't be reflected in Finder or on GitHub when you push code out. That's because the files you see in Xcode are just references to the files in your project directory on your machine. When you move files around in Xcode, the references stay the same while the visual structure appears to have changed. Why would we want to mirror the structure in Xcode with the structure on our machine/GitHub? For the same reason we make custom file structures in the first place. It makes our lives as developers easier! Imagine you just need to quickly look at a file in your project without the hassle or wait time to open up Xcode (lets say you want to look at said file on your phone even where you don't have Xcode). You won't be able to find it because all you'll see if a cluster fuck of files with insanely long names all with the same prefix so you need to sift through them one by one because all of the names are cut off etc. Ok, so that would really suck... how do we mirror the file structure in Finder then? Well, there's a tool called [synx](https://github.com/venmo/synx) that does this for us! It's a ruby gem so it can be easily installed with the command `gem install synx`. Then to have it rework the file structure simply call `synx path/to/.xcodeproj`. And voila! We have a neat and organized file structure both in and out of Xcode! Pretty easy huh? Now lets talk about some code and what the hell these files mean and what they do.
 
-##Don't Be Afraid of Objective-C
+# Don't Be Afraid of Objective-C
 At first you might be like "What the hell are with all of the brackets?" but don't get too hung up on that. Think of it like dot-notation's long lost brother that only appears in Objective-C. Objective-C is a derivative of C/C++, but more specifically it's a superset of C *more strictly* than C++. If you'd like to read up on that you can do that [here](http://stackoverflow.com/questions/19366134/what-does-objective-c-is-a-superset-of-c-more-strictly-than-c-mean-exactly). So if you've ever written C or C++, then you know some of the inner workings of Objective-C. Either way, it's really only a syntactical barrier if you've ever programmed at all. The best way to overcome this fear is to dive right in to some code, so lets start with the most important file we'll be working with in our app.
 
-## The App Delegate
+# The App Delegate
 The application delegate handles the state of the app itself. What are the states? Well lets take a look at the file.
 
 You should see 6 methods with an `application` prefix to them. They are:
@@ -101,7 +101,7 @@ self.window.rootViewController = rootNavigationController;
 [self.window makeKeyAndVisible];
 ```
 
-###1
+# 1
 
 Lets take a look at the stuff under the `//1` comment. `window` is a property on the class `AppDelegate` and we want to reference that property view the `self` prefix. If you look at `AppDelegate.h` we can see the `window` property defined as `@property(strong, nonatomic) UIWindow *window`. Lets break down that line:
 
@@ -113,13 +113,13 @@ Lets take a look at the stuff under the `//1` comment. `window` is a property on
 
 This is the anatomy of declaring properties in Objective-C. There are instances where you would use `weak` instead of `strong` and also `readonly` or `readwrite`, but those will be for another time. Getting back to the code, we initialize the window property which also sets its value. It's good to know that `UIWindow` is a subclass of `UIView` and inherits the `initWithFrame:` method. What's the frame of this window going to be though? Well, the size of the screen of course! We don't want our app to be a small window on the screen, so lets fill the screen. We can get the screen's frame by accessing the `bounds` on `[UIScreen mainScreen]` like so, `[[UIScreen mainScreen] bounds]`. So what is a window? A window is where all of your views and view controllers will reside. Think of it like a film in between the physical screen and your app's views. Nothing leaves or leaks outside of the window. We also set the `backgroundColor` to be white, but this is completely optional since the view controller we'll be adding to the window will take precedence and lay on top of the window's background.
 
-###2
+# 2
 
 This is where we add the view controller I was just talking about. We instantiate a variable (in this case `rootViewController`) with a type of `ViewController`. NOTE: This is bad naming convention. You should always prefix your classes and give descriptive names. To create a new view controller of type `ViewController` we just call the default `init` method. We actually override that init method, but more on that later...
 
 Next, we instantiate a `UINavigationController`. What is that? Simply put, a navigation controller wraps around view controller and dictates/controls navigation within an app. So most transitions between view controllers are controlled by this single navigation controller. There are instances where you may present views without one, but we won't talk about that in this post. We need to supply the navigation controller with a root view controller, or a view controller to display once the app launches since a navigation controller has no views associated with it on its own. Xcode provides us with a nice method for setting a view controller as the root in a custom init method which you can see is `initWithRootViewController:`. We're going to pass in the view controller we made right above it. That's all there is too it! Now we have a view controller and a navigation controller to control our app navigation from that root view controller.
 
-###3
+# 3
 
 We're almost done. Now remember when I said the window is the place where all of the views would reside? Well, right now the window doesn't know about the navigation controller or view controller we just made above it. So we need to attach those to the window somehow. Luckily for us, there's a property on `UIWindow` called `rootViewController` which is rather convenient. We can set any view controller to that property and the window will then display that view controller. Easy enough. The potentially, non-intuitive thing to do would that we have to set the navigation controller as the `rootViewController` on the window. Wha? Why is that?
 
@@ -131,7 +131,7 @@ Lastly, what's `makeKeyAndVisible`? That method displays the window and also mak
 
 That's it for our App Delegate! The Core Data stuff will be a later, more advanced post, but that's all you need to know about the App Delegate for now! Lets move on to `ViewController`!
 
-##The View Controller
+# The View Controller
 
 View controllers are vital in your app. They're the things that manage views and even other view controllers! Everything done in terms of the UI reside in a view controller. For a more in-depth look, you can refer to [the Apple Doc on View Controllers](https://developer.apple.com/library/ios/featuredarticles/ViewControllerPGforiPhoneOS/Introduction/Introduction.html). Every view controller has a `view` attribute attached to it. This is where you add any other subviews to display. Just like your application, views also have a lifecycle. The methods of the view lifecycle are as follows:
 
@@ -163,6 +163,6 @@ Lets look at the return type for a second. We specify it as `instancetype`, and 
 
 Now lets look at the `self = [super init];` line. We need to make sure that every parent initializer is called before our object is initialized. That's what `[super init]` does. We assign that result to `self` since the the result is the default implementation of whatever object you're creating (in this case a `UIViewController`). Then we check to see if that return `nil` with the line `if (self) {...}`. If `self` was initialized successfully, do our custom stuff. That's essentially what we're saying with this if-statement. What we then do is set the `title` attribute to be `@"Starter Kit"` which will be displayed in the top bar. NOTE: The `@` symbol designates a literal. In this case we're making an `NSString` literal. Lastly, we return our customized `self`. Now we have a completely custom view controller! Pretty nifty, huh?
 
-## Putting It All Together
+# Putting It All Together
 
 That's pretty much it! When we initialize our view controller in the App Delegate, that custom initializer is called and sets that title for us even before we display the view controller on the screen. This is almost as bare bone as it gets and I'll be adding more to the project and adding more posts to reflect those changes as well. If you have any questions or corrections feel free to contact me! My email is on my website or you can tweet at me!
