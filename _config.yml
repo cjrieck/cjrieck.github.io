@@ -6,13 +6,13 @@ url: "https://cjrieck.github.io" # the base hostname & protocol for your site
 theme:
   # Meta
   title: Clayton Rieck
-  avatar: avatar.png
+  avatar: clayton-gray.JPG
   gravatar: # Email MD5 hash
-  description: "A website with blog posts and pages" # used by search engines
+  description: "Clayton Rieck's personal website" # used by search engines
 
   # Header and footer text
   header_text: >
-     <p>I have a passion for design from a visual, user, and functionality perspective, and I do what I do to make the lives of others easier.</p>
+     <p>I have a passion for design from a visual, user, and functional perspective, and I do what I do to make the lives of others easier.</p>
   header_text_feature_image:
   footer_text: >
    Powered by <a href="http://jekyllrb.com">Jekyll</a> with <a href="https://rohanchandra.github.io/project/type/">Type Theme</a>
@@ -31,7 +31,7 @@ theme:
   linkedin: "https://www.linkedin.com/in/claytonrieck"  # Full URL
   pinterest:
   reddit:
-  soundcloud:
+  soundcloud: "mdown"
   stack_exchange:  # Full URL
   steam:
   tumblr:
