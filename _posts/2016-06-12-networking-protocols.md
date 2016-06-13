@@ -3,7 +3,7 @@ layout: post
 title: Better Networking with Argo in Swift
 ---
 
-As an iOS developer, I was married to the API singleton. Making something along the lines of `NetworkingManager` or `APIManager` was second nature to me. This was _the_ object which all networking calls would go through. The gatekeeper of sorts. But as your application grows in complexity, this gatekeeper's responsibilty starts growing vast and its reach wide which makes your code less maintainable and harder to test. It also may be the case that you need to bypass the gatekeeper for some special request. You start sprinkling these requests that talk directly with your API that, for some reason, slip by your networking manager. The role of our manager becomes unclear now...
+As an iOS developer, I was married to the API singleton. Making something along the lines of `NetworkingManager` or `APIManager` was second nature to me. This was _the_ object which all networking calls would go through. The gatekeeper of sorts. But as your application grows in complexity, this gatekeeper's responsibility starts growing vast and its reach wide which makes your code less maintainable and harder to test. It also may be the case that you need to bypass the gatekeeper for some special request. You start sprinkling these requests that talk directly with your API that, for some reason, slip by your networking manager. The role of our manager becomes unclear now...
 
 # Swift to the rescue!
 
@@ -15,12 +15,12 @@ class NetworkManager {
 	
 	// Log a user in with their username and password
 	func login(userName: String, password: String, completion: ((AnyObject?, NSError?) -> Void)? {
-		// Make a network call, return the resulting JSON or an error in the completion paramters
+		// Make a network call, return the resulting JSON or an error in the completion parameters
 	}
 	
 	// Get a user's news feed based on their id
 	func newsFeed(userId: String, completion: ((AnyObject?, NSError?) -> Void)?) {
-		// Make a network call, return the resulting JSON or an error in the completion paramters
+		// Make a network call, return the resulting JSON or an error in the completion parameters
 	}
 }
 ```
@@ -37,7 +37,7 @@ This seems reasonable, but you can see how the `NetworkManager` can become large
 
 # Argo Models FTW
 
-I've been using a couple of libraries called [Argo]() and [Curry]() by Thoughtbot. Argo is a clean and functional JSON parsing library, and Curry is a method currying library (you can read more about them on [Thoughtbot's blog]()). Essentially, it maps your JSON responses into a model object for you so you don't have to worry about making your own JSON parsers, the pyramid of doom or anything like that. To show you the awesomeness lets make a model for a `User` and our `NewsFeed`
+I've been using a couple of libraries called [Argo](https://github.com/thoughtbot/Argo) and [Curry](https://github.com/thoughtbot/Curry) by Thoughtbot. Argo is a clean and functional JSON parsing library, and Curry is a method currying library (you can read more about them on [Thoughtbot's blog](https://robots.thoughtbot.com)). Essentially, it maps your JSON responses into a model object for you so you don't have to worry about making your own JSON parsers, the pyramid of doom or anything like that. To show you the awesomeness lets make a model for a `User` and our `NewsFeed`
 
 ``` swift
 import Argo
@@ -100,13 +100,13 @@ For a `User`, we're expecting a basic JSON object with the fields `"userName"`, 
 
 # A Better Networking Layer
 
-A core principle of OOP is that classes have single responsibility. So why is one object handling _all_ network requests? You could argue that the core responsibility of the `NetworkManager` is to make network calls, but that's too broad of a responsibility. Much like in web development, we can create services for each type of API category of calls. So looking ar our `NetworkManager` we have a call for a user for some credentials and their news feed. Lets break that up into their own service.
+A core principle of OOP is that classes have single responsibility. So why is one object handling _all_ network requests? You could argue that the core responsibility of the `NetworkManager` is to make network calls, but that's too broad of a responsibility. Much like in web development, we can create services for each type of API category of calls. So looking at our `NetworkManager` we have a call for a user for some credentials and their news feed. Lets break that up into their own service.
 
 ``` swift
 class UserService {
 	// Log a user in with their username and password
 	func login(userName: String, password: String, completion: ((AnyObject?, NSError?) -> Void)? {
-		// Make a network call, return the resulting JSON or an error in the completion paramters
+		// Make a network call, return the resulting JSON or an error in the completion parameters
 	}
 }
 ```
@@ -115,7 +115,7 @@ class UserService {
 class NewsFeedService {
 	// Get a user's news feed based on their id
 	func newsFeed(userId: String, completion: ((AnyObject?, NSError?) -> Void)?) {
-		// Make a network call, return the resulting JSON or an error in the completion paramters
+		// Make a network call, return the resulting JSON or an error in the completion parameters
 	}
 }
 ```
@@ -126,7 +126,7 @@ Awesome! So we've extracted out our network calls into their own classes. Now we
 class UserService {
 	// Log a user in with their username and password
 	func login(userName: String, password: String, completion: ((User?, NSError?) -> Void)? {
-		// Make a network call, return the resulting JSON or an error in the completion paramters
+		// Make a network call, return the resulting JSON or an error in the completion parameters
 	}
 }
 ```
@@ -135,7 +135,7 @@ class UserService {
 class NewsFeedService {
 	// Get a user's news feed based on their id
 	func newsFeed(userId: String, completion: ((NewsFeed?, NSError?) -> Void)?) {
-		// Make a network call, return the resulting JSON or an error in the completion paramters
+		// Make a network call, return the resulting JSON or an error in the completion parameters
 	}
 }
 ```
@@ -224,4 +224,100 @@ protocol Service {
 }
 ```
 
-Hold up one second... what's suppose to go in the first argument of the `completion` argument? How do we know what model we're going to pass back in the protocol? 
+Hold up one second... what's suppose to go in the first argument of the `completion` argument? How do we know what model we're going to pass back in the protocol? `associatedType` comes to the rescue! We can alias a type in the protocol itself, then in the implementing class, tell our protocol what type it _should_ be. So by adding an `associatedType` we can fill in our first argument in the completion closure.
+
+``` swift
+protocol Service {
+	associatedType Model
+	func getRequest(url: String, parameters: [String: AnyObject]?, headers: [String: String]?, completion: ((Model?, ErrorType?) -> Void))
+}
+```
+
+Awesome! Now we have a pretty sweet looking protocol, but how does this help us achieve our goal of moving our repetitive code out from our services? What we can do is define a default behavior for our `Service` protocol. What this allows us to do is fallback onto our pre-implemented behavior if the implementing class does not provide a custom implementation for a method. Lets create some default behavior for our `GET` request method with our redundant code from our services.
+
+``` swift
+protocol Service {
+	associatedType Model
+	func getRequest(url: String, parameters: [String: AnyObject]?, headers: [String: String]?, completion: ((Model?, ErrorType?) -> Void))
+}
+
+extension Service {
+	func getRequest(url: String, parameters: [String: AnyObject]?, headers: [String: String]?, completion: ((Model?, ErrorType?) -> Void)) {
+		// Make a network call
+		guard let json = response else {
+		    let error = NSError(...)
+		    completion(nil, error)
+		}
+		    
+		let decodedModel: Decoded<Model> = decode(json)
+		switch decodedModel {
+		    case .Success(let model):
+		        completion(model, nil) // We're good!
+		    case .Failure(let error):
+		        completion(nil, error) // A decoding error generated by Argo
+		}
+	}
+}
+```
+Nice! Now a class that implements this protocol can actually call this `getRequest` method directly since there's already implementation details for it. It also gives us the flexibility to create a custom implementation for this method if need be. Now there shouldn't be anymore services that slip by our networking layer. There _is_ one little problem though... you'll get a compilation error because our `decode` method isn't visible on the `Model` associated type. So we need to somehow _constrain_ this implementation of our `Service` protocol to only be used for `Model`s that implement the `Decodable` protocol supplied to us by Argo. We can achieve that using a `where` clause for this extension like so
+
+``` swift
+extension Service where Model: Decodable, Model.DecodedType == Model
+```
+Clean and simple :) Now this extension's default behavior will only kick in when the associated type, `Model` conforms to the `Decodable` protocol. Otherwise, you'll _have_ to implement the `Service` protocol's methods. Xcode will even tell you this during compilation due to the strict type system which is also pretty amazing.
+
+# Putting it all together
+
+Now that we have all of the pieces in place. Lets actually see what our result is.
+
+``` swift
+protocol Service {
+	associatedType Model
+	func getRequest(url: String, parameters: [String: AnyObject]?, headers: [String: String]?, completion: ((Model?, ErrorType?) -> Void))
+}
+
+extension Service {
+	func getRequest(url: String, parameters: [String: AnyObject]?, headers: [String: String]?, completion: ((Model?, ErrorType?) -> Void)) {
+		// Make a network call
+		guard let json = response else {
+		    let error = NSError(...)
+		    completion(nil, error)
+		}
+		    
+		let decodedModel: Decoded<Model> = decode(json)
+		switch decodedModel {
+		    case .Success(let model):
+		        completion(model, nil) // We're good!
+		    case .Failure(let error):
+		        completion(nil, error) // A decoding error generated by Argo
+		}
+	}
+}
+```
+
+``` swift
+class UserService: Service {
+	typealias = User
+	
+	// Log a user in with their username and password
+	func login(userName: String, password: String, completion: ((User?, NSError?) -> Void)? {
+		getRequest("example.com/user", parameters: ["userName": userName, "password": password], headers: nil, completion: completion)
+	}
+}
+```
+
+``` swift
+class NewsFeedService: Service {
+	typealias = NewsFeed
+	
+	// Get a user's news feed based on their id
+	func newsFeed(userId: String, completion: ((NewsFeed?, NSError?) -> Void)?) {
+		getRequest("example.com/newsFeed", parameters: nil, headers: nil, completion: completion)
+	}
+}
+```
+And that's it! Now we have a completely flexible networking layer that we can use to create new networking objects. Another major benefit to this is that it gives us a lot of flexibility around testing. It's incredibly easy to create mock objects with a protocol since you can define some test implementation for each method. Protocols aren't dependent on anything either which make them very advantageous when testing.
+
+We can take this one step further and even create a `Result` monad instead of passing back optional `Model` and `ErrorType` in the completion closure of these request methods, but that will be another blog post for another time ;) until then!
+
+Happy Swifting! 
