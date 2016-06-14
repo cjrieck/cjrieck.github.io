@@ -310,7 +310,7 @@ class NewsFeedService: Service {
     typealias = NewsFeed
 	
     func newsFeed(userId: String, completion: ((NewsFeed?, NSError?) -> Void)?) {
-        getRequest("example.com/newsFeed", parameters: nil, headers: nil, completion: completion)
+        getRequest("example.com/newsFeed", parameters: ["userId": userId], headers: nil, completion: completion)
     }
 }
 ```
