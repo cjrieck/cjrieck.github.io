@@ -276,7 +276,7 @@ protocol Service {
     func getRequest(url: String, parameters: [String: AnyObject]?, headers: [String: String]?, completion: ((Model?, ErrorType?) -> Void))
 }
 
-extension Service {
+extension Service where Model: Decodable, Model.DecodedType == Model {
     func getRequest(url: String, parameters: [String: AnyObject]?, headers: [String: String]?, completion: ((Model?, ErrorType?) -> Void)) {
         // Make a network call
         guard let json = response else {
