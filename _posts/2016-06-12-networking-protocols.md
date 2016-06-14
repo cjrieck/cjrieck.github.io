@@ -65,7 +65,7 @@ struct NewsFeedPost {
 }
 ```
 
-This is our basic model of what could be a `User` and `NewsFeed`. We may get more info in the JSON, but it doesn't matter. Argo will only parse out the things needs to make the model. But how does it make the model? We need to implement the `Decodable` protocol on these models which will take a JSON and decode it into our models above. So lets implement that!
+This is our basic model of what could be a `User` and `NewsFeed`. We may get more info in the JSON, but it doesn't matter. Argo will only parse out the things it needs to make the model. But how does it make the model? We need to implement the `Decodable` protocol on these models which will take a JSON and decode it into our models above. So lets implement that!
 
 ``` swift
 extension User: Decodable {
@@ -96,7 +96,7 @@ extension NewsFeedPost: Decodable {
 }
 ```
 
-For a `User`, we're expecting a basic JSON object with the fields `"userName"`, `"email"`, and an optional field, `"fullName"`. Argo will take that JSON response and map the `userName` and `email` into the object and the `fullName` only if it exists. If not, it'll ignore it and put `nil` in. If any of these mapping operations fail, then the object will not be created which is expected and wanted. The same idea goes for our `NewsFeed` and `NewsFeedPost` objects. For those, we're expecting a JSON object with an array of JSON objects that are the posts. Argo will decode the array for you so long as the objects in the array are also decodable. Super nice, right? Now lets go back to talking about the networking behind this.
+For a `User`, we're expecting a basic JSON object with the fields `"userName"`, `"email"`, and an optional field, `"fullName"`. Argo will take that JSON response and map the `userName` and `email` into the object and the `fullName` only if it exists. If not, it'll ignore it and put `nil` in. If any of these mapping operations fail, then the object will not be created which is expected and desired. The same idea goes for our `NewsFeed` and `NewsFeedPost` objects. For those, we're expecting a JSON object with an array of JSON objects that are the posts. Argo will decode the array for you so long as the objects in the array are also decodable. Super nice, right? Now lets go back to talking about the networking behind this.
 
 # A Better Networking Layer
 
