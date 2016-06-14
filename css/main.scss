@@ -16,3 +16,7 @@
 // Partials
 @import 'includes/header';
 @import 'includes/footer';
+
+pre code {
+  white-space: pre;
+}

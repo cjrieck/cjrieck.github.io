@@ -11,17 +11,17 @@ Lets look at a common `NetworkManager` you may see or implement
 
 ``` swift
 class NetworkManager {
-	static let sharedManager = NetworkManager()
+    static let sharedManager = NetworkManager()
+
+    // Log a user in with their username and password
+    func login(userName: String, password: String, completion: ((AnyObject?, NSError?) -> Void)? {
+        // Make a network call, return the resulting JSON or an error in the completion parameters
+    }
 	
-	// Log a user in with their username and password
-	func login(userName: String, password: String, completion: ((AnyObject?, NSError?) -> Void)? {
-		// Make a network call, return the resulting JSON or an error in the completion parameters
-	}
-	
-	// Get a user's news feed based on their id
-	func newsFeed(userId: String, completion: ((AnyObject?, NSError?) -> Void)?) {
-		// Make a network call, return the resulting JSON or an error in the completion parameters
-	}
+    // Get a user's news feed based on their id
+    func newsFeed(userId: String, completion: ((AnyObject?, NSError?) -> Void)?) {
+        // Make a network call, return the resulting JSON or an error in the completion parameters
+    }
 }
 ```
 
@@ -29,7 +29,7 @@ and then you'd call a method like so
 
 ``` swift
 NetworkManager.sharedManager.login("example@gmail.com", password: "tester1") { json, error in 
-	// Do something with JSON or error
+    // Do something with JSON or error
 }
 ```
 
@@ -44,9 +44,9 @@ import Argo
 import Curry
 
 struct User {
-	let userName: String
-	let email: String
-	let fullName: String?
+    let userName: String
+    let email: String
+    let fullName: String?
 }
 ```
 
@@ -55,13 +55,13 @@ import Argo
 import Curry
 
 struct NewsFeed {
-	let posts: [NewsFeedPost]
+    let posts: [NewsFeedPost]
 }
 
 struct NewsFeedPost {
-	let title: String
-	let datePosted: String
-	let headline: String
+    let title: String
+    let datePosted: String
+    let headline: String
 }
 ```
 
@@ -69,30 +69,30 @@ This is our basic model of what could be a `User` and `NewsFeed`. We may get mor
 
 ``` swift
 extension User: Decodable {
-	static func decode(j: JSON) -> Decoded<User> {
-		return curry(self.init)
-			<^> j <| "userName"
-			<*> j <| "email"
-			<*> j <|? "fullName"
-	}
+    static func decode(j: JSON) -> Decoded<User> {
+        return curry(self.init)
+            <^> j <| "userName"
+            <*> j <| "email"
+            <*> j <|? "fullName"
+    }
 }
 ```
 
 ``` swift
 extension NewsFeed: Decodable {
-	static func decode(j: JSON) -> Decoded<NewsFeed> {
-		return curry(self.init)
-			<^> j <|| "posts"
-	}
+    static func decode(j: JSON) -> Decoded<NewsFeed> {
+        return curry(self.init)
+            <^> j <|| "posts"
+    }
 }
 
 extension NewsFeedPost: Decodable {
-	static func decode(j: JSON) -> Decoded<NewsFeedPost> {
-		return curry(self.init)
-			<^> j <| "title"
-			<*> j <| "postDate"
-			<*> j <| "headline"
-	}
+    static func decode(j: JSON) -> Decoded<NewsFeedPost> {
+        return curry(self.init)
+            <^> j <| "title"
+            <*> j <| "postDate"
+            <*> j <| "headline"
+    }
 }
 ```
 
@@ -104,19 +104,19 @@ A core principle of OOP is that classes have single responsibility. So why is on
 
 ``` swift
 class UserService {
-	// Log a user in with their username and password
-	func login(userName: String, password: String, completion: ((AnyObject?, NSError?) -> Void)? {
-		// Make a network call, return the resulting JSON or an error in the completion parameters
-	}
+    // Log a user in with their username and password
+    func login(userName: String, password: String, completion: ((AnyObject?, NSError?) -> Void)? {
+        // Make a network call, return the resulting JSON or an error in the completion parameters
+    }
 }
 ```
 
 ``` swift
 class NewsFeedService {
-	// Get a user's news feed based on their id
-	func newsFeed(userId: String, completion: ((AnyObject?, NSError?) -> Void)?) {
-		// Make a network call, return the resulting JSON or an error in the completion parameters
-	}
+    // Get a user's news feed based on their id
+    func newsFeed(userId: String, completion: ((AnyObject?, NSError?) -> Void)?) {
+        // Make a network call, return the resulting JSON or an error in the completion parameters
+    }
 }
 ```
 
@@ -124,19 +124,19 @@ Awesome! So we've extracted out our network calls into their own classes. Now we
 
 ``` swift
 class UserService {
-	// Log a user in with their username and password
-	func login(userName: String, password: String, completion: ((User?, NSError?) -> Void)? {
-		// Make a network call, return the resulting JSON or an error in the completion parameters
-	}
+    // Log a user in with their username and password
+    func login(userName: String, password: String, completion: ((User?, NSError?) -> Void)? {
+        // Make a network call, return the resulting JSON or an error in the completion parameters
+    }
 }
 ```
 
 ``` swift
 class NewsFeedService {
-	// Get a user's news feed based on their id
-	func newsFeed(userId: String, completion: ((NewsFeed?, NSError?) -> Void)?) {
-		// Make a network call, return the resulting JSON or an error in the completion parameters
-	}
+    // Get a user's news feed based on their id
+    func newsFeed(userId: String, completion: ((NewsFeed?, NSError?) -> Void)?) {
+        // Make a network call, return the resulting JSON or an error in the completion parameters
+    }
 }
 ```
 
@@ -144,43 +144,43 @@ Notice how we now send back a `User?` or `NewsFeed?` object back in the completi
 
 ``` swift
 class UserService {
-	// Log a user in with their username and password
-	func login(userName: String, password: String, completion: ((User?, NSError?) -> Void)? {
-		// Make a network call
-		guard let json = response else {
-			let error = NSError(...)
-			completion(nil, error)
-		}
+    // Log a user in with their username and password
+    func login(userName: String, password: String, completion: ((User?, NSError?) -> Void)? {
+        // Make a network call
+        guard let json = response else {
+            let error = NSError(...)
+            completion(nil, error)
+        }
 		
-		let decodedUser: Decoded<User> = decode(json) // This does the decoding
-		switch decodedUser {
-			case .Success(let user):
-				completion(user, nil) // We're good!
-			case .Failure(let error):
-				completion(nil, error) // A decoding error generated by Argo
-		}
-	}
+        let decodedUser: Decoded<User> = decode(json) // This does the decoding
+        switch decodedUser {
+            case .Success(let user):
+                completion(user, nil) // We're good!
+            case .Failure(let error):
+                completion(nil, error) // A decoding error generated by Argo
+        }
+    }
 }
 ```
 
 ``` swift
 class NewsFeedService {
-	// Get a user's news feed based on their id
-	func newsFeed(userId: String, completion: ((NewsFeed?, NSError?) -> Void)?) {
-		// Make a network call
-		guard let json = response else {
-			let error = NSError(...)
-			completion(nil, error)
-		}
+    // Get a user's news feed based on their id
+    func newsFeed(userId: String, completion: ((NewsFeed?, NSError?) -> Void)?) {
+        // Make a network call
+        guard let json = response else {
+            let error = NSError(...)
+            completion(nil, error)
+        }
 		
-		let decodedNewsFeed: Decoded<NewsFeed> = decode(json) // This does the decoding
-		switch decodedNewsFeed {
-			case .Success(let newsFeed):
-				completion(newsFeed, nil) // We're good!
-			case .Failure(let error):
-				completion(nil, error) // A decoding error generated by Argo
-		}
-	}
+        let decodedNewsFeed: Decoded<NewsFeed> = decode(json) // This does the decoding
+        switch decodedNewsFeed {
+            case .Success(let newsFeed):
+                completion(newsFeed, nil) // We're good!
+            case .Failure(let error):
+                completion(nil, error) // A decoding error generated by Argo
+        }
+    }
 }
 ```
 
@@ -220,7 +220,7 @@ That's OK, but we're good developers and we love clean, non-repetitive code. Let
 
 ``` swift
 protocol Service {
-	func getRequest(url: String, parameters: [String: AnyObject]?, headers: [String: String]?, completion: ((???, ErrorType?) -> Void))
+    func getRequest(url: String, parameters: [String: AnyObject]?, headers: [String: String]?, completion: ((???, ErrorType?) -> Void))
 }
 ```
 
@@ -228,8 +228,8 @@ Hold up one second... what's suppose to go in the first argument of the `complet
 
 ``` swift
 protocol Service {
-	associatedType Model
-	func getRequest(url: String, parameters: [String: AnyObject]?, headers: [String: String]?, completion: ((Model?, ErrorType?) -> Void))
+    associatedType Model
+    func getRequest(url: String, parameters: [String: AnyObject]?, headers: [String: String]?, completion: ((Model?, ErrorType?) -> Void))
 }
 ```
 
@@ -237,26 +237,26 @@ Awesome! Now we have a pretty sweet looking protocol, but how does this help us 
 
 ``` swift
 protocol Service {
-	associatedType Model
-	func getRequest(url: String, parameters: [String: AnyObject]?, headers: [String: String]?, completion: ((Model?, ErrorType?) -> Void))
+    associatedType Model
+    func getRequest(url: String, parameters: [String: AnyObject]?, headers: [String: String]?, completion: ((Model?, ErrorType?) -> Void))
 }
 
 extension Service {
-	func getRequest(url: String, parameters: [String: AnyObject]?, headers: [String: String]?, completion: ((Model?, ErrorType?) -> Void)) {
-		// Make a network call
-		guard let json = response else {
-		    let error = NSError(...)
-		    completion(nil, error)
-		}
+    func getRequest(url: String, parameters: [String: AnyObject]?, headers: [String: String]?, completion: ((Model?, ErrorType?) -> Void)) {
+        // Make a network call
+        guard let json = response else {
+            let error = NSError(...)
+            completion(nil, error)
+        }
 		    
-		let decodedModel: Decoded<Model> = decode(json)
-		switch decodedModel {
-		    case .Success(let model):
-		        completion(model, nil) // We're good!
-		    case .Failure(let error):
-		        completion(nil, error) // A decoding error generated by Argo
-		}
-	}
+        let decodedModel: Decoded<Model> = decode(json)
+        switch decodedModel {
+        case .Success(let model):
+            completion(model, nil) // We're good!
+        case .Failure(let error):
+            completion(nil, error) // A decoding error generated by Argo
+        }
+    }
 }
 ```
 Nice! Now a class that implements this protocol can actually call this `getRequest` method directly since there's already implementation details for it. It also gives us the flexibility to create a custom implementation for this method if need be. Now there shouldn't be anymore services that slip by our networking layer. There _is_ one little problem though... you'll get a compilation error because our `decode` method isn't visible on the `Model` associated type. So we need to somehow _constrain_ this implementation of our `Service` protocol to only be used for `Model`s that implement the `Decodable` protocol supplied to us by Argo. We can achieve that using a `where` clause for this extension like so
@@ -272,48 +272,46 @@ Now that we have all of the pieces in place. Lets actually see what our result i
 
 ``` swift
 protocol Service {
-	associatedType Model
-	func getRequest(url: String, parameters: [String: AnyObject]?, headers: [String: String]?, completion: ((Model?, ErrorType?) -> Void))
+    associatedType Model
+    func getRequest(url: String, parameters: [String: AnyObject]?, headers: [String: String]?, completion: ((Model?, ErrorType?) -> Void))
 }
 
 extension Service {
-	func getRequest(url: String, parameters: [String: AnyObject]?, headers: [String: String]?, completion: ((Model?, ErrorType?) -> Void)) {
-		// Make a network call
-		guard let json = response else {
-		    let error = NSError(...)
-		    completion(nil, error)
-		}
+    func getRequest(url: String, parameters: [String: AnyObject]?, headers: [String: String]?, completion: ((Model?, ErrorType?) -> Void)) {
+        // Make a network call
+        guard let json = response else {
+            let error = NSError(...)
+            completion(nil, error)
+        }
 		    
-		let decodedModel: Decoded<Model> = decode(json)
-		switch decodedModel {
-		    case .Success(let model):
-		        completion(model, nil) // We're good!
-		    case .Failure(let error):
-		        completion(nil, error) // A decoding error generated by Argo
-		}
-	}
+        let decodedModel: Decoded<Model> = decode(json)
+        switch decodedModel {
+        case .Success(let model):
+            completion(model, nil) // We're good!
+        case .Failure(let error):
+            completion(nil, error) // A decoding error generated by Argo
+        }
+    }
 }
 ```
 
 ``` swift
 class UserService: Service {
-	typealias = User
+    typealias = User
 	
-	// Log a user in with their username and password
-	func login(userName: String, password: String, completion: ((User?, NSError?) -> Void)? {
-		getRequest("example.com/user", parameters: ["userName": userName, "password": password], headers: nil, completion: completion)
-	}
+    func login(userName: String, password: String, completion: ((User?, NSError?) -> Void)? {
+        getRequest("example.com/user", parameters: ["userName": userName, "password": password], headers: nil, completion: completion)
+    }
 }
 ```
 
 ``` swift
 class NewsFeedService: Service {
-	typealias = NewsFeed
+    typealias = NewsFeed
 	
-	// Get a user's news feed based on their id
-	func newsFeed(userId: String, completion: ((NewsFeed?, NSError?) -> Void)?) {
-		getRequest("example.com/newsFeed", parameters: nil, headers: nil, completion: completion)
-	}
+    func newsFeed(userId: String, completion: ((NewsFeed?, NSError?) -> Void)?) {
+        getRequest("example.com/newsFeed", parameters: nil, headers: nil, completion: completion)
+    }
 }
 ```
 And that's it! Now we have a completely flexible networking layer that we can use to create new networking objects. Another major benefit to this is that it gives us a lot of flexibility around testing. It's incredibly easy to create mock objects with a protocol since you can define some test implementation for each method. Protocols aren't dependent on anything either which make them very advantageous when testing.
