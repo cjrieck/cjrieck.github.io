@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Better Networking with Argo in Swift
+title: Better Networking with Protocols and Argo in Swift
 ---
 
 As an iOS developer, I was married to the API singleton. Making something along the lines of `NetworkingManager` or `APIManager` was second nature to me. This was _the_ object which all networking calls would go through. The gatekeeper of sorts. But as your application grows in complexity, this gatekeeper's responsibility starts growing vast and its reach wide which makes your code less maintainable and harder to test. It also may be the case that you need to bypass the gatekeeper for some special request. You start sprinkling these requests that talk directly with your API that, for some reason, slip by your networking manager. The role of our manager becomes unclear now...
