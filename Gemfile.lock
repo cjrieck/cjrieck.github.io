@@ -122,10 +122,10 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  github-pages
-  jekyll
-  jekyll-paginate
-  rouge
+  github-pages (~> 82)
+  jekyll (~> 3.1.6)
+  jekyll-paginate (~> 1.1.0)
+  rouge (~> 1.10.1)
 
 BUNDLED WITH
-   1.12.5
+   1.14.6
