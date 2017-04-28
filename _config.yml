@@ -3,7 +3,7 @@ baseurl: "" # the subpath of your site, e.g. /blog/
 url: "http://cjrieck.github.io" # the base hostname & protocol for your site
 
 # THEME-SPECIFIC CONFIGURATION
-theme_settings:
+theme:
   # Meta
   title: Clayton Rieck
   avatar: clayton-gray.JPG
