@@ -1,0 +1,28 @@
+.sticky-header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    padding: 5px;
+    background-color: #ffffff;
+    z-index: 1;
+}
+.home-button, .home-button:focus, .home-button:active {
+    font-size: 2vmin;
+    outline: none;
+    background: transparent;
+    border: 0;
+    cursor: pointer;
+}
+.resource-links {
+    display: flex;
+    gap: 15px;
+}
+.resource {
+    text-decoration: none;
+    color: #000000;
+}
+.resource:hover {
+    text-decoration: underline;
+}

@@ -1,0 +1,16 @@
+.regular-text {
+    font-weight: 400;
+}
+
+.semibold-text {
+    font-weight: 500;
+}
+
+.bold-text {
+    font-weight: 600;
+}
+
+.container-content {
+    padding: 0 15vmax;
+    gap: 10vmax;
+}

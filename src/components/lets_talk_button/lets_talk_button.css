@@ -1,0 +1,18 @@
+.lets-talk-link {
+    display: inline-block;
+    color: #ffffff;
+}
+.lets-talk-link:link {
+    text-decoration: none;
+}
+.lets-talk-link:hover {
+    text-decoration: none;
+    opacity: 0.8;
+}
+.button-content {
+    font-size: 2vmin;
+    font-weight: 400;
+    padding: 10px 20px;
+    border-radius: 25px;
+    background-color: #B280F5;
+}

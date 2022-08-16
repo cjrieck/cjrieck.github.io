@@ -1,0 +1,24 @@
+.brands-list-container {
+    display: flex;
+    justify-content: space-evenly;
+    justify-items: center;
+    align-content: space-evenly;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 35px;
+    padding: 40px 25vmin;
+    background-color: #2A2736;
+}
+.brand-logo {
+    display: flex;
+    max-height: 41px;
+    align-self: center;
+    object-fit: contain;
+    justify-content: center;
+    align-items: center;
+}
+.wework-logo {}
+.soundcloud-logo {}
+.nbc-logo {}
+.nickelodeon-logo {}
+.credijusto-logo {}

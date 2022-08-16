@@ -1,0 +1,23 @@
+.feature-container {
+    display: flex;
+    flex-direction: row;
+    color: #ffffff;
+}
+.feature-text {
+    display: flex;
+    align-self: center;
+    flex-direction: column;
+    text-align: start;
+    gap: 15px;
+}
+.feature-title {
+    font-size: 3.5vmin;
+}
+.feature-description {
+    line-height: 28px;
+}
+.feature-art {
+    max-width: 400px;
+    max-height: 400px;
+    object-fit: contain;
+}

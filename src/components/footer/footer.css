@@ -1,0 +1,19 @@
+.footer-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 35vmax;
+    background-color: #2A2736;
+    color: #ffffff;
+    gap: 15px;
+}
+.footer-title {
+    font-size: 3.5vmin;
+}
+.footer-description {
+    line-height: 28px;
+}
+.foot-notes {
+    font-size: 1.25vmin;
+}
