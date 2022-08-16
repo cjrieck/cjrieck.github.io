@@ -1,0 +1,24 @@
+{
+  "files": {
+    "main.css": "/static/css/main.e0b223ce.css",
+    "main.js": "/static/js/main.878ec305.js",
+    "static/js/787.71e672d5.chunk.js": "/static/js/787.71e672d5.chunk.js",
+    "static/media/phone.png": "/static/media/phone.856b6b449760512b3f67.png",
+    "static/media/message-bubble.png": "/static/media/message-bubble.132781cfe65180ab47d6.png",
+    "static/media/technology.png": "/static/media/technology.aaaaacb844eb8094ed39.png",
+    "static/media/personal-photo.png": "/static/media/personal-photo.ff6f0cef7c321b6aaa5b.png",
+    "static/media/soundcloud.png": "/static/media/soundcloud.d083fa8c5d344b282c5f.png",
+    "static/media/nbc.png": "/static/media/nbc.6403077fd976c0246725.png",
+    "static/media/nickelodeon.png": "/static/media/nickelodeon.085f7e11a69a41a5d6a7.png",
+    "static/media/credijusto.png": "/static/media/credijusto.40faf6051d310abe0115.png",
+    "static/media/wework.png": "/static/media/wework.ab17c871db34c15b6e35.png",
+    "index.html": "/index.html",
+    "main.e0b223ce.css.map": "/static/css/main.e0b223ce.css.map",
+    "main.878ec305.js.map": "/static/js/main.878ec305.js.map",
+    "787.71e672d5.chunk.js.map": "/static/js/787.71e672d5.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.e0b223ce.css",
+    "static/js/main.878ec305.js"
+  ]
+}
