@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/cjrieck.github.io/static/css/main.e0b223ce.css",
-    "main.js": "/cjrieck.github.io/static/js/main.cf3a925c.js",
+    "main.css": "/cjrieck.github.io/static/css/main.85d41f61.css",
+    "main.js": "/cjrieck.github.io/static/js/main.b0cd5358.js",
     "static/js/787.71e672d5.chunk.js": "/cjrieck.github.io/static/js/787.71e672d5.chunk.js",
     "static/media/phone.png": "/cjrieck.github.io/static/media/phone.856b6b449760512b3f67.png",
     "static/media/message-bubble.png": "/cjrieck.github.io/static/media/message-bubble.132781cfe65180ab47d6.png",
@@ -13,12 +13,12 @@
     "static/media/credijusto.png": "/cjrieck.github.io/static/media/credijusto.40faf6051d310abe0115.png",
     "static/media/wework.png": "/cjrieck.github.io/static/media/wework.ab17c871db34c15b6e35.png",
     "index.html": "/cjrieck.github.io/index.html",
-    "main.e0b223ce.css.map": "/cjrieck.github.io/static/css/main.e0b223ce.css.map",
-    "main.cf3a925c.js.map": "/cjrieck.github.io/static/js/main.cf3a925c.js.map",
+    "main.85d41f61.css.map": "/cjrieck.github.io/static/css/main.85d41f61.css.map",
+    "main.b0cd5358.js.map": "/cjrieck.github.io/static/js/main.b0cd5358.js.map",
     "787.71e672d5.chunk.js.map": "/cjrieck.github.io/static/js/787.71e672d5.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.e0b223ce.css",
-    "static/js/main.cf3a925c.js"
+    "static/css/main.85d41f61.css",
+    "static/js/main.b0cd5358.js"
   ]
 }
