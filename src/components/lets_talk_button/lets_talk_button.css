@@ -5,14 +5,26 @@
 .lets-talk-link:link {
     text-decoration: none;
 }
-.lets-talk-link:hover {
-    text-decoration: none;
-    opacity: 0.8;
-}
-.button-content {
+.lets-talk-button-content {
     font-size: 2vmin;
     font-weight: 400;
     padding: 10px 20px;
     border-radius: 25px;
     background-color: #B280F5;
+}
+
+@media (hover: hover) {
+    .lets-talk-link:hover {
+        text-decoration: none;
+        opacity: 0.8;
+    }
+}
+
+@media screen and (max-device-width: 480px) {
+    .lets-talk-button-content {
+        font-size: 2vmax;
+        padding: 10px 20px;
+        border-radius: 25px;
+        background-color: #B280F5;
+    }
 }

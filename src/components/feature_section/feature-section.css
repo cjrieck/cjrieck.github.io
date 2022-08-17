@@ -3,6 +3,9 @@
     flex-direction: row;
     color: #ffffff;
 }
+.feature-container-reverse {
+    flex-direction: row-reverse;
+}
 .feature-text {
     display: flex;
     align-self: center;
@@ -20,4 +23,28 @@
     max-width: 400px;
     max-height: 400px;
     object-fit: contain;
+}
+
+@media screen and (max-device-width: 480px) {
+    .feature-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        color: #ffffff;
+    }
+    .feature-container-reverse {
+        flex-direction: column-reverse;
+    }
+    .feature-text {
+        text-align: center;
+    }
+    .feature-title {
+        font-size: 3.5vmax;
+    }
+    .feature-art {
+        max-width: 250px;
+        max-height: 250px;
+        object-fit: contain;
+    }
 }

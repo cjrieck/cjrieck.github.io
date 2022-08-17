@@ -14,3 +14,10 @@
     padding: 0 15vmax;
     gap: 10vmax;
 }
+
+@media screen and (max-device-width: 480px) {
+    .container-content {
+        padding: 0 5vmin 20px;
+        gap: 0;
+    }
+}

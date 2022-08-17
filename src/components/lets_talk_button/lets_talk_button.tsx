@@ -14,7 +14,7 @@ export default function LetsTalkButton({ fontSize }: Props) {
       target="_blank"
       rel="noopener noreferrer"
     >
-      <div className="button-content semibold-text" style={{fontSize}}>
+      <div className="lets-talk-button-content semibold-text" style={{fontSize}}>
         Let's talk
       </div>
     </a>

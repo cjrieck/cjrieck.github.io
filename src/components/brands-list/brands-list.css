@@ -22,3 +22,25 @@
 .nbc-logo {}
 .nickelodeon-logo {}
 .credijusto-logo {}
+
+@media screen and (max-device-width: 480px) {
+    .brands-list-container {
+        display: flex;
+        justify-content: space-evenly;
+        justify-items: center;
+        align-content: space-evenly;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 35px;
+        padding: 20px 20vmin;
+        background-color: #2A2736;
+    }
+    .brand-logo {
+        display: flex;
+        max-height: 18px;
+        align-self: center;
+        object-fit: contain;
+        justify-content: center;
+        align-items: center;
+    }
+}
