@@ -10,12 +10,28 @@
 }
 .sticky-header-bar {
     display: flex;
-    justify-content: space-between;
     align-items: center;
     padding: 5px;
 }
-.menu-icon {
+.header-element {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+.header-element:first-child > button {
+    margin-right: auto;
+}
+.header-element:nth-child(2) > button {
+    margin-right: auto;
+}
+.header-element:last-child > a {
+    margin-left: auto;
+}
+.menu-icon-container {
     display: none;
+}
+.home-button {
+    text-align: start;
 }
 .home-button,
 .home-button:focus,
@@ -23,7 +39,7 @@
 .menu-icon,
 .menu-icon:focus,
 .menu-icon:active {
-    font-size: 2vmin;
+    font-size: 1vmax;
     outline: none;
     background: transparent;
     border: 0;
@@ -44,17 +60,28 @@
 }
 
 @media screen and (max-device-width: 480px) {
-    .menu-icon {
-        display: block;
+    .sticky-header-bar {
+        flex: 1;
+        display: flex;
+        justify-content: center;
+        padding: 5px;
+    }
+    .menu-icon-container {
+        display: flex;
     }
     .menu-icon-image {
         width: 30px;
         height: 24px;
         object-fit: contain;
     }
-    .home-button {
-        font-size: 2vmax;
+    .home-button,
+    .home-button:focus,
+    .home-button:active {
+        font-size: 1.9vmax;
         color: #000000;
+        outline: none;
+        background: transparent;
+        border: 0;
     }
     .resource-links {
         display: none;

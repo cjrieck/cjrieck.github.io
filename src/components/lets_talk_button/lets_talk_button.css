@@ -2,7 +2,7 @@
     display: inline-block;
     color: #ffffff;
 }
-.lets-talk-link:link {
+.lets-talk-link:link, .lets-talk-link:active {
     text-decoration: none;
 }
 .lets-talk-button-content {

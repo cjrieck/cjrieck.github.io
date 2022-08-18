@@ -54,23 +54,27 @@ export default function StickyHeader() {
   return (
     <div className="sticky-header-container sticky-position">
       <div className="sticky-header-bar">
-        <button
-          className="menu-icon"
-          onClick={() => {
-            setMenuCollapsed(prevState => !prevState)
-          }}
-        >
-          {menuIcon}
-        </button>
-        <button
-          className="home-button bold-text"
-          onClick={() => {
-            window.scrollTo({top: 0, left: 0, behavior: 'smooth'})
-          }}
-        >
-          Clayton Rieck
-        </button>
-        <div className="resource-links">
+        <div className="header-element menu-icon-container">
+          <button
+            className="menu-icon"
+            onClick={() => {
+              setMenuCollapsed(prevState => !prevState)
+            }}
+          >
+            {menuIcon}
+          </button>
+        </div>
+        <div className="header-element">
+          <button
+            className="home-button bold-text"
+            onClick={() => {
+              window.scrollTo({top: 0, left: 0, behavior: 'smooth'})
+            }}
+          >
+            Clayton Rieck
+          </button>
+        </div>
+        <div className="header-element resource-links">
           <a
             className="resource semibold-text"
             href={resumeLink}
@@ -104,7 +108,9 @@ export default function StickyHeader() {
             Twitter
           </a>
         </div>
-        <LetsTalkButton fontSize={isMobile ? "1.25vmax" : "1.25vmin"} />
+        <div className="header-element lets-talk-header-button">
+          <LetsTalkButton fontSize={isMobile ? "1.6vmax" : "0.8vmax"} />
+        </div>
       </div>
       { menuCollapsed ? null : renderCompactResourceLinks() }
     </div>
