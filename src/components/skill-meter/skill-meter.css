@@ -1,0 +1,89 @@
+.skill-meter-container {
+    text-align: center;
+}
+.skill-name {
+    font-size: 4vmin;
+    margin-bottom: 15px;
+}
+.technology-logo {
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
+}
+.CircularProgressbar-path {
+    stroke: url(#progress-gradient);
+    stroke-linecap: round;
+    -webkit-transition: stroke-dashoffset 0.5s ease 0s;
+    transition: stroke-dashoffset 0.5s ease 0s;
+}
+.CircularProgressbar-trail {
+    stroke: #5F5F5F;
+    stroke-linecap: butt;
+}
+.skill-proficiency {
+    font-size: 4vmin;
+    margin-top: 15px;
+}
+
+@media screen and (min-width:480px) {
+    .technology-logo {
+        width: 80px;
+        height: 80px;
+        object-fit: contain;
+    }
+}
+
+@media screen and (min-width:775px) {
+    .skill-name {
+        font-size: 2em;
+        margin-bottom: 15px;
+    }
+    .technology-logo {
+        width: 100px;
+        height: 100px;
+        object-fit: contain;
+    }
+    .CircularProgressbar-path {
+        stroke: url(#progress-gradient);
+        stroke-linecap: round;
+        -webkit-transition: stroke-dashoffset 0.5s ease 0s;
+        transition: stroke-dashoffset 0.5s ease 0s;
+    }
+    .CircularProgressbar-trail {
+        stroke: #5F5F5F;
+        stroke-linecap: butt;
+    }
+    .skill-proficiency {
+        font-size: 1.75em;
+        margin-top: 15px;
+    }
+}
+@media screen and (min-width:1024px) {
+    .skill-meter-container {
+        text-align: center;
+        /*width: 250px;*/
+    }
+    .skill-name {
+        font-size: 2em;
+        margin-bottom: 15px;
+    }
+    .technology-logo {
+        width: 100px;
+        height: 100px;
+        object-fit: contain;
+    }
+    .CircularProgressbar-path {
+        stroke: url(#progress-gradient);
+        stroke-linecap: round;
+        -webkit-transition: stroke-dashoffset 0.5s ease 0s;
+        transition: stroke-dashoffset 0.5s ease 0s;
+    }
+    .CircularProgressbar-trail {
+        stroke: #5F5F5F;
+        stroke-linecap: butt;
+    }
+    .skill-proficiency {
+        font-size: 1.75em;
+        margin-top: 15px;
+    }
+}

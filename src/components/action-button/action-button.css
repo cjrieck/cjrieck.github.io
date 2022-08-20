@@ -1,11 +1,12 @@
-.lets-talk-link {
+.action-button-link {
     display: inline-block;
     color: #ffffff;
 }
-.lets-talk-link:link, .lets-talk-link:active {
+.action-button-link:link, .action-button-link:active {
     text-decoration: none;
 }
-.lets-talk-button-content {
+.action-button-content {
+    display: inline-block;
     font-size: 2vmin;
     font-weight: 400;
     padding: 10px 20px;
@@ -14,14 +15,14 @@
 }
 
 @media (hover: hover) {
-    .lets-talk-link:hover {
+    .action-button-link:hover {
         text-decoration: none;
         opacity: 0.8;
     }
 }
 
 @media screen and (max-device-width: 480px) {
-    .lets-talk-button-content {
+    .action-button-content {
         font-size: 2vmax;
         padding: 10px 20px;
         border-radius: 25px;
