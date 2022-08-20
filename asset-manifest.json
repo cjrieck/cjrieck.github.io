@@ -1,24 +1,29 @@
 {
   "files": {
-    "main.css": "/cjrieck.github.io/static/css/main.12ce213d.css",
-    "main.js": "/cjrieck.github.io/static/js/main.d05fa8d6.js",
+    "main.css": "/cjrieck.github.io/static/css/main.5a0cd747.css",
+    "main.js": "/cjrieck.github.io/static/js/main.e1cde42a.js",
     "static/js/787.71e672d5.chunk.js": "/cjrieck.github.io/static/js/787.71e672d5.chunk.js",
     "static/media/phone.png": "/cjrieck.github.io/static/media/phone.856b6b449760512b3f67.png",
     "static/media/message-bubble.png": "/cjrieck.github.io/static/media/message-bubble.132781cfe65180ab47d6.png",
     "static/media/technology.png": "/cjrieck.github.io/static/media/technology.aaaaacb844eb8094ed39.png",
     "static/media/personal-photo.png": "/cjrieck.github.io/static/media/personal-photo.ff6f0cef7c321b6aaa5b.png",
+    "static/media/process-diagram.png": "/cjrieck.github.io/static/media/process-diagram.22bfe03e8ea44acfa982.png",
+    "static/media/swiftui.png": "/cjrieck.github.io/static/media/swiftui.586a24538377df18fe20.png",
     "static/media/soundcloud.png": "/cjrieck.github.io/static/media/soundcloud.d083fa8c5d344b282c5f.png",
     "static/media/nbc.png": "/cjrieck.github.io/static/media/nbc.6403077fd976c0246725.png",
+    "static/media/react-native.png": "/cjrieck.github.io/static/media/react-native.ac34cfa11befbeb3d92d.png",
     "static/media/nickelodeon.png": "/cjrieck.github.io/static/media/nickelodeon.085f7e11a69a41a5d6a7.png",
+    "static/media/swift.png": "/cjrieck.github.io/static/media/swift.d8190fc876244a1d31a4.png",
     "static/media/credijusto.png": "/cjrieck.github.io/static/media/credijusto.40faf6051d310abe0115.png",
+    "static/media/python.png": "/cjrieck.github.io/static/media/python.7353c34714d95d1751b1.png",
     "static/media/wework.png": "/cjrieck.github.io/static/media/wework.ab17c871db34c15b6e35.png",
     "index.html": "/cjrieck.github.io/index.html",
-    "main.12ce213d.css.map": "/cjrieck.github.io/static/css/main.12ce213d.css.map",
-    "main.d05fa8d6.js.map": "/cjrieck.github.io/static/js/main.d05fa8d6.js.map",
+    "main.5a0cd747.css.map": "/cjrieck.github.io/static/css/main.5a0cd747.css.map",
+    "main.e1cde42a.js.map": "/cjrieck.github.io/static/js/main.e1cde42a.js.map",
     "787.71e672d5.chunk.js.map": "/cjrieck.github.io/static/js/787.71e672d5.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.12ce213d.css",
-    "static/js/main.d05fa8d6.js"
+    "static/css/main.5a0cd747.css",
+    "static/js/main.e1cde42a.js"
   ]
 }
