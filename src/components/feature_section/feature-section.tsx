@@ -20,11 +20,13 @@ type Props = {
 export default function FeatureSection(props: Props) {
   const renderSeeMoreButton = (data: DetailRouteInfo) => {
     return (
-      <ActionButton title={data.buttonTitle} routeName={data.routeName} />
+      <div className="action-button-container">
+        <ActionButton title={data.buttonTitle} routeName={data.routeName} />
+      </div>
     )
   }
 
-  const isMobile = useMediaQuery({ query: "screen and (max-device-width: 480px)" })
+  const isMobile = useMediaQuery({ query: "screen and (max-width: 1024px)" })
   const backgroundColor = props.id % 2 === 0 ? "#302D3F" : "#2A2736"
   let containerClass = "feature-container container-content"
   if (isMobile) {
