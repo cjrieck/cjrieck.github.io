@@ -13,6 +13,7 @@ function App() {
   useEffect(() => {
     if (!devMode) {
       ReactGA.initialize(GA_TRACKING_ID)
+      ReactGA.pageview("/")
     }
   }, [])
 
