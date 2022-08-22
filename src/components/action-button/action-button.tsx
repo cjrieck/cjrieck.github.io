@@ -6,10 +6,9 @@ import "./action-button.css"
 type Props = {
   title: string
   routeName: string
-  fontSize?: string | number
 }
 
-export default function ActionButton({ title, routeName, fontSize }: Props) {
+export default function ActionButton({ title, routeName }: Props) {
   return (
     <Link
       className="action-button-link"
@@ -17,7 +16,7 @@ export default function ActionButton({ title, routeName, fontSize }: Props) {
       target="_blank"
       rel="noopener noreferrer"
     >
-      <div className="action-button-content semibold-text" style={{fontSize}}>
+      <div className="action-button-content semibold-text">
         {title}
       </div>
     </Link>

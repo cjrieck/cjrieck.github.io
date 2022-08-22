@@ -6,12 +6,12 @@
     align-items: center;
     flex-wrap: wrap;
     gap: 35px;
-    padding: 40px 25vmin;
+    padding: 20px 20vmin;
     background-color: #2A2736;
 }
 .brand-logo {
     display: flex;
-    max-height: 41px;
+    max-height: 18px;
     align-self: center;
     object-fit: contain;
     justify-content: center;
@@ -23,24 +23,26 @@
 .nickelodeon-logo {}
 .credijusto-logo {}
 
-@media screen and (max-device-width: 480px) {
+@media screen and (min-width: 480px) {
     .brands-list-container {
-        display: flex;
-        justify-content: space-evenly;
-        justify-items: center;
-        align-content: space-evenly;
-        align-items: center;
-        flex-wrap: wrap;
-        gap: 35px;
         padding: 20px 20vmin;
-        background-color: #2A2736;
     }
     .brand-logo {
-        display: flex;
-        max-height: 18px;
-        align-self: center;
-        object-fit: contain;
-        justify-content: center;
-        align-items: center;
+        max-height: 24px;
+    }
+}
+@media screen and (min-width: 1024px) {
+    .brands-list-container {
+        gap: 35px;
+        padding: 40px 20vmin;
+    }
+    .brand-logo {
+        max-height: 41px;
+    }
+}
+@media screen and (min-width: 1300px) {
+    .brands-list-container {
+        gap: 35px;
+        padding: 40px 35vmin;
     }
 }

@@ -7,7 +7,7 @@
 }
 .action-button-content {
     display: inline-block;
-    font-size: 2vmin;
+    font-size: 1.7vmax;
     padding: 10px 20px;
     border-radius: 25px;
     background-color: #B280F5;
@@ -20,9 +20,18 @@
     }
 }
 
-@media screen and (max-device-width: 480px) {
+@media screen and (min-width: 480px) {
     .action-button-content {
-        font-size: 2vmax;
+        font-size: 1.2vmax;
+        padding: 10px 15px;
+        border-radius: 25px;
+        background-color: #B280F5;
+    }
+}
+@media screen and (min-width: 1024px) {
+    .action-button-content {
+        display: inline-block;
+        font-size: 2vmin;
         padding: 10px 20px;
         border-radius: 25px;
         background-color: #B280F5;

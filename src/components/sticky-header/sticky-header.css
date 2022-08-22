@@ -9,14 +9,14 @@
     background-color: #ffffff;
 }
 .sticky-header-bar {
+    flex: 1;
     display: flex;
-    align-items: center;
+    justify-content: center;
     padding: 5px;
 }
 .header-element {
     flex: 1;
     display: flex;
-    justify-content: center;
 }
 .header-element:first-child > button {
     margin-right: auto;
@@ -25,30 +25,32 @@
     margin-left: auto;
 }
 .menu-icon-container {
-    display: none;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
 }
-.home-button {
-    text-align: start;
-    margin-right: auto;
+.menu-icon {
+    display: flex;
+    padding: 0;
+}
+.menu-icon-image {
+    width: 30px;
+    height: 24px;
+}
+.home-button-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .home-button,
 .home-button:focus,
 .home-button:active,
-.home-button:visited,
-.menu-icon,
-.menu-icon:focus,
-.menu-icon:active {
-    font-size: 1vmax;
-    outline: none;
-    background: transparent;
-    border: 0;
-    cursor: pointer;
-    text-decoration: none;
+.home-button:visited {
+    font-size: 2.1vmax;
     color: #000000;
 }
 .resource-links {
-    display: flex;
-    gap: 15px;
+    display: none;
 }
 .resource {
     text-decoration: none;
@@ -69,33 +71,32 @@
     }
 }
 
-@media screen and (max-device-width: 480px) {
+@media screen and (min-width: 775px) {
     .sticky-header-bar {
-        flex: 1;
-        display: flex;
-        justify-content: center;
-        padding: 5px;
+        align-items: center;
+        padding: 5px 15px;
     }
     .menu-icon-container {
-        display: flex;
+        display: none;
     }
-    .menu-icon-image {
-        width: 30px;
-        height: 24px;
-        object-fit: contain;
+    .home-button-container {
+        justify-content: flex-start;
+        align-items: center;
     }
     .home-button,
     .home-button:focus,
     .home-button:active,
     .home-button:visited {
-        font-size: 1.9vmax;
-        color: #000000;
+        font-size: 1.5em;
         outline: none;
         background: transparent;
         border: 0;
-        margin: 0;
+        color: #000000;
+        text-align: start;
     }
     .resource-links {
-        display: none;
+        display: flex;
+        justify-content: center;
+        gap: 15px;
     }
 }
