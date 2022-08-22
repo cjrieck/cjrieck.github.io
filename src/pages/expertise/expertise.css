@@ -175,6 +175,7 @@
         align-items: center;
         margin: 40px auto;
         width: 1200px;
+        gap: 60px;
     }
     .expertise-section {
         text-align: start;

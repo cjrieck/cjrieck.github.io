@@ -1,7 +1,7 @@
 import StickyHeader from "../../components/sticky-header/sticky-header";
 import Header from "../../components/header/header";
 import BrandsList from "../../components/brands-list/brands-list";
-import FeatureSection from "../../components/feature_section/feature-section";
+import FeatureSection from "../../components/feature-section/feature-section";
 import technology from "../../img/feature-art/technology.png";
 import phone from "../../img/feature-art/phone.png";
 import messageBubbles from "../../img/feature-art/message-bubble.png";
@@ -19,7 +19,7 @@ export default function Home() {
         title="Ideation and Creation"
         description="I’ve used many technologies over the years and have seen what works and what doesn’t. No matter what size you are and where you are in your process, I will help you formulate and execute on a plan that you can confidently scale and maintain."
         artworkSource={technology}
-        detailRoute={{buttonTitle: "Explore", routeName: "/expertise"}}
+        detailRoute={{buttonTitle: "See Process", routeName: "/expertise"}}
       />
       <FeatureSection
         id={1}
