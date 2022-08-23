@@ -59,6 +59,19 @@
     font-size: 2vmin;
     margin-top: 30px;
 }
+.expertise-page-footer {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    text-align: center;
+    margin-top: 60px;
+}
+.expertise-page-footer-title {
+    font-size: 1.75em;
+}
+.expertise-page-footer-description {
+    line-height: 24px;
+}
 
 @media screen and (min-width:480px) {
     .expertise-content {
@@ -220,5 +233,8 @@
     .skills-disclaimer {
         font-size: 1em;
         margin-top: 30px;
+    }
+    .expertise-page-footer {
+        margin-top: 0;
     }
 }

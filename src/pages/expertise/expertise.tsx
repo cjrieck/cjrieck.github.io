@@ -10,6 +10,7 @@ import typescriptLogo from "../../img/expertise/technology-logos/typescript.png"
 import pythonLogo from "../../img/expertise/technology-logos/python.png"
 import miscLogo from "../../img/expertise/technology-logos/misc.png"
 import SkillMeter, {Proficiency} from "../../components/skill-meter/skill-meter";
+import ActionButton from "../../components/action-button/action-button";
 
 export default function Expertise() {
   return (
@@ -90,6 +91,15 @@ export default function Expertise() {
           <div className="skills-disclaimer">
             * Note that this is not a full representation of the technologies and services I can provide. Please contact me and/or refer to my CV for futher info
           </div>
+        </div>
+        <div className="expertise-page-footer">
+          <div className="expertise-page-footer-title bold-text">
+            Want to learn more?
+          </div>
+          <div className="expertise-page-footer-description regular-text">
+            Feel free to contact me and we can discuss how my experience can help you
+          </div>
+          <ActionButton title="Let's Talk" routeName="mailto:cjrieck123@gmail.com" />
         </div>
       </div>
     </div>
