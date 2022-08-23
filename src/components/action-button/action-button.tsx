@@ -9,12 +9,24 @@ type Props = {
 }
 
 export default function ActionButton({ title, routeName }: Props) {
+  if (routeName.includes("mailto")) {
+    return (
+      <a
+        className="action-button-link"
+        href={routeName}
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <div className="action-button-content semibold-text">
+          {title}
+        </div>
+      </a>
+    )
+  }
   return (
     <Link
       className="action-button-link"
       to={routeName}
-      target="_blank"
-      rel="noopener noreferrer"
     >
       <div className="action-button-content semibold-text">
         {title}
