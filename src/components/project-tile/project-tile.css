@@ -1,0 +1,44 @@
+.project-tile-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    max-width: 450px;
+}
+.project-tile-image {
+    width: 300px;
+    height: 300px;
+    object-fit: contain;
+}
+.project-tile-text {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    gap: 15px;
+}
+.project-tile-title {
+    font-size: 2em;
+}
+.project-tile-description {
+    font-size: 1em;
+    line-height: 28px;
+}
+@media screen and (min-width:1024px) {
+    .project-tile-container {
+        max-width: 450px;
+    }
+    .project-tile-image {
+        width: 400px;
+        height: 400px;
+    }
+}
+@media screen and (min-width:1300px) {
+    .project-tile-container {
+        max-width: 500px;
+    }
+    .project-tile-image {
+        width: 500px;
+        height: 500px;
+    }
+}

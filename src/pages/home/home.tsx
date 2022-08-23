@@ -26,6 +26,7 @@ export default function Home() {
         title="Track Record of Success"
         description="Shipping a product is easy, but knowing what to ship can be hard. Effective user research is vital for success, so I take a user-first approach to product development in order to deliver successful and delightful solutions."
         artworkSource={phone}
+        detailRoute={{buttonTitle: "See Work", routeName: "/projects"}}
       />
       <FeatureSection
         id={2}
