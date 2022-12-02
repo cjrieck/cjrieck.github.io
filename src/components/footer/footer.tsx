@@ -14,7 +14,7 @@ export default function Footer() {
       </div>
       <ActionButton title="Let's Talk" routeName="mailto:cjrieck123@gmail.com"/>
       <div className="foot-notes">
-        <div>Designed an developed with <span>&#10084;</span></div>
+        <div>Designed and developed with <span>&#10084;</span></div>
       </div>
     </div>
   )
