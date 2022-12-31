@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/cjrieck.github.io/static/css/main.75fe21f2.css",
-    "main.js": "/cjrieck.github.io/static/js/main.6fdacffa.js",
+    "main.js": "/cjrieck.github.io/static/js/main.f631253a.js",
     "static/js/787.71e672d5.chunk.js": "/cjrieck.github.io/static/js/787.71e672d5.chunk.js",
     "static/media/personal-photo.png": "/cjrieck.github.io/static/media/personal-photo.fad0bf127c5f4aec310a.png",
     "static/media/noggin.png": "/cjrieck.github.io/static/media/noggin.41eb010478fb54dac9a9.png",
@@ -21,11 +21,11 @@
     "static/media/wework.png": "/cjrieck.github.io/static/media/wework.ab17c871db34c15b6e35.png",
     "index.html": "/cjrieck.github.io/index.html",
     "main.75fe21f2.css.map": "/cjrieck.github.io/static/css/main.75fe21f2.css.map",
-    "main.6fdacffa.js.map": "/cjrieck.github.io/static/js/main.6fdacffa.js.map",
+    "main.f631253a.js.map": "/cjrieck.github.io/static/js/main.f631253a.js.map",
     "787.71e672d5.chunk.js.map": "/cjrieck.github.io/static/js/787.71e672d5.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.75fe21f2.css",
-    "static/js/main.6fdacffa.js"
+    "static/js/main.f631253a.js"
   ]
 }
