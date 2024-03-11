@@ -14,7 +14,7 @@ export default function Header() {
           I'm Clayton
         </div>
         <div className="about-me-text">
-          Software Engineer and Entrepreneur with nearly a decade of experience developing frontends, backends, teams and companies
+          Software Engineer and Entrepreneur with over a decade of experience developing frontends, backends, teams and companies
         </div>
       </div>
       <img src={personalPhoto} className="personal-photo" alt="portrait"/>

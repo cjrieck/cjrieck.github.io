@@ -37,14 +37,6 @@ export default function StickyHeader() {
         >
           GitHub
         </a>
-        <a
-          className="resource semibold-text"
-          href="https://twitter.com/ClaytonRieck"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Twitter
-        </a>
       </div>
     )
   }
@@ -101,14 +93,6 @@ export default function StickyHeader() {
             rel="noopener noreferrer"
           >
             GitHub
-          </a>
-          <a
-            className="resource semibold-text"
-            href="https://twitter.com/ClaytonRieck"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Twitter
           </a>
         </div>
         <div className="header-element lets-talk-header-button">
