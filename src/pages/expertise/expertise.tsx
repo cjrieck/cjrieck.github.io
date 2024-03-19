@@ -20,7 +20,7 @@ export default function Expertise() {
         <div className="expertise-section">
           <div className="expertise-section-text">
             <div className="expertise-section-title bold-text">
-              {"Minimum Viable Products to\nMaximum Viable Products"}
+              {"Minimum Viable Products to\nMaximum Value Products"}
             </div>
             <div className="expertise-section-description regular-text">
               My approach is data-driven, iterative and high impact. I facilitate swift iterations with a focus on Minimum Viable Products (MVPs) bolstered by heavy user validation and further elevated through a deep understanding of user data. Lets create something astonishing.
