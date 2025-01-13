@@ -10,7 +10,7 @@ export default function Footer() {
         Want to learn more?
       </div>
       <div className="regular-text footer-description">
-        Interested in learning more about me and what I can do for you? Feel free to send me an email! I’m really looking forward to getting to know you.
+        Feel free to send me an email! I’m really looking forward to getting to know you.
       </div>
       <ActionButton title="Let's Talk" routeName="mailto:cjrieck123@gmail.com"/>
       <div className="foot-notes">

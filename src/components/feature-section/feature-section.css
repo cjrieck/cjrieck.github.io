@@ -17,19 +17,98 @@
 }
 .feature-title {
     font-size: 3.5vmax;
+    white-space: pre-line;
 }
 .feature-description {
     line-height: 28px;
+    white-space: pre-line;
+}
+.feature-art-container {
+    position: relative;
+    width: 100%;  /* or whatever base size you want */
+    height: 250px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    aspect-ratio: 1;
+}
+.feature-art-blob {
+    position: absolute;
+    height: 90%;
+    aspect-ratio: 1;
+    filter: url('#goo');  /* This will smooth out the morphing */
 }
 .feature-art {
-    max-width: 250px;
-    max-height: 250px;
-    object-fit: contain;
+    position: absolute;
+    height: 100%;
+    z-index: 1;
+    aspect-ratio: 1;
 }
+
+.feature-art-blob#art-0 {
+    animation: morphBlob1 12s ease-in-out infinite;
+    background: linear-gradient(45deg, #FF8C21, #FFE040);
+}
+
+.feature-art-blob#art-1 {
+    animation: morphBlob2 10s ease-in-out infinite;
+    background: linear-gradient(135deg, #F094FA, #F5576E);
+}
+
+.feature-art-blob#art-2 {
+    animation: morphBlob3 12s ease-in-out infinite;
+    background: linear-gradient(225deg, #08FFB8, #5799F7);
+}
+
 .action-button-container {}
 
+@keyframes morphBlob1 {
+    0% {
+        border-radius: 42% 58% 70% 30%/45% 55% 35% 65%;
+    }
+    33% {
+        border-radius: 37% 63% 51% 49%/37% 65% 35% 63%;
+    }
+    66% {
+        border-radius: 55% 45% 35% 65%/40% 35% 65% 35%;
+    }
+    100% {
+        border-radius: 42% 58% 70% 30%/45% 55% 35% 65%;
+    }
+}
+
+@keyframes morphBlob2 {
+    0% {
+        border-radius: 65% 35% 45% 55%/40% 45% 55% 45%;
+    }
+    33% {
+        border-radius: 35% 65% 55% 45%/40% 55% 45% 55%;
+    }
+    66% {
+        border-radius: 45% 55% 65% 35%/45% 35% 65% 35%;
+    }
+    100% {
+        border-radius: 65% 35% 45% 55%/40% 45% 55% 45%;
+    }
+}
+
+@keyframes morphBlob3 {
+    0% {
+        border-radius: 55% 45% 35% 65%/45% 55% 45% 55%;
+    }
+    33% {
+        border-radius: 45% 55% 65% 35%/40% 45% 60% 40%;
+    }
+    66% {
+        border-radius: 35% 65% 45% 55%/40% 55% 40% 60%;
+    }
+    100% {
+        border-radius: 55% 45% 35% 65%/45% 55% 45% 55%;
+    }
+}
+
 @media screen and (min-width: 480px) {
-    .feature-art {
+    .feature-art-container {
         max-width: 300px;
         max-height: 300px;
     }
@@ -49,7 +128,7 @@
     .feature-title {
         font-size: 3.5vmin;
     }
-    .feature-art {
+    .feature-art-container {
         max-width: 400px;
         max-height: 400px;
         object-fit: contain;

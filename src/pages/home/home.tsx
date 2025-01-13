@@ -5,6 +5,9 @@ import FeatureSection from "../../components/feature-section/feature-section";
 import technology from "../../img/feature-art/technology.png";
 import phone from "../../img/feature-art/phone.png";
 import messageBubbles from "../../img/feature-art/message-bubble.png";
+import technologyTranslucent from "../../img/feature-art/technology-translucent.png";
+import phoneTranslucent from "../../img/feature-art/phone-translucent.png";
+import messageBubblesTranslucent from "../../img/feature-art/message-bubble-translucent.png";
 import Footer from "../../components/footer/footer";
 import React, {useEffect} from "react";
 
@@ -16,23 +19,31 @@ export default function Home() {
       <BrandsList />
       <FeatureSection
         id={0}
-        title="Ideation and Creation"
-        description="I’ve used many technologies over the years and have seen what works and what doesn’t. No matter what size you are and where you are in your process, I will help you formulate and execute on a plan that you can confidently scale and maintain."
-        artworkSource={technology}
+        title={
+          `Great Minds.
+          Thinking Together.`
+        }
+        description="We will formulate, execute and deliver on a plan that you can confidently scale and maintain."
+        artworkSource={technologyTranslucent}
         detailRoute={{buttonTitle: "See Process", routeName: "/expertise"}}
       />
       <FeatureSection
         id={1}
-        title="Track Record of Success"
-        description="Shipping a product is easy, but knowing what to ship can be hard. Effective user research is vital for success, so I take a user-first approach to product development in order to deliver successful and delightful solutions."
-        artworkSource={phone}
+        title={
+          `From 0 to 1 and 1 to Infinity`
+        }
+        description={
+          `Shipping a product is easy, but knowing what to ship can be hard.
+          I take a user-first approach to product development in order to deliver high-value and delightful solutions.`
+        }
+        artworkSource={phoneTranslucent}
         detailRoute={{buttonTitle: "See Work", routeName: "/projects"}}
       />
       <FeatureSection
         id={2}
         title="What Can You Expect?"
-        description="I will bring my expertise in frontend mobile development, microservices and infrastructure, but I’m not “just the consultant.” I will be like any other member of the team and always act in my client’s best interest. "
-        artworkSource={messageBubbles}
+        description="I will bring my expertise in technology, product planning and leadership, but I’m not “just the consultant.” I will be a member of your team and organization and always act in your best interest."
+        artworkSource={messageBubblesTranslucent}
       />
       <Footer />
     </div>

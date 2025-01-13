@@ -46,7 +46,10 @@ export default function FeatureSection(props: Props) {
         </div>
         {props.detailRoute ? renderSeeMoreButton(props.detailRoute) : null}
       </div>
-      <img src={props.artworkSource} className="feature-art" alt="feature-art"/>
+      <div className="feature-art-container" id={`art-${props.id}`}>
+        <div className="feature-art-blob" id={`art-${props.id}`} />
+        <img src={props.artworkSource} className="feature-art" alt="feature-art"/>
+      </div>
     </div>
   )
 }
