@@ -1,0 +1,10 @@
+.collage-wrapper {
+  width: 100%;
+  height: 100%;
+  background-color: white;
+}
+
+.collage-item {
+  position: absolute;
+  pointer-events: auto;
+}

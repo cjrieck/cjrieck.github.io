@@ -11,11 +11,17 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin: 40px auto;
+    margin: auto;
+    gap: 50px;
     width: 320px;
 }
 .expertise-section {
-    text-align: start;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
 }
 .expertise-section-text {
     flex: 1;
@@ -36,7 +42,6 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin: 40px 0;
 }
 .process-diagram-image {
     max-width: 250px;
@@ -44,9 +49,80 @@
 }
 .process-steps {
     font-size: 1em;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    gap: 30px;
 }
-.process-steps > li {
-    margin: 10px 0;
+.process-step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    opacity: 0;
+    animation: fadeIn 0.5s ease-out forwards;
+}
+.step-content {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    width: 100%;
+}
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+/* Stagger the list items */
+.process-step:nth-child(1) {
+    animation-delay: 0s;
+}
+
+.process-step:nth-child(2) {
+    animation-delay: 0.4s;  /* Start after first arrow finishes */
+}
+
+.process-step:nth-child(3) {
+    animation-delay: 0.8s;    /* Start after second arrow finishes */
+}
+.process-arrow {
+    align-self: center;  /* Center the arrow */
+    margin-top: 20px;    /* Space between content and arrow */
+    margin-left: 20px;   /* Align with icon (adjust as needed) */
+}
+.process-arrow:nth-of-type(1) {
+    animation-delay: 1s;    /* Start after first item */
+}
+
+.process-arrow:nth-of-type(2) {
+    animation-delay: 2.5s;  /* Start after second item */
+}
+.arrow-path .return-arrow {
+    stroke-width: 2;
+}
+.return-arrow {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-top: 20px;
+}
+.step-icon {
+    max-width: 75px;
+    object-fit: contain;
+}
+.step-title {
+    margin-bottom: 8px;  /* Space between title and description */
+    font-size: 1em;    /* Keep your existing font size */
+}
+.step-description {
+    font-size: 0.7em;    /* Smaller text for description */
+    opacity: 0.9;        /* Slightly muted text */
+    line-height: 1.4;    /* Better readability */
 }
 .skills-grid {
     display: grid;
@@ -91,7 +167,6 @@
         justify-content: flex-start;
         align-items: center;
         gap: 25px;
-        margin: 40px 0;
     }
     .process-diagram-image {
         max-width: 300px;
@@ -99,6 +174,12 @@
     }
     .process-steps {
         font-size: 4vmin;
+    }
+    .step-icon {
+        max-width: 100px;
+    }
+    .arrow-path .return-arrow {
+        stroke-width: 2.5;
     }
     .skills-grid {
         display: grid;
@@ -122,7 +203,6 @@
         justify-content: flex-start;
         align-items: center;
         gap: 25px;
-        margin: 40px 0;
     }
     .process-diagram-image {
         max-width: 450px;
@@ -130,6 +210,12 @@
     }
     .process-steps {
         font-size: 3vmin;
+    }
+    .step-icon {
+        max-width: 100px;
+    }
+    .arrow-path .return-arrow {
+        stroke-width: 3;
     }
     .skills-grid {
         display: grid;
@@ -156,15 +242,19 @@
         justify-content: center;
         align-items: center;
         gap: 25px;
-        margin: 40px 0;
-        padding: 0 10px;
     }
     .process-diagram-image {
         max-width: 400px;
         object-fit: contain;
     }
     .process-steps {
-        font-size: 3.5vmin;
+        font-size: 2.8vmin;
+    }
+    .step-icon {
+        max-width: 125px;
+    }
+    .arrow-path .return-arrow {
+        stroke-width: 4;
     }
     .skills-grid {
         display: grid;
@@ -188,7 +278,6 @@
         align-items: center;
         margin: 40px auto;
         width: 1200px;
-        gap: 60px;
     }
     .expertise-section {
         text-align: start;
@@ -213,7 +302,6 @@
         flex-direction: row;
         justify-content: space-between;
         align-items: center;
-        margin: 40px 0;
     }
     .process-diagram-image {
         max-width: 500px;
@@ -221,9 +309,11 @@
     }
     .process-steps {
         font-size: 2em;
+        flex-direction: row;
+        gap: 40px;
     }
-    .process-steps > li {
-        margin: 10px 0;
+    .process-step {
+        flex-direction: column;
     }
     .skills-grid {
         display: grid;

@@ -2,7 +2,7 @@
     text-align: center;
 }
 .skill-name {
-    font-size: 4vmin;
+    font-size: 3.2vmin;
     margin-bottom: 15px;
 }
 .technology-logo {
@@ -21,7 +21,7 @@
     stroke-linecap: butt;
 }
 .skill-proficiency {
-    font-size: 4vmin;
+    font-size: 3vmin;
     margin-top: 15px;
 }
 
@@ -35,7 +35,6 @@
 
 @media screen and (min-width:775px) {
     .skill-name {
-        font-size: 2em;
         margin-bottom: 15px;
     }
     .technology-logo {
@@ -61,10 +60,8 @@
 @media screen and (min-width:1024px) {
     .skill-meter-container {
         text-align: center;
-        /*width: 250px;*/
     }
     .skill-name {
-        font-size: 2em;
         margin-bottom: 15px;
     }
     .technology-logo {
