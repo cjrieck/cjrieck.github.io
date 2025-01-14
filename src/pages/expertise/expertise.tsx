@@ -1,8 +1,6 @@
-import React from "react";
 import StickyHeader from "../../components/sticky-header/sticky-header";
 import "./expertise.css"
 import "../../theme.css"
-import processDiagram from "../../img/expertise/process-diagram.png"
 import researchIcon from "../../img/expertise/research-icon.png"
 import iterationsIcon from "../../img/expertise/iterations-icon.png"
 import deploymentIcon from "../../img/expertise/deployment-icon.png"
@@ -14,8 +12,8 @@ import pythonLogo from "../../img/expertise/technology-logos/python.png"
 import miscLogo from "../../img/expertise/technology-logos/misc.png"
 import SkillMeter, {Proficiency} from "../../components/skill-meter/skill-meter";
 import ActionButton from "../../components/action-button/action-button";
-import SkillChart from "../../components/skill-chart/skill-chart";
-import ImageCollage from "../../components/skill-collage/skill-collage";
+// import SkillChart from "../../components/skill-chart/skill-chart";
+// import ImageCollage from "../../components/skill-collage/skill-collage";
 
 export default function Expertise() {
   return (
@@ -27,9 +25,6 @@ export default function Expertise() {
             <div className="expertise-section-title bold-text">
               {"Minimum Viable Products to\nMaximum Value Products"}
             </div>
-            {/* <div className="expertise-section-description regular-text">
-              My approach is data-driven, iterative and high impact. I facilitate swift iterations with a focus on Minimum Viable Products (MVPs) bolstered by heavy user validation and further elevated through a deep understanding of user data. Lets create something astonishing.
-            </div> */}
           </div>
           <div className="process-diagram-section">
             <div className="process-steps bold-text">
@@ -66,9 +61,6 @@ export default function Expertise() {
             <div className="expertise-section-title bold-text">
               {"Technology That Suits You"}
             </div>
-            {/* <div className="expertise-section-description regular-text">
-              I utilize modern tools and processes fit for today’s modern applications. I will help you find and create the best solution for your needs.
-            </div> */}
           </div>
           {/* <div style={{width: '100%'}}>
             <ImageCollage images={[

@@ -39,7 +39,7 @@ export default function SkillMeter({name, proficiency, logo, percentage}: Props)
             setGridBecameVisible(true)
           }
           return (
-            <CircularProgressbarWithChildren value={animatedPercentage}>
+            <CircularProgressbarWithChildren className="skill-meter-progressbar" value={animatedPercentage}>
               <img src={logo} className="technology-logo" alt="tech-logo"/>
             </CircularProgressbarWithChildren>
           );

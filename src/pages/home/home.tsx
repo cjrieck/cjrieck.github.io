@@ -2,14 +2,10 @@ import StickyHeader from "../../components/sticky-header/sticky-header";
 import Header from "../../components/header/header";
 import BrandsList from "../../components/brands-list/brands-list";
 import FeatureSection from "../../components/feature-section/feature-section";
-import technology from "../../img/feature-art/technology.png";
-import phone from "../../img/feature-art/phone.png";
-import messageBubbles from "../../img/feature-art/message-bubble.png";
 import technologyTranslucent from "../../img/feature-art/technology-translucent.png";
 import phoneTranslucent from "../../img/feature-art/phone-translucent.png";
 import messageBubblesTranslucent from "../../img/feature-art/message-bubble-translucent.png";
 import Footer from "../../components/footer/footer";
-import React, {useEffect} from "react";
 
 export default function Home() {
   return (
