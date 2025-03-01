@@ -4,6 +4,7 @@ import ReactGA from 'react-ga'
 import Home from "./pages/home/home";
 import Expertise from "./pages/expertise/expertise";
 import ProjectsPage from "./pages/projects/projects";
+import PotpourriPrivacyPolicy from "./pages/apps/potpourri/privacy";
 
 const GA_TRACKING_ID = "UA-40166119-1"
 
@@ -30,6 +31,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/expertise" element={<Expertise />} />
         <Route path="/projects" element={<ProjectsPage />} />
+        <Route path="/apps/potpourri/privacy" element={<PotpourriPrivacyPolicy />} />
       </Routes>
     </div>
   );

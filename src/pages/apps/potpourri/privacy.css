@@ -1,0 +1,26 @@
+.privacy-policy-container {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.privacy-policy-content {
+  max-width: 960px;
+  width: 100%;
+  margin: 100px auto 50px;
+  padding: 0 20px;
+  flex: 1;
+}
+
+.privacy-policy-html-content {
+  margin-top: 30px;
+  line-height: 1.6;
+}
+
+@media (max-width: 768px) {
+  .privacy-policy-content {
+    margin-top: 80px;
+    padding: 0 15px;
+  }
+} 
