@@ -1,0 +1,186 @@
+.philosophy-section {
+  padding: 120px 5vw;
+}
+
+.philosophy-title {
+  text-align: center;
+  margin-bottom: 4rem;
+  perspective: 1000px;
+}
+
+.title-word {
+  display: inline-block;
+  transform-style: preserve-3d;
+  margin-right: 0.3em;
+}
+
+/* Bento Grid Layout */
+.philosophy-bento {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  grid-template-rows: repeat(2, auto);
+  gap: 1.5rem;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+/* Card Base Styles */
+.philosophy-card {
+  padding: 2.5rem;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Large Card - Spans 2 rows */
+.philosophy-card-large {
+  grid-row: span 2;
+  padding: 3rem;
+}
+
+/* Small Cards */
+.philosophy-card-small {
+  grid-column: 2;
+}
+
+/* Animated Gradient Glow for Main Card */
+.philosophy-card-glow {
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(
+    circle at center,
+    rgba(99, 102, 241, 0.15) 0%,
+    transparent 50%
+  );
+  animation: glowPulse 4s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes glowPulse {
+  0%, 100% {
+    opacity: 0.5;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.8;
+    transform: scale(1.1);
+  }
+}
+
+/* Icon Container */
+.philosophy-card-icon {
+  width: 64px;
+  height: 64px;
+  border-radius: 16px;
+  background: rgba(99, 102, 241, 0.1);
+  border: 1px solid rgba(99, 102, 241, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+  color: var(--accent);
+}
+
+.philosophy-card-large .philosophy-card-icon {
+  width: 80px;
+  height: 80px;
+  border-radius: 20px;
+  margin-bottom: 2rem;
+}
+
+/* Title Styles */
+.philosophy-card-title {
+  font-size: 1.25rem;
+  margin-bottom: 1rem;
+  line-height: 1.3;
+}
+
+.philosophy-card-large .philosophy-card-title {
+  font-size: clamp(1.75rem, 3vw, 2.25rem);
+  margin-bottom: 1.5rem;
+}
+
+/* Gradient text for main card title */
+.gradient-text {
+  background: linear-gradient(135deg, #fff 0%, var(--accent) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Description Styles */
+.philosophy-card-description {
+  font-size: 1rem;
+  line-height: 1.7;
+  flex-grow: 1;
+}
+
+.philosophy-card-large .philosophy-card-description {
+  font-size: 1.15rem;
+  line-height: 1.8;
+  max-width: 400px;
+}
+
+/* Tablet */
+@media screen and (max-width: 900px) {
+  .philosophy-bento {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto;
+  }
+
+  .philosophy-card-large {
+    grid-column: span 2;
+    grid-row: span 1;
+  }
+
+  .philosophy-card-small {
+    grid-column: auto;
+  }
+}
+
+/* Mobile */
+@media screen and (max-width: 600px) {
+  .philosophy-section {
+    padding: 80px 5vw;
+  }
+
+  .philosophy-title {
+    margin-bottom: 3rem;
+  }
+
+  .philosophy-bento {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+
+  .philosophy-card-large {
+    grid-column: 1;
+    padding: 2rem;
+  }
+
+  .philosophy-card {
+    padding: 1.75rem;
+  }
+
+  .philosophy-card-icon {
+    width: 56px;
+    height: 56px;
+  }
+
+  .philosophy-card-large .philosophy-card-icon {
+    width: 64px;
+    height: 64px;
+  }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .philosophy-card-glow {
+    animation: none;
+    opacity: 0.5;
+  }
+}

@@ -1,0 +1,70 @@
+/* Unified cursor design - single element with glow */
+.custom-cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  transform: translate(-50%, -50%);
+  /* Center the cursor elements */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.custom-cursor.visible {
+  opacity: 1;
+}
+
+/* Outer glow - soft ambient ring */
+.cursor-glow {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(99, 102, 241, 0.4) 0%,
+    rgba(99, 102, 241, 0.1) 50%,
+    transparent 70%
+  );
+  filter: blur(2px);
+}
+
+/* Inner core - solid center */
+.cursor-core {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #fff 0%, var(--accent) 100%);
+  box-shadow: 
+    0 0 10px rgba(99, 102, 241, 0.5),
+    0 0 20px rgba(99, 102, 241, 0.3);
+}
+
+/* Hover state - expand and intensify */
+.custom-cursor.hovering .cursor-core {
+  background: linear-gradient(135deg, var(--accent) 0%, #818cf8 100%);
+}
+
+/* Click state - quick pulse */
+.custom-cursor.clicking .cursor-glow {
+  transform: scale(0.8);
+}
+
+/* Hide custom cursor on touch devices and when default cursor is needed */
+@media (hover: none) {
+  .custom-cursor {
+    display: none !important;
+  }
+}
+
+/* Reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  .custom-cursor {
+    display: none !important;
+  }
+}

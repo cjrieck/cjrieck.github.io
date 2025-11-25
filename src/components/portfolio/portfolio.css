@@ -1,0 +1,52 @@
+.portfolio-section {
+  padding: 120px 5vw;
+}
+
+.portfolio-header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.portfolio-title {
+  margin-bottom: 1.5rem;
+  perspective: 1000px;
+}
+
+.title-word {
+  display: inline-block;
+  transform-style: preserve-3d;
+  margin-right: 0.3em;
+}
+
+.portfolio-description {
+  font-size: 1.1rem;
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.7;
+}
+
+.portfolio-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+}
+
+/* ============================================
+   Responsive
+   ============================================ */
+@media screen and (max-width: 900px) {
+  .portfolio-grid {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .portfolio-section {
+    padding: 80px 5vw;
+  }
+  
+  .portfolio-header {
+    margin-bottom: 3rem;
+  }
+}

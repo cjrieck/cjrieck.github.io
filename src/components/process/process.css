@@ -1,0 +1,239 @@
+.process-section {
+  padding: 120px 5vw;
+}
+
+.process-title {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  perspective: 1000px;
+}
+
+.title-word {
+  display: inline-block;
+  transform-style: preserve-3d;
+  margin-right: 0.3em;
+}
+
+.process-subtitle {
+  text-align: center;
+  font-size: 1.15rem;
+  max-width: 600px;
+  margin: 0 auto 4rem;
+  line-height: 1.7;
+}
+
+/* Timeline Container */
+.process-timeline {
+  position: relative;
+  max-width: 800px;
+  margin: 0 auto;
+  padding-left: 60px;
+}
+
+/* The vertical track line */
+.timeline-track {
+  position: absolute;
+  left: 20px;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: var(--bg-card);
+  border-radius: 1px;
+}
+
+/* The animated progress fill */
+.timeline-progress {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: linear-gradient(
+    180deg,
+    var(--accent) 0%,
+    rgba(99, 102, 241, 0.5) 100%
+  );
+  border-radius: 1px;
+  box-shadow: 0 0 20px rgba(99, 102, 241, 0.5);
+}
+
+/* Steps container */
+.timeline-steps {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+/* Individual step */
+.timeline-step {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  gap: 1.5rem;
+}
+
+/* Node on the timeline */
+.timeline-node {
+  position: absolute;
+  left: -52px;
+  top: 1.5rem;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--bg-dark);
+  border: 2px solid var(--bg-card);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.timeline-step:hover .timeline-node {
+  border-color: var(--accent);
+  box-shadow: 0 0 20px rgba(99, 102, 241, 0.4);
+}
+
+.timeline-node-number {
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: var(--text-secondary);
+  transition: color 0.3s;
+}
+
+.timeline-step:hover .timeline-node-number {
+  color: var(--accent);
+}
+
+/* Step card */
+.timeline-card {
+  flex: 1;
+  padding: 1.75rem;
+  display: flex;
+  gap: 1.25rem;
+  align-items: flex-start;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.timeline-step:hover .timeline-card {
+  border-color: rgba(99, 102, 241, 0.3);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+}
+
+/* Icon in card */
+.timeline-card-icon {
+  width: 48px;
+  height: 48px;
+  min-width: 48px;
+  border-radius: 12px;
+  background: rgba(99, 102, 241, 0.1);
+  border: 1px solid rgba(99, 102, 241, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--accent);
+  transition: background 0.3s, transform 0.3s;
+}
+
+.timeline-step:hover .timeline-card-icon {
+  background: rgba(99, 102, 241, 0.2);
+  transform: scale(1.05);
+}
+
+/* Card content */
+.timeline-card-content {
+  flex: 1;
+}
+
+.timeline-card-title {
+  font-size: 1.25rem;
+  margin-bottom: 0.5rem;
+  color: var(--text-primary);
+}
+
+.timeline-card-description {
+  font-size: 0.95rem;
+  line-height: 1.7;
+}
+
+/* Tablet */
+@media screen and (max-width: 900px) {
+  .process-timeline {
+    padding-left: 50px;
+  }
+
+  .timeline-track {
+    left: 15px;
+  }
+
+  .timeline-node {
+    left: -42px;
+    width: 28px;
+    height: 28px;
+  }
+
+  .timeline-node-number {
+    font-size: 0.65rem;
+  }
+}
+
+/* Mobile */
+@media screen and (max-width: 600px) {
+  .process-section {
+    padding: 80px 5vw;
+  }
+
+  .process-subtitle {
+    margin-bottom: 3rem;
+    font-size: 1rem;
+  }
+
+  .process-timeline {
+    padding-left: 40px;
+  }
+
+  .timeline-track {
+    left: 10px;
+  }
+
+  .timeline-node {
+    left: -34px;
+    width: 24px;
+    height: 24px;
+  }
+
+  .timeline-node-number {
+    font-size: 0.6rem;
+  }
+
+  .timeline-card {
+    padding: 1.25rem;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .timeline-card-icon {
+    width: 44px;
+    height: 44px;
+    min-width: 44px;
+  }
+
+  .timeline-card-title {
+    font-size: 1.1rem;
+  }
+
+  .timeline-card-description {
+    font-size: 0.9rem;
+  }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .timeline-progress {
+    box-shadow: none;
+  }
+  
+  .timeline-step:hover .timeline-card-icon {
+    transform: none;
+  }
+}
+

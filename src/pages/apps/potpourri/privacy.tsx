@@ -1,12 +1,12 @@
 import React from 'react';
-import StickyHeader from "../../../components/sticky-header/sticky-header";
+import Navbar from "../../../components/navbar/navbar";
 import Footer from "../../../components/footer/footer";
 import './privacy.css';
 
 const PotpourriPrivacyPolicy: React.FC = () => {
   return (
     <div className="privacy-policy-container">
-      <StickyHeader />
+      <Navbar />
       <div className="privacy-policy-content">
         <h1>Potpourri Privacy Policy</h1>
         <div className="privacy-policy-html-content">

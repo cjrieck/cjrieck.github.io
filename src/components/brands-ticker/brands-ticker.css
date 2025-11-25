@@ -1,0 +1,130 @@
+.brands-ticker-section {
+  padding: 80px 0;
+  background: var(--bg-card);
+  overflow: hidden;
+}
+
+.brands-ticker-container {
+  text-align: center;
+}
+
+.brands-ticker-title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  margin-bottom: 3rem;
+}
+
+.brands-ticker-wrapper {
+  overflow: hidden;
+  width: 100%;
+  position: relative;
+  margin-bottom: 1.5rem;
+  /* Fade edges */
+  mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black 10%,
+    black 90%,
+    transparent 100%
+  );
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black 10%,
+    black 90%,
+    transparent 100%
+  );
+}
+
+.brands-ticker-wrapper:last-child {
+  margin-bottom: 0;
+}
+
+.brands-ticker-track {
+  display: flex;
+  gap: 4rem;
+  align-items: center;
+  width: fit-content;
+  will-change: transform;
+  animation: ticker 30s linear infinite;
+}
+
+@keyframes ticker {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* Pause animation on hover for accessibility */
+.brands-ticker-wrapper:hover .brands-ticker-track {
+  animation-play-state: paused;
+}
+
+.brand-logo-item {
+  flex-shrink: 0;
+  width: 140px;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s ease;
+}
+
+.brand-logo-item:hover {
+  transform: scale(1.1);
+}
+
+.brand-logo-img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  filter: grayscale(100%) brightness(0.7);
+  opacity: 0.6;
+  transition: filter 0.4s ease, opacity 0.4s ease, transform 0.4s ease;
+}
+
+.brand-logo-item:hover .brand-logo-img {
+  filter: grayscale(0%) brightness(1);
+  opacity: 1;
+  transform: scale(1.05);
+}
+
+/* ============================================
+   Responsive
+   ============================================ */
+@media screen and (max-width: 768px) {
+  .brands-ticker-section {
+    padding: 60px 0;
+  }
+  
+  .brands-ticker-title {
+    margin-bottom: 2rem;
+  }
+  
+  .brands-ticker-track {
+    gap: 3rem;
+    animation-duration: 20s;
+  }
+  
+  .brand-logo-item {
+    width: 110px;
+    height: 55px;
+  }
+  
+  .brands-ticker-wrapper {
+    margin-bottom: 1rem;
+  }
+}
+
+/* Reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  .brands-ticker-track {
+    animation: none !important;
+  }
+}
