@@ -1,33 +1,29 @@
 {
   "files": {
-    "main.css": "/cjrieck.github.io/static/css/main.9ab63fcf.css",
-    "main.js": "/cjrieck.github.io/static/js/main.75db8f19.js",
+    "main.css": "/cjrieck.github.io/static/css/main.d5361f09.css",
+    "main.js": "/cjrieck.github.io/static/js/main.9c667fa4.js",
     "static/js/787.71e672d5.chunk.js": "/cjrieck.github.io/static/js/787.71e672d5.chunk.js",
     "static/media/personal-photo.png": "/cjrieck.github.io/static/media/personal-photo.fad0bf127c5f4aec310a.png",
     "static/media/noggin.png": "/cjrieck.github.io/static/media/noggin.41eb010478fb54dac9a9.png",
-    "static/media/message-bubble-translucent.png": "/cjrieck.github.io/static/media/message-bubble-translucent.07444f7e1d582231047f.png",
     "static/media/nbc.png": "/cjrieck.github.io/static/media/nbc.6403077fd976c0246725.png",
     "static/media/soundcloud.png": "/cjrieck.github.io/static/media/soundcloud.d083fa8c5d344b282c5f.png",
     "static/media/peachi.png": "/cjrieck.github.io/static/media/peachi.1896436ba4b76ff16318.png",
-    "static/media/technology-translucent.png": "/cjrieck.github.io/static/media/technology-translucent.978a9da75e36f7e1203e.png",
-    "static/media/phone-translucent.png": "/cjrieck.github.io/static/media/phone-translucent.c2abe0b2905699802276.png",
-    "static/media/research-icon.png": "/cjrieck.github.io/static/media/research-icon.7ab3c8973248d672b6c7.png",
-    "static/media/iterations-icon.png": "/cjrieck.github.io/static/media/iterations-icon.132512137898fcfd841e.png",
+    "static/media/siriusxm.png": "/cjrieck.github.io/static/media/siriusxm.97e208ab25b599e7046b.png",
     "static/media/swiftui.png": "/cjrieck.github.io/static/media/swiftui.586a24538377df18fe20.png",
     "static/media/react-native.png": "/cjrieck.github.io/static/media/react-native.ac34cfa11befbeb3d92d.png",
+    "static/media/oneeleven.png": "/cjrieck.github.io/static/media/oneeleven.583fc866710469979c76.png",
     "static/media/nickelodeon.png": "/cjrieck.github.io/static/media/nickelodeon.085f7e11a69a41a5d6a7.png",
-    "static/media/deployment-icon.png": "/cjrieck.github.io/static/media/deployment-icon.ac7b87bc23bb4ac83896.png",
     "static/media/swift.png": "/cjrieck.github.io/static/media/swift.d8190fc876244a1d31a4.png",
     "static/media/credijusto.png": "/cjrieck.github.io/static/media/credijusto.40faf6051d310abe0115.png",
     "static/media/python.png": "/cjrieck.github.io/static/media/python.7353c34714d95d1751b1.png",
     "static/media/wework.png": "/cjrieck.github.io/static/media/wework.ab17c871db34c15b6e35.png",
     "index.html": "/cjrieck.github.io/index.html",
-    "main.9ab63fcf.css.map": "/cjrieck.github.io/static/css/main.9ab63fcf.css.map",
-    "main.75db8f19.js.map": "/cjrieck.github.io/static/js/main.75db8f19.js.map",
+    "main.d5361f09.css.map": "/cjrieck.github.io/static/css/main.d5361f09.css.map",
+    "main.9c667fa4.js.map": "/cjrieck.github.io/static/js/main.9c667fa4.js.map",
     "787.71e672d5.chunk.js.map": "/cjrieck.github.io/static/js/787.71e672d5.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.9ab63fcf.css",
-    "static/js/main.75db8f19.js"
+    "static/css/main.d5361f09.css",
+    "static/js/main.9c667fa4.js"
   ]
 }
