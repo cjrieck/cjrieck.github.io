@@ -5,6 +5,7 @@
   padding-top: 100px;
   position: relative;
   overflow: hidden;
+  width: 100%;
 }
 
 .hero-content {

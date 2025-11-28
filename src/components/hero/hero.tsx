@@ -114,10 +114,10 @@ export default function Hero() {
   const titleLine2Words = ["&", "Entrepreneur"];
 
   return (
-    <section id="home" className="hero-section container-content">
+    <section id="home" className="hero-section">
       <FloatingShapes />
       
-      <div className="hero-content">
+      <div className="hero-content container-content">
         <motion.div 
           className="hero-text"
           initial="hidden"
