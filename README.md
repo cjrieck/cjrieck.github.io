@@ -44,6 +44,8 @@ Each layer has:
 - `title`: the layer's name.
 - `note`: your words about it, shown beside the stack.
 
+Aim for about 140 characters a note (a sentence or two; a project with fewer parts has room for longer ones). If a note is longer, the box grows by itself to fit it, so that number is there to keep the page height steady, not a hard stop.
+
 To drop a layer, delete its whole entry (from its `{` to its `}`). The page simply leaves it out and the part numbers close up. A project with no layers, written `"layers": []` or left out, has nothing to take apart, so it gets no slider.
 
 ### Add a project
