@@ -15,12 +15,17 @@
         {
           "kind": "interface",
           "title": "What you see",
-          "note": "[placeholder] Your words here."
+          "note": "Feed-based ads that sit in the listening feed, and the SoundCloud Go and Go+ screens that opened a new revenue stream."
         },
         {
           "kind": "app",
           "title": "The app",
-          "note": "[placeholder] Your words here."
+          "note": "The iOS side of SoundCloud Go and Go+: their UI and payment flow, plus a modularized Monetization codebase that sped up feature delivery."
+        },
+        {
+          "kind": "services",
+          "title": "The services",
+          "note": "The Scala backend for the feed ads, which grew SoundCloud's ad products and sales revenue."
         }
       ]
     },
@@ -34,22 +39,12 @@
         {
           "kind": "interface",
           "title": "What you see",
-          "note": "[placeholder] Your words here."
+          "note": "The NOGGIN app: a subscription that took Nickelodeon's brand direct to consumers for the first time."
         },
         {
           "kind": "app",
           "title": "The app",
-          "note": "[placeholder] A sentence or two on how the screens come together."
-        },
-        {
-          "kind": "services",
-          "title": "The services",
-          "note": "[placeholder] Two or three sentences on the hardest engineering problem."
-        },
-        {
-          "kind": "infrastructure",
-          "title": "The infrastructure",
-          "note": "[placeholder] What runs behind the curtain, in your words."
+          "note": "An iOS app built around UI. I implemented the dynamic Moose and Zee animations, which react to activity like fast swiping or long idle time, and themed parallax on the episode lists for shows in the home screen's infinite carousel. UIKit Dynamics adds playful touches."
         }
       ]
     },
@@ -63,12 +58,17 @@
         {
           "kind": "app",
           "title": "The app",
-          "note": "[placeholder] Your words here."
+          "note": "I led the Apple SSO integration across nine brand products, so signing in stayed seamless for viewers."
         },
         {
           "kind": "services",
           "title": "The services",
-          "note": "[placeholder] Your words here."
+          "note": "Backend for Frontends that cut the impact of third-party downtime and brought recovery from days to hours."
+        },
+        {
+          "kind": "infrastructure",
+          "title": "The infrastructure",
+          "note": "AWS deployment automation and Pact contract tests for faster, safer releases, plus the migration from AWS to Google Cloud and Kubernetes."
         }
       ]
     },
@@ -82,17 +82,17 @@
         {
           "kind": "interface",
           "title": "What you see",
-          "note": "[placeholder] Your words here."
+          "note": "A marketplace that recommends outfits matched to your personal style, built with React Native (Expo)."
         },
         {
           "kind": "app",
           "title": "The app",
-          "note": "[placeholder] Your words here."
+          "note": "The Sizing Calculator, built during the NYC Antler accelerator, drove a 27% uptick in organic sign-ups and a 4% purchase conversion in under a week."
         },
         {
           "kind": "services",
           "title": "The services",
-          "note": "[placeholder] Your words here."
+          "note": "The Python (Flask) backend behind the app, the other half of the stack I led as co-founder and CTO."
         }
       ]
     }
