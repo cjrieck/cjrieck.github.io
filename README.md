@@ -20,6 +20,10 @@ The photo is baked ahead of time into a sticker with a white border, an ink outl
 3. Run `npm start` and check the shape in a browser.
 4. Publish with `npm run deploy`.
 
+## Stickers on touch screens
+
+Stickers on touch screens: set `STICKERS_ON_TOUCH` in `sticker-logic.ts`. `true` lets a finger peel them off (press and hold); `false` leaves touch screens alone. A mouse always works.
+
 ## Edit project content
 
 The "take it apart" section of the page is filled in from one file: `src/data/projects.json`. Open it in any text editor, change the words between the quote marks, and save.
