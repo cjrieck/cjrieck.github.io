@@ -23,3 +23,5 @@ yarn-debug.log*
 yarn-error.log*
 
 .idea
+# Local planning, handoff and SDD scratch files
+.superpowers/
