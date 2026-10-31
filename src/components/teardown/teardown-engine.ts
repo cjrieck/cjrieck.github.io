@@ -6,6 +6,7 @@ import {
   TOSS,
   TOSS_STAGGER,
   arrivalStiffness,
+  noteSlot,
   plateSpread,
   plateStiffness,
   snapsToParts,
@@ -314,7 +315,10 @@ export function mountTeardown(
     ends[0].classList.toggle('on', !layered);
     ends[1].classList.toggle('on', layered);
 
-    const ps = rows.map((_, i) => clamp((t1 - NOTES_FROM - i * 0.1) / 0.3, 0, 1) * clamp((reveal - 0.1 - i * 0.07) / 0.28, 0, 1));
+    const ps = rows.map((_, i) => {
+      const slot = noteSlot(i, rows.length);
+      return clamp((t1 - NOTES_FROM - slot * 0.1) / 0.3, 0, 1) * clamp((reveal - 0.1 - slot * 0.07) / 0.28, 0, 1);
+    });
     rows.forEach((r, i) => { r.note.style.opacity = String(ps[i]); r.note.style.transform = `translateX(${(1 - ps[i]) * 12}px)`; });
     // Below this point nothing of the layers can show, whatever the individual notes are doing
     const hidden = t1 <= NOTES_FROM ? 'hidden' : '';

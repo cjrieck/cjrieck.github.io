@@ -225,6 +225,16 @@ describe('data that is unusual but allowed', () => {
       expect(p.style.opacity).not.toBe('NaN');
     });
   });
+  test('with many notes, every note still ends fully visible', () => {
+    const frames = fakeFrames();
+    const layers = Array.from({ length: 9 }, (_v, i) => ({ kind: 'app', title: `Layer ${i}`, note: 'n' }));
+    const { root } = mount({ projects: [{ id: 'big', title: 'Big', summary: 'S', layers }] });
+    fireEvent.keyDown(inputIn(root), { key: 'End' });
+    frames.run(300);
+    const notes = Array.from(root.querySelectorAll<HTMLElement>('.td-note'));
+    expect(notes).toHaveLength(9);
+    expect(notes.map((n) => n.style.opacity)).toEqual(notes.map(() => '1'));
+  });
   test('no projects mounts nothing and reports no parts', () => {
     const onSelect = jest.fn();
     const root = document.createElement('div');

@@ -17,6 +17,11 @@ export const plateStiffness = (i: number): number => Math.max(STIFFNESS_FLOOR, 2
 // The springs that settle a plate into place when its project arrives
 export const arrivalStiffness = (i: number): number => Math.max(STIFFNESS_FLOOR, 300 - i * 40);
 
+// The notes arrive one after another. The fifth note is the last whose delay still leaves it time to finish, so with more
+// notes than that the gaps shrink and the last note takes the fifth's place in the cascade. Up to five notes it is the plain order.
+const LAST_SLOT = 4;
+export const noteSlot = (index: number, count: number): number => (count > LAST_SLOT + 1 ? (index * LAST_SLOT) / (count - 1) : index);
+
 // How far apart the plates sit when fully taken apart: as much as 120, less when there are many
 export const plateSpread = (plateCount: number): number => (plateCount > 1 ? Math.min(120, 258 / (plateCount - 1)) : 0);
 

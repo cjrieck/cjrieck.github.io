@@ -1,5 +1,5 @@
 import type { Layer, Project } from '../../data/projects';
-import { arrivalStiffness, plateSpread, plateStiffness, snapsToParts, splitLayers } from './teardown-logic';
+import { arrivalStiffness, noteSlot, plateSpread, plateStiffness, snapsToParts, splitLayers } from './teardown-logic';
 
 const project = (layers: Layer[]): Project => ({ id: 'x', title: 'X', summary: 'S', layers });
 
@@ -15,6 +15,17 @@ test('stiffness never drops below the floor', () => {
   expect(plateStiffness(6)).toBe(35);
   expect(plateStiffness(20)).toBe(35);
   expect(arrivalStiffness(8)).toBe(35);
+});
+test('notes keep their approved stagger up to five notes', () => {
+  for (let count = 1; count <= 5; count++) expect(Array.from({ length: count }, (_v, i) => noteSlot(i, count))).toEqual(Array.from({ length: count }, (_v, i) => i));
+});
+test('with more notes the stagger closes up so the last one still finishes', () => {
+  for (const count of [6, 7, 8, 12]) {
+    const slots = Array.from({ length: count }, (_v, i) => noteSlot(i, count));
+    expect(slots[0]).toBe(0);
+    expect(slots[count - 1]).toBe(4);
+    expect(slots.slice(1).every((slot, i) => slot > slots[i])).toBe(true);
+  }
 });
 test('plates spread by the approved formula', () => {
   expect(plateSpread(1)).toBe(0);
