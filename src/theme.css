@@ -3,7 +3,9 @@
 *,*::before,*::after{box-sizing:border-box}
 html{scroll-behavior:smooth}
 html,body{overflow-x:clip}
-body{margin:0;font:400 1.0625rem/1.6 var(--body);color:var(--ink);background:var(--cream)}
+/* iOS Safari paints the area under its bottom bar and status bar with the body's background, so the body is the footer's color and main carries the cream */
+body{margin:0;font:400 1.0625rem/1.6 var(--body);color:var(--ink);background:var(--ink)}
+main{background:var(--cream)}
 h1,h2,h3{font-family:var(--display);font-weight:800;line-height:1;margin:0;letter-spacing:-.02em}
 img{display:block;max-width:100%;height:auto}
 a{color:inherit}
