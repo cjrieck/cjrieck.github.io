@@ -1,5 +1,5 @@
 /* hero */
-.hero{background-color:var(--mustard);border-top:0;padding:130px 0 100px}
+.hero{background-color:var(--mustard);border-top:0;padding:142px 0 100px}
 .hero .wrap{display:grid;grid-template-columns:1.15fr .85fr;gap:48px;align-items:center}
 .hero h1{display:block;letter-spacing:0}
 .nametag{display:block;width:min(100%,500px);background:var(--paper);border:3px solid var(--ink);border-radius:16px;overflow:hidden;box-shadow:var(--hard);transform:rotate(-2.5deg);margin-bottom:30px;text-align:center}
@@ -20,6 +20,6 @@
  .hero .wrap{grid-template-columns:1fr;gap:56px}.pic{width:min(100%,400px)}
 }
 @media (max-width:760px){
- .hero{padding:140px 0 80px}
+ .hero{padding:152px 0 80px}
  .pic .cr{width:64px;height:64px;font-size:1.3rem}.pic .star{width:64px}.pic img{--b:3.5px}
 }
