@@ -1,16 +1,19 @@
 import React, { useEffect } from 'react';
 import Home from './pages/home/home';
-import { scrollToCurrentHash } from './utils/legacy-hash';
+import { holdHashTarget } from './utils/legacy-hash';
 
 function App() {
   useEffect(() => {
-    scrollToCurrentHash();
-    // Fonts shift the layout, so land on the section again once they load.
-    document.fonts?.ready.then(scrollToCurrentHash);
+    // Fonts and the teardown shift the layout after the first jump, so keep landing on the
+    // section until the page settles or the visitor scrolls.
+    const stopHolding = holdHashTarget();
     // Lets :active fire on iOS.
     const noop = () => {};
     document.addEventListener('touchstart', noop, { passive: true });
-    return () => document.removeEventListener('touchstart', noop);
+    return () => {
+      stopHolding();
+      document.removeEventListener('touchstart', noop);
+    };
   }, []);
 
   return <Home />;
