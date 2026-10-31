@@ -2,6 +2,7 @@ import {
   STICKERS_ON_TOUCH, LIFT, TILT, HOLD, TOUCH_DELAY,
   canPeel, isNearHome, placementPercent, surfaceIndexAt, aimPoint, edgeScrollAmount,
 } from './sticker-logic';
+import { trackOnce } from '../../utils/analytics';
 
 type Key = 'x' | 'y' | 's' | 'lift' | 'rot' | 'tx' | 'ty' | 'lf' | 'foil';
 
@@ -144,6 +145,7 @@ export function mountStickers(opts: { onTouch?: boolean } = {}): () => void {
     held = a; root.classList.add('holding');
     try { root.setPointerCapture(id); } catch (_) { /* pointer already gone */ }
     buzz(10); live.add(a); paint(a); kick();
+    trackOnce('sticker-peeled');
   }
   // A swipe that began on a sticker turned out to be a scroll: put it straight back
   function dropPress() {

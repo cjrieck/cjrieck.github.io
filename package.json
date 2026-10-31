@@ -23,6 +23,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "bake": "node scripts/bake-stickers.cjs",
+    "og": "npm run build && node scripts/make-og-image.cjs",
     "project-image": "node scripts/project-image.cjs",
     "test:scripts": "node --test \"scripts/*.test.cjs\"",
     "verify": "npm run build && node --test --test-concurrency=1 \"scripts/verify/*.test.cjs\"",

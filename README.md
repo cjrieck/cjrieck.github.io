@@ -17,8 +17,24 @@ The photo is baked ahead of time into a sticker with a white border, an ink outl
 
 1. Save a transparent PNG over `src/img/personal-photo.png`. The background has to be cut out, because the sticker's shape follows the edge of the cutout. The bake refuses a photo with no transparency.
 2. Run `npm run bake`. It rebuilds every sticker in `public/stickers/`.
-3. Run `npm start` and check the shape in a browser.
-4. Publish with `npm run deploy`.
+3. Run `npm run og`. It rebuilds the site and saves a fresh link preview (the picture shown when the site is shared) to `public/og-image.png`. Open the image and check that nothing is cut off.
+4. Run `npm start` and check the shape in a browser.
+5. Publish with `npm run deploy`.
+
+## Reading Umami
+
+The site counts visits with Umami, which uses no cookies and collects nothing personal, so there is no consent banner. Four events are counted, each at most once per visit:
+
+- `contact-clicked`: someone clicked a way to reach you. The `via` detail says which one: `email`, `resume`, `linkedin` or `github`.
+- `work-reached`: the "take it apart" section scrolled into view.
+- `parts-viewed`: someone took a project apart to see its parts. The `project` detail says which project. A project with no parts is never counted, and letting go of the slider short of halfway doesn't count.
+- `sticker-peeled`: someone peeled a sticker off.
+
+In Umami, open the Events page. The `via` and `project` details are broken down on its Properties tab.
+
+Comparing `parts-viewed` with `work-reached` shows whether the people who see the teardown actually use it.
+
+Umami can't report a reliable visit length for a one-page site, because it measures time between page loads and everything here is one page. Ignore the visit duration figures.
 
 ## Stickers on touch screens
 

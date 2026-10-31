@@ -13,6 +13,7 @@ import {
   splitLayers,
 } from './teardown-logic';
 import type { PartRow } from './teardown-logic';
+import { trackOnce } from '../../utils/analytics';
 
 const ART: Record<string, string> = {
   app: `<svg viewBox="0 0 300 380"><defs><g id="td-row"><rect x="22" y="190" width="256" height="40" rx="6"/><rect class="f-pic" x="32" y="198" width="24" height="24" rx="4"/><path d="M68 204h120M68 216h76"/></g></defs><rect x="22" y="22" width="256" height="34" rx="6"/><circle cx="40" cy="39" r="6"/><path d="M196 39h64"/><rect class="f-pic" x="22" y="70" width="256" height="104" rx="8"/><path d="M22 150l70-44 54 30 46-24 86 40" stroke-dasharray="5 4"/><use href="#td-row"/><use href="#td-row" y="46"/><use href="#td-row" y="92"/><rect x="22" y="338" width="256" height="26" rx="8"/><circle class="f-line" cx="60" cy="351" r="5"/><circle class="f-line" cx="120" cy="351" r="5"/><circle class="f-line" cx="180" cy="351" r="5"/><circle class="f-line" cx="240" cy="351" r="5"/></svg>`,
@@ -197,11 +198,17 @@ export function mountTeardown(
   function switchTo(id: string, dir: number) {
     currentId = id;
     Array.from(tabs.children).forEach((t, i) => t.setAttribute('aria-pressed', String(projects[i].id === id)));
-    if (reduce) { build(); return; }
+    if (reduce) { build(); countParts(); return; }
     toss(dir);
     arriveDir = dir;
     build(true);
     kick();
+    countParts();
+  }
+
+  // A project counts as viewed when it is showing its parts; one with no parts never does
+  function countParts() {
+    if (target === 1 && rows.length > 0) trackOnce('parts-viewed', { project: currentId });
   }
 
   function toss(dir: number) {
@@ -371,6 +378,7 @@ export function mountTeardown(
 
   function setState(layered: boolean, instant?: boolean) {
     target = layered ? 1 : 0;
+    countParts();
     input.value = layered ? '100' : '0';
     input.setAttribute('aria-valuetext', layered ? names.parts : names.whole);
     if (instant) { settle(); if (plates.length) render(); } else kick();
@@ -412,7 +420,10 @@ export function mountTeardown(
     target = 0.08; kick();
     later(() => { if (!touched) { target = 0; kick(); } }, 420);
   }
-  const watcher = new window.IntersectionObserver(([e]) => { visible = e.isIntersecting; });
+  const watcher = new window.IntersectionObserver(([e]) => {
+    visible = e.isIntersecting;
+    if (visible) trackOnce('work-reached');
+  });
   watcher.observe(root);
   const nudger = window.setInterval(nudge, 7000);
 
