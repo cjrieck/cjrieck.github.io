@@ -1,0 +1,100 @@
+{
+  "labels": {
+    "whole": "The Product",
+    "parts": "The Parts",
+    "part": "Part"
+  },
+  "projects": [
+    {
+      "id": "soundcloud",
+      "title": "SoundCloud",
+      "summary": "Developed and shipped monetization products including new ad products and SoundCloud Go and Go+",
+      "image": "soundcloud.webp",
+      "imageAlt": "The SoundCloud app on two phones",
+      "layers": [
+        {
+          "kind": "interface",
+          "title": "What you see",
+          "note": "[placeholder] Your words here."
+        },
+        {
+          "kind": "app",
+          "title": "The app",
+          "note": "[placeholder] Your words here."
+        }
+      ]
+    },
+    {
+      "id": "noggin",
+      "title": "Noggin",
+      "summary": "Developed and launched a first-to-market subscription streaming service for Nickelodeon revitalizing the Noggin brand",
+      "image": "noggin.webp",
+      "imageAlt": "The Noggin app on a tablet, with mascots peeking over the top",
+      "layers": [
+        {
+          "kind": "interface",
+          "title": "What you see",
+          "note": "[placeholder] Your words here."
+        },
+        {
+          "kind": "app",
+          "title": "The app",
+          "note": "[placeholder] A sentence or two on how the screens come together."
+        },
+        {
+          "kind": "services",
+          "title": "The services",
+          "note": "[placeholder] Two or three sentences on the hardest engineering problem."
+        },
+        {
+          "kind": "infrastructure",
+          "title": "The infrastructure",
+          "note": "[placeholder] What runs behind the curtain, in your words."
+        }
+      ]
+    },
+    {
+      "id": "nbcuniversal",
+      "title": "NBCUniversal",
+      "summary": "Developed the mobile apps and backend for several NBCU brands including, but not limited to, USA, SyFy, Bravo, E!, and Telemundo",
+      "image": "nbc.webp",
+      "imageAlt": "The USA Network app on a phone and the Bravo Now app on a tablet",
+      "layers": [
+        {
+          "kind": "app",
+          "title": "The app",
+          "note": "[placeholder] Your words here."
+        },
+        {
+          "kind": "services",
+          "title": "The services",
+          "note": "[placeholder] Your words here."
+        }
+      ]
+    },
+    {
+      "id": "peachi",
+      "title": "Peachi",
+      "summary": "First of its kind fashion marketplace utilizing a user's unique style profile to provide outfit inspiration and inspired shopping",
+      "image": "peachi.webp",
+      "imageAlt": "The Peachi app on two phones",
+      "layers": [
+        {
+          "kind": "interface",
+          "title": "What you see",
+          "note": "[placeholder] Your words here."
+        },
+        {
+          "kind": "app",
+          "title": "The app",
+          "note": "[placeholder] Your words here."
+        },
+        {
+          "kind": "services",
+          "title": "The services",
+          "note": "[placeholder] Your words here."
+        }
+      ]
+    }
+  ]
+}
