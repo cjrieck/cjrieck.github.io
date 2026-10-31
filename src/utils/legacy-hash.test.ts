@@ -137,7 +137,7 @@ describe('holdHashTarget', () => {
     stop();
     expect(window.cancelAnimationFrame).toHaveBeenCalled();
     ['wheel', 'touchstart', 'touchmove', 'pointerdown', 'keydown'].forEach((type) =>
-      expect(remove).toHaveBeenCalledWith(type, expect.any(Function)));
+      expect(remove).toHaveBeenCalledWith(type, expect.any(Function), expect.anything()));
     top = 640;
     runFrame();
     expect(section.scrollIntoView).toHaveBeenCalledTimes(1);
@@ -150,8 +150,10 @@ describe('holdHashTarget', () => {
     holdHashTarget();
     now.mockReturnValue(5000);
     top = 640;
+    runFrame(); // the last look still corrects the position, then it stops
+    expect(section.scrollIntoView).toHaveBeenCalledTimes(2);
     runFrame();
-    expect(section.scrollIntoView).toHaveBeenCalledTimes(1);
+    expect(section.scrollIntoView).toHaveBeenCalledTimes(2);
     delete (document as { readyState?: string }).readyState;
   });
 });

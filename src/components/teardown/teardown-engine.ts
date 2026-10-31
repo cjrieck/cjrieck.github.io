@@ -266,9 +266,16 @@ export function mountTeardown(
 
   // Desktop: the stage keeps its height unless some project's notes would not fit in it. Each project's notes are laid out
   // hidden at the real column width, and the stage grows to the tallest set plus a little room for each note.
+  // Whether the teardown's stylesheet has been applied. A deferred script can run before a stylesheet has loaded
+  // (WebKit does), and then the stage is a plain block with the notes as wide as the page.
+  const styled = () => window.getComputedStyle(stage).display === 'grid';
   function fitStage() {
     stage.style.height = '';
     if (nmq.matches) return;
+    // Measured without the stylesheet, the stage would be grown to thousands of pixels and stay that way until the fonts
+    // arrive, so wait for the stylesheet (see the observer below) and leave the height to the CSS meanwhile
+    if (!styled()) return;
+    notesBox.style.height = ''; // the phone layout's inline height must not count as part of the notes
     // The slider's row counts as part of the stage's chrome even while this project has no slider
     const wasHidden = control.hidden;
     control.hidden = false;
@@ -415,6 +422,16 @@ export function mountTeardown(
   nmq.addEventListener('change', relayout, { signal });
   rmq.addEventListener('change', (e) => { reduce = e.matches; kick(); }, { signal });
   document.fonts?.ready?.then(() => { if (!signal.aborted) relayout(); });
+  // If the stylesheet is still loading, the notes box changes size when it lands: measure then, once
+  if (!styled() && typeof window.ResizeObserver === 'function') {
+    const waiting = new window.ResizeObserver(() => {
+      if (!styled()) return;
+      waiting.disconnect();
+      relayout();
+    });
+    waiting.observe(notesBox);
+    signal.addEventListener('abort', () => waiting.disconnect());
+  }
   buildTabs();
   build();
   relayout();

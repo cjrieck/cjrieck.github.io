@@ -424,8 +424,17 @@ describe('below 640px', () => {
 
 describe('fitting the stage to the notes (640px and up)', () => {
   let perNote = 100;
+  // jsdom has no stylesheet, so this stands in for the teardown's: the stage is a grid
+  function applyStylesheet() {
+    const style = document.createElement('style');
+    style.textContent = '.td-stage { display: grid; }';
+    document.head.append(style);
+    undo.push(() => style.remove());
+    return style;
+  }
   // Stage 610px tall, 90px of it padding, gaps and the slider; a project's notes are `perNote` tall each
   function stubSizes() {
+    applyStylesheet();
     stubProperty(HTMLElement.prototype, 'offsetHeight', {
       get(this: HTMLElement) {
         const stage = this.classList.contains('td-stage') ? this : this.parentElement;
