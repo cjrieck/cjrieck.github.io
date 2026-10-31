@@ -1,0 +1,2 @@
+footer{position:relative;background:var(--ink);color:var(--cream);padding:28px 0;border-top:3px solid var(--ink)}
+footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;font-size:.95rem}

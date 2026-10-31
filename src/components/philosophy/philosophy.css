@@ -1,0 +1,15 @@
+/* philosophy: notes */
+.phil{background:var(--tomato)}
+.phil .sh h2{color:var(--paper)}
+.notes{display:grid;grid-template-columns:repeat(3,1fr);gap:44px 34px;align-items:start}
+.note{position:relative;padding:46px 26px 32px;border:3px solid var(--ink);border-radius:6px;box-shadow:var(--hard);transform:rotate(var(--rot));transition:transform .4s cubic-bezier(.34,1.56,.64,1)}
+.note:hover{transform:rotate(0) translateY(-6px)}
+.note h3{font-size:1.7rem;margin-bottom:14px}
+.note p{margin:0}
+.n1{background:var(--mustard)}.n2{background:var(--paper);margin-top:30px}.n3{background:var(--mint)}
+.n2 p{line-height:28px;background:repeating-linear-gradient(transparent 0 27px,rgba(18,133,123,.4) 27px 28px)}
+.n2::before{content:"";position:absolute;left:0;right:0;top:28px;border-top:2px solid var(--tomato)}
+.pin{position:absolute;top:-13px;left:50%;width:26px;height:26px;margin-left:-13px;border-radius:50%;background:var(--teal);border:3px solid var(--ink);box-shadow:inset -4px -4px 0 rgba(0,0,0,.25),2px 4px 0 var(--ink)}
+@media (max-width:900px){
+ .notes{grid-template-columns:1fr;gap:48px;max-width:520px;margin:0 auto}.n2{margin-top:0}
+}

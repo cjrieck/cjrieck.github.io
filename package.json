@@ -25,6 +25,7 @@
     "bake": "node scripts/bake-stickers.cjs",
     "project-image": "node scripts/project-image.cjs",
     "test:scripts": "node --test \"scripts/*.test.cjs\"",
+    "verify": "npm run build && node --test --test-concurrency=1 \"scripts/verify/*.test.cjs\"",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
     "eject": "react-scripts eject"
@@ -48,6 +49,7 @@
     ]
   },
   "devDependencies": {
-    "sharp": "^0.33.5"
+    "playwright": "1.49.1",
+    "sharp": "0.33.5"
   }
 }

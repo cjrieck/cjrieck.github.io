@@ -1,0 +1,26 @@
+/* process: tickets */
+.proc{background:var(--cream)}
+.steps{--lx:50%;--sw:76px;position:relative}
+.track{position:absolute;left:var(--lx);width:4px;margin-left:-2px;background:repeating-linear-gradient(var(--ink) 0 10px,transparent 10px 20px)}
+.ball{position:absolute;left:var(--lx);top:0;width:32px;height:32px;margin:-16px 0 0 -16px;border-radius:50%;background:var(--tomato);border:3px solid var(--ink);box-shadow:3px 4px 0 var(--ink);z-index:4;will-change:transform}
+.ball::after{content:"";position:absolute;left:6px;top:5px;width:7px;height:7px;border-radius:50%;background:rgba(255,255,255,.7)}
+.step{display:grid;grid-template-columns:1fr 60px 1fr;align-items:center;margin-bottom:44px}
+.step:last-child{margin-bottom:0}
+.node{grid-column:2;grid-row:1;justify-self:center;width:24px;height:24px;border-radius:50%;background:var(--paper);border:3px solid var(--ink);z-index:3;transition:background .2s}
+.node.on{background:var(--ink)}
+.ticket{grid-row:1;position:relative;display:grid;grid-template-columns:var(--sw) 1fr;max-width:540px;background:var(--paper);border:3px solid var(--ink);border-radius:12px;box-shadow:var(--hard);transform:rotate(var(--rot));transition:box-shadow .3s}
+.ticket.on{box-shadow:9px 11px 0 var(--ink)}
+.step:nth-child(odd) .ticket{grid-column:1;justify-self:end}
+.step:nth-child(even) .ticket{grid-column:3;justify-self:start}
+.stub{display:grid;place-items:center;background:var(--c);border-right:3px dashed var(--ink);border-radius:8px 0 0 8px;font:800 2.3rem/1 var(--display)}
+.tbody{padding:22px 24px 24px}
+.tbody h3{font-size:1.5rem;margin-bottom:10px}
+.tbody p{margin:0}
+.ticket::before,.ticket::after{content:"";position:absolute;left:calc(var(--sw) - 14.5px);width:26px;height:26px;border-radius:50%;background:var(--cream);border:3px solid var(--ink)}
+.ticket::before{top:-16px;clip-path:inset(50% 0 0 0)}
+.ticket::after{bottom:-16px;clip-path:inset(0 0 50% 0)}
+@media (max-width:760px){
+ .steps{--lx:22px;--sw:60px}.step{grid-template-columns:44px 1fr;margin-bottom:34px}
+ .node{grid-column:1}.step:nth-child(n) .ticket{grid-column:2;justify-self:stretch;max-width:none}
+ .stub{font-size:1.8rem}.tbody{padding:18px 16px 20px}
+}

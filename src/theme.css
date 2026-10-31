@@ -29,4 +29,8 @@ section{position:relative;padding:96px 0;border-top:3px solid var(--ink)}
 /* die-*.png stickers are rendered ahead of time, with their border, outline and hard shadow already in the image */
 .star{filter:drop-shadow(4px 5px 0 var(--ink))}
 
+@media (max-width:760px){
+ section{padding:68px 0}
+ html{scroll-padding-top:42px}
+}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{transition:none!important;animation:none!important}}

@@ -1,0 +1,14 @@
+/* skills: sticker sheet */
+.skills{background:var(--mustard)}
+.sheet{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(12px,2vw,24px);padding:clamp(16px,3vw,36px);background:var(--paper);border:3px solid var(--ink);border-radius:22px;box-shadow:10px 12px 0 var(--ink);transform:rotate(-.5deg)}
+.cell{display:flex;flex-direction:column;align-items:center;gap:20px;padding:24px 10px 16px;border:2px dashed rgba(27,22,38,.28);border-radius:18px}
+.cell img{width:clamp(84px,11vw,112px);--b:2.5px;--ob:1.2px;--sx:3px;--sy:4px;cursor:grab;touch-action:manipulation;user-select:none;-webkit-user-select:none;-webkit-touch-callout:none;-webkit-user-drag:none;transition:transform .45s cubic-bezier(.34,1.56,.64,1)}
+.cell:hover img{transform:translateY(-7px) rotate(-5deg)}
+.tag{display:flex;flex-direction:column;align-items:center;width:min(100%,160px);background:#fff;border:2px solid var(--ink);border-radius:6px;overflow:hidden;text-align:center;box-shadow:2px 3px 0 var(--ink)}
+.tag b{padding:7px 10px 6px;font:700 1.05rem/1.1 var(--display)}
+.tag span{width:100%;padding:6px 8px 5px;border-top:2px solid var(--ink);font:500 .75rem/1.2 var(--mono);letter-spacing:.05em;text-transform:uppercase}
+.l1{background:var(--ink);color:var(--cream)}.l2{background:var(--teal-d);color:#fff}.l3{background:var(--mustard)}.l4{background:var(--paper)}
+.note-fn{margin:38px 0 0;max-width:60ch;font-size:.95rem}
+@media (max-width:900px){
+ .sheet{grid-template-columns:repeat(2,1fr)}
+}

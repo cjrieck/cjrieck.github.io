@@ -1,0 +1,25 @@
+/* hero */
+.hero{background-color:var(--mustard);border-top:0;padding:130px 0 100px}
+.hero .wrap{display:grid;grid-template-columns:1.15fr .85fr;gap:48px;align-items:center}
+.hero h1{display:block;letter-spacing:0}
+.nametag{display:block;width:min(100%,500px);background:var(--paper);border:3px solid var(--ink);border-radius:16px;overflow:hidden;box-shadow:var(--hard);transform:rotate(-2.5deg);margin-bottom:30px;text-align:center}
+.nametag .top{display:block;background:var(--tomato);padding:10px 12px 9px;border-bottom:3px solid var(--ink)}
+.nametag .top b{display:block;font:800 clamp(1.5rem,3.4vw,2.2rem)/1 var(--display);letter-spacing:.08em;text-transform:uppercase}
+.nametag .top i{display:block;font:500 .9rem/1.2 var(--mono);font-style:normal;letter-spacing:.04em;margin-top:2px}
+.nametag .nm{display:block;padding:20px 14px 22px;font:800 clamp(2.1rem,4.6vw,3.5rem)/1 var(--display);letter-spacing:-.03em}
+.role{display:block;font-size:clamp(2.7rem,6.2vw,5.5rem);line-height:.96;letter-spacing:-.04em}
+.role em{font-style:normal;background:linear-gradient(transparent 58%,var(--tomato) 58% 92%,transparent 92%);-webkit-box-decoration-break:clone;box-decoration-break:clone;padding:0 .08em}
+.hero p{font-size:clamp(1.1rem,2vw,1.3rem);font-weight:500;max-width:32em;margin:28px 0 32px}
+.cta{display:flex;flex-wrap:wrap;gap:16px 18px}
+.pic{position:relative;justify-self:center;width:min(100%,460px)}
+.pic::before{content:"";position:absolute;inset:10% 0 -2% 6%;background:var(--teal);border:3px solid var(--ink);border-radius:36px;transform:rotate(-7deg);box-shadow:var(--hard)}
+.pic img{position:relative;transform:rotate(3deg);--b:5px;--ob:1.5px;--sx:8px;--sy:10px}
+.pic .star{aspect-ratio:1;position:absolute;right:-2%;top:0;width:84px;transform:rotate(14deg);--b:3px;--ob:1.2px;--sx:3px;--sy:4px}
+.pic .cr{position:absolute;left:-1%;bottom:4%;width:80px;height:80px;border-radius:50%;background:#fff;border:3px solid var(--ink);display:grid;place-items:center;font:800 1.6rem var(--display);transform:rotate(-12deg);box-shadow:4px 5px 0 var(--ink)}
+@media (max-width:900px){
+ .hero .wrap{grid-template-columns:1fr;gap:56px}.pic{width:min(100%,400px)}
+}
+@media (max-width:760px){
+ .hero{padding:140px 0 80px}
+ .pic .cr{width:64px;height:64px;font-size:1.3rem}.pic .star{width:64px}.pic img{--b:3.5px}
+}
