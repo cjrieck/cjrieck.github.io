@@ -1,6 +1,7 @@
 import React from 'react';
 import { act, render, screen, within } from '@testing-library/react';
 import App from './App';
+import { projectData } from './data/projects';
 
 // Every piece of real copy, checked against the mockup's markup and shared-brief.md.
 const REQUIRED_COPY = [
@@ -111,6 +112,17 @@ test('contact details are visible and correct', () => {
   expect(screen.getByRole('link', { name: /GitHub/ })).toHaveAttribute('href', 'https://github.com/cjrieck');
 });
 
+test('the teardown mounts once in the work section, even when React mounts it twice', () => {
+  const { container } = render(
+    <React.StrictMode>
+      <App />
+    </React.StrictMode>,
+  );
+  expect(container.querySelectorAll('#work-teardown > .td-stage')).toHaveLength(1);
+  expect(container.querySelectorAll('#work-teardown .td-tab')).toHaveLength(projectData.projects.length);
+  expect(screen.getByText('Drag the slider to take it apart')).toHaveStyle({ visibility: 'visible' });
+});
+
 test('the footer shows the current year', () => {
   render(<App />);
   expect(screen.getByText(`© ${new Date().getFullYear()} Clayton Rieck`)).toBeInTheDocument();
@@ -130,17 +142,21 @@ describe('nav highlight', () => {
 
   beforeEach(() => {
     callbacks.length = options.length = observed.length = disconnected = 0;
+    // The teardown watches whether it is on screen with an observer of its own (it passes no options); only the nav's is under test here
     window.IntersectionObserver = class {
+      private readonly nav: boolean;
       constructor(cb: IntersectionObserverCallback, init?: IntersectionObserverInit) {
+        this.nav = init !== undefined;
+        if (!this.nav) return;
         callbacks.push(cb);
         options.push(init);
       }
       observe(target: Element) {
-        observed.push(target.id);
+        if (this.nav) observed.push(target.id);
       }
       unobserve() {}
       disconnect() {
-        disconnected += 1;
+        if (this.nav) disconnected += 1;
       }
     } as unknown as typeof IntersectionObserver;
   });
