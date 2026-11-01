@@ -1,0 +1,100 @@
+{
+  "labels": {
+    "whole": "The Product",
+    "parts": "The Parts",
+    "part": "Part"
+  },
+  "projects": [
+    {
+      "id": "soundcloud",
+      "title": "SoundCloud",
+      "summary": "Developed and shipped monetization products including new ad products and SoundCloud Go and Go+",
+      "image": "soundcloud.webp",
+      "imageAlt": "The SoundCloud app on two phones",
+      "layers": [
+        {
+          "kind": "interface",
+          "title": "What you see",
+          "note": "Feed-based ads that sit in the listening feed, and the SoundCloud Go and Go+ screens that opened a new revenue stream."
+        },
+        {
+          "kind": "app",
+          "title": "The app",
+          "note": "The iOS side of SoundCloud Go and Go+: their UI and payment flow, plus a modularized Monetization codebase that sped up feature delivery."
+        },
+        {
+          "kind": "services",
+          "title": "The services",
+          "note": "The Scala backend for the feed ads, which grew SoundCloud's ad products and sales revenue."
+        }
+      ]
+    },
+    {
+      "id": "noggin",
+      "title": "Noggin",
+      "summary": "Developed and launched a first-to-market subscription streaming service for Nickelodeon revitalizing the Noggin brand",
+      "image": "noggin.webp",
+      "imageAlt": "The Noggin app on a tablet, with mascots peeking over the top",
+      "layers": [
+        {
+          "kind": "interface",
+          "title": "What you see",
+          "note": "The NOGGIN app: a subscription that took Nickelodeon's brand direct to consumers for the first time."
+        },
+        {
+          "kind": "app",
+          "title": "The app",
+          "note": "An iOS app built around UI. I implemented the dynamic Moose and Zee animations, which react to activity like fast swiping or long idle time, and themed parallax on the episode lists for shows in the home screen's infinite carousel. UIKit Dynamics adds playful touches."
+        }
+      ]
+    },
+    {
+      "id": "nbcuniversal",
+      "title": "NBCUniversal",
+      "summary": "Developed the mobile apps and backend for several NBCU brands including, but not limited to, USA, SyFy, Bravo, E!, and Telemundo",
+      "image": "nbc.webp",
+      "imageAlt": "The USA Network app on a phone and the Bravo Now app on a tablet",
+      "layers": [
+        {
+          "kind": "app",
+          "title": "The app",
+          "note": "I led the Apple SSO integration across nine brand products, so signing in stayed seamless for viewers."
+        },
+        {
+          "kind": "services",
+          "title": "The services",
+          "note": "Backend for Frontends that cut the impact of third-party downtime and brought recovery from days to hours."
+        },
+        {
+          "kind": "infrastructure",
+          "title": "The infrastructure",
+          "note": "AWS deployment automation and Pact contract tests for faster, safer releases, plus the migration from AWS to Google Cloud and Kubernetes."
+        }
+      ]
+    },
+    {
+      "id": "peachi",
+      "title": "Peachi",
+      "summary": "First of its kind fashion marketplace utilizing a user's unique style profile to provide outfit inspiration and inspired shopping",
+      "image": "peachi.webp",
+      "imageAlt": "The Peachi app on two phones",
+      "layers": [
+        {
+          "kind": "interface",
+          "title": "What you see",
+          "note": "An AI stylist that recommends outfits matched to your personal style, built with React Native (Expo)."
+        },
+        {
+          "kind": "app",
+          "title": "The app",
+          "note": "As co-founder and CTO, I led development across the whole product, including the \"Find your style\" onboarding. The Sizing Calculator, built during the NYC Antler accelerator, drove a 27% uptick in organic sign-ups and a 4% purchase conversion in under a week."
+        },
+        {
+          "kind": "services",
+          "title": "The services",
+          "note": "A rule-based engine that determines outfits, running on a Python (Flask) backend."
+        }
+      ]
+    }
+  ]
+}

@@ -1,26 +1,32 @@
-import React from 'react';
-import Navbar from '../../components/navbar/navbar';
+import React, { useEffect } from 'react';
+import { mountStickers } from '../../components/stickers/sticker-engine';
+import Nav from '../../components/nav/nav';
 import Hero from '../../components/hero/hero';
-import BrandsTicker from '../../components/brands-ticker/brands-ticker';
+import Clients from '../../components/clients/clients';
 import Philosophy from '../../components/philosophy/philosophy';
 import Process from '../../components/process/process';
-import TechStack from '../../components/tech-stack/tech-stack';
-import Portfolio from '../../components/portfolio/portfolio';
+import Skills from '../../components/skills/skills';
+import Work from '../../components/work/work';
+import Contact from '../../components/contact/contact';
 import Footer from '../../components/footer/footer';
-import CustomCursor from '../../components/custom-cursor/custom-cursor';
+import '../../components/stickers/stickers.css';
 
 export default function Home() {
+  useEffect(() => mountStickers(), []);
+
   return (
-    <div className="single-page-layout">
-      <CustomCursor />
-      <Navbar />
-      <Hero />
-      <BrandsTicker />
-      <Philosophy />
-      <Process />
-      <TechStack />
-      <Portfolio />
+    <>
+      <Nav />
+      <main>
+        <Hero />
+        <Clients />
+        <Philosophy />
+        <Process />
+        <Skills />
+        <Work />
+        <Contact />
+      </main>
       <Footer />
-    </div>
+    </>
   );
 }
