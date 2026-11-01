@@ -25,3 +25,9 @@ yarn-error.log*
 .idea
 # Local planning, handoff and SDD scratch files
 .superpowers/
+
+# Personal Claude Code settings (the shared one is .claude/settings.json)
+.claude/settings.local.json
+
+# Plans and specs are kept local, not in the repo
+docs/superpowers/
