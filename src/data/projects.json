@@ -82,17 +82,17 @@
         {
           "kind": "interface",
           "title": "What you see",
-          "note": "A marketplace that recommends outfits matched to your personal style, built with React Native (Expo)."
+          "note": "An AI stylist that recommends outfits matched to your personal style, built with React Native (Expo)."
         },
         {
           "kind": "app",
           "title": "The app",
-          "note": "The Sizing Calculator, built during the NYC Antler accelerator, drove a 27% uptick in organic sign-ups and a 4% purchase conversion in under a week."
+          "note": "As co-founder and CTO, I led development across the whole product, including the \"Find your style\" onboarding. The Sizing Calculator, built during the NYC Antler accelerator, drove a 27% uptick in organic sign-ups and a 4% purchase conversion in under a week."
         },
         {
           "kind": "services",
           "title": "The services",
-          "note": "The Python (Flask) backend behind the app, the other half of the stack I led as co-founder and CTO."
+          "note": "A rule-based engine that determines outfits, running on a Python (Flask) backend."
         }
       ]
     }
