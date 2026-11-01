@@ -1,6 +1,6 @@
 /* nav: a strip of label tape */
-/* The 12px of breathing room is the sticky offset, not a margin: a margin here collapsed out of the zero-height wrapper, which shoved the whole page down and left the nav flush with the top edge once stuck */
-.navwrap{position:sticky;top:12px;z-index:60;height:0}
+/* The breathing room is the sticky offset, not a margin: a margin here collapsed out of the zero-height wrapper, which shoved the whole page down and left the nav flush with the top edge once stuck */
+.navwrap{position:sticky;top:var(--nav-gap);z-index:60;height:0}
 .nav{position:relative;width:min(1180px,100% - 24px);margin:0 auto;display:flex;align-items:center;gap:10px 14px;background:var(--ink);color:var(--cream);border:3px solid var(--cream);border-radius:10px;padding:8px 10px;box-shadow:0 0 0 2.5px var(--ink),5px 6px 0 2.5px var(--ink)}
 .nav::after{content:"";position:absolute;inset:3px;border:1.5px dashed rgba(251,241,220,.28);border-radius:6px;pointer-events:none}
 .nav a:focus-visible{outline-color:var(--mustard)}

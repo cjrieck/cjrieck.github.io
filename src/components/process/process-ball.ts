@@ -1,9 +1,11 @@
+import { clamp } from '../../utils/math';
+
 // Where the ball sits on the dashed line. `anchor` is how far down the steps the reader's eye is;
 // the ball never leaves the line, and with reduced motion it hops from step to step instead of gliding.
 export function ballOffset(anchor: number, centers: number[], reduce: boolean): number {
   const first = centers[0];
   const last = centers[centers.length - 1];
-  const y = Math.min(Math.max(anchor, first), last);
+  const y = clamp(anchor, first, last);
   return reduce ? Math.max(...centers.filter((c) => c <= y + 1)) : y;
 }
 

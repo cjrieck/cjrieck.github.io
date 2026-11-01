@@ -1,10 +1,12 @@
+import { clamp } from '../../utils/math';
+
 export const STICKERS_ON_TOUCH: boolean = true;
 export const LIFT = 1.12, TILT = 16, HOLD = 400, TOUCH_DELAY = 70, HOME = 70;
 
 export type Box = { left: number; top: number; width: number; height: number };
 
-export function canPeel(pointerType: string, onTouch: boolean): boolean {
-  return pointerType === 'mouse' || onTouch;
+export function canPeel(pointerType: string): boolean {
+  return pointerType === 'mouse' || STICKERS_ON_TOUCH;
 }
 
 export function isNearHome(x: number, y: number, home: Box): boolean {
@@ -26,8 +28,6 @@ export function surfaceIndexAt(y: number, surfaces: { top: number; bottom: numbe
   const i = surfaces.findIndex((s) => y >= s.top && y < s.bottom);
   return i < 0 ? surfaces.length - 1 : i;
 }
-
-const clamp = (v: number, a: number, b: number) => Math.max(a, Math.min(b, v));
 
 export function aimPoint(px: number, py: number, ox: number, oy: number, floatUp: number, w: number, h: number, vw: number, vh: number): [number, number] {
   const mx = w * .35, my = h * .35;

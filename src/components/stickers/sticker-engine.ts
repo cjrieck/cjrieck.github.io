@@ -1,8 +1,9 @@
 import {
-  STICKERS_ON_TOUCH, LIFT, TILT, HOLD, TOUCH_DELAY,
+  LIFT, TILT, HOLD, TOUCH_DELAY,
   canPeel, isNearHome, placementPercent, surfaceIndexAt, aimPoint, edgeScrollAmount,
 } from './sticker-logic';
 import { trackOnce } from '../../utils/analytics';
+import { clamp } from '../../utils/math';
 
 type Key = 'x' | 'y' | 's' | 'lift' | 'rot' | 'tx' | 'ty' | 'lf' | 'foil';
 
@@ -17,15 +18,11 @@ type Sticker = {
 
 type Press = { t: HTMLElement; touch: boolean; id: number; x: number; y: number; timer?: number; a?: Sticker; at?: number };
 
-const INK = '#1b1626';
-const clamp = (v: number, a: number, b: number) => Math.max(a, Math.min(b, v));
-
 /* Company and skill stickers peel off and stay wherever they are dropped */
-export function mountStickers(opts: { onTouch?: boolean } = {}): () => void {
-  const onTouch = opts.onTouch === undefined ? STICKERS_ON_TOUCH : opts.onTouch;
+export function mountStickers(): () => void {
   const ctl = new AbortController();
   const { signal } = ctl;
-  const reduce = !!(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches);
+  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   const root = document.documentElement, hand = document.createElement('div');
   hand.id = 'hand'; hand.setAttribute('aria-hidden', 'true'); document.body.append(hand);
   const surfaces = Array.from(document.querySelectorAll<HTMLElement>('main > section, footer'));
@@ -46,8 +43,8 @@ export function mountStickers(opts: { onTouch?: boolean } = {}): () => void {
     const at = a.el.parentNode === hand ? `translate(${a.x}px,${a.y}px) ` : '';
     const tilt = live.has(a) ? `perspective(700px) rotateX(${a.tx}deg) rotateY(${a.ty}deg) ` : '';
     a.el.style.transform = `${at}translate(-50%,-50%) ${tilt}rotate(${a.rot}deg) scale(${a.s})`;
-    if (a.kind === 'sk') a.el.style.boxShadow = `${4 + a.lift * 10}px ${5 + a.lift * 13}px 0 ${INK}`;
-    else a.el.style.filter = a.lift > .01 ? `drop-shadow(${a.lift * 9}px ${a.lift * 11}px 0 ${INK})` : '';
+    if (a.kind === 'sk') a.el.style.boxShadow = `${4 + a.lift * 10}px ${5 + a.lift * 13}px 0 var(--ink)`;
+    else a.el.style.filter = a.lift > .01 ? `drop-shadow(${a.lift * 9}px ${a.lift * 11}px 0 var(--ink))` : '';
     const on = a.foil > .01;
     a.foilEl.style.display = on ? 'block' : 'none';
     if (!on) return;
@@ -87,7 +84,7 @@ export function mountStickers(opts: { onTouch?: boolean } = {}): () => void {
         const r = a.home.getBoundingClientRect(), hx = r.left + r.width / 2, hy = r.top + r.height / 2;
         spring(a, 'x', hx, 260, 24, dt); spring(a, 'y', hy, 260, 24, dt); settle(a, a.homeRot, dt);
         if (reduce || Math.hypot(hx - a.x, hy - a.y) + (Math.abs(a.vx) + Math.abs(a.vy)) / 40 + Math.abs(a.s - 1) * 10 + Math.abs(a.tx) + Math.abs(a.ty) < .6) {
-          a.el.remove(); a.home.classList.remove('peeled'); live.delete(a); continue;
+          restore(a); continue;
         }
       } else {
         const c = press && press.a === a ? clamp((t - (press.at as number)) / HOLD, 0, 1) : 0;
@@ -101,6 +98,8 @@ export function mountStickers(opts: { onTouch?: boolean } = {}): () => void {
     raf = live.size ? requestAnimationFrame(tick) : 0;
   }
   const kick = () => { if (!raf) { last = performance.now(); raf = requestAnimationFrame(tick); } };
+  // Takes a peeled copy away and leaves its home sticker where it was
+  const restore = (a: Sticker) => { a.el.remove(); a.home.classList.remove('peeled'); live.delete(a); };
 
   function peelFromHome(home: HTMLElement): Sticker {
     const r = home.getBoundingClientRect(), m = new DOMMatrix(getComputedStyle(home).transform), copy = home.cloneNode(true) as HTMLElement;
@@ -151,7 +150,7 @@ export function mountStickers(opts: { onTouch?: boolean } = {}): () => void {
   function dropPress() {
     if (!press) return;
     const { a } = press; clearTimeout(press.timer); press = null;
-    if (a && a.state === 'charging') { a.el.remove(); a.home.classList.remove('peeled'); live.delete(a); }
+    if (a && a.state === 'charging') restore(a);
   }
   function stick(a: Sticker) {
     if (isNearHome(a.x, a.y, a.home.getBoundingClientRect())) { // dropped by its old spot: it goes home
@@ -167,7 +166,7 @@ export function mountStickers(opts: { onTouch?: boolean } = {}): () => void {
     a.state = 'stuck'; a.base = a.rot + (reduce ? 0 : (Math.random() - .5) * 6); buzz(8); // never goes on quite straight
   }
   document.addEventListener('pointerdown', (e) => {
-    if (held || press || e.button || !e.isPrimary || !canPeel(e.pointerType, onTouch)) return;
+    if (held || press || e.button || !e.isPrimary || !canPeel(e.pointerType)) return;
     const el = e.target as Element, t = el.closest && el.closest<HTMLElement>('.loose,.sk:not(.peeled),.cell img:not(.peeled)');
     if (!t) return;
     const touch = e.pointerType !== 'mouse';

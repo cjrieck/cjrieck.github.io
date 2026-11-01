@@ -1,8 +1,11 @@
 /* what a peeled sticker leaves behind: the logo stays readable, like the clean patch on a real lid */
 .sk.peeled{background:rgba(255,255,255,.1);border:2.5px dashed rgba(255,255,255,.55);box-shadow:none;pointer-events:none;transition:none;--y:0px;--s:1}
 .sk.peeled img{filter:brightness(0) invert(1);opacity:.6}
+/* everything that can be peeled: no text selection, long-press callout, double-tap zoom or native image drag getting in the way */
+.sk,.cell img,.loose{touch-action:manipulation;user-select:none;-webkit-user-select:none;-webkit-touch-callout:none}
+.cell img,.loose{-webkit-user-drag:none}
 /* a sticker on the loose: in #hand while held, then stuck to whichever section it was dropped on */
-.loose{position:absolute;margin:0;max-width:none;z-index:50;cursor:grab;touch-action:manipulation;user-select:none;-webkit-user-select:none;-webkit-touch-callout:none;-webkit-user-drag:none;transition:none}
+.loose{position:absolute;margin:0;max-width:none;z-index:50;cursor:grab;transition:none}
 #hand{position:fixed;inset:0;z-index:70;pointer-events:none}
 #hand .loose{will-change:transform}
 .die-wrap{isolation:isolate}.sk.loose{isolation:isolate}

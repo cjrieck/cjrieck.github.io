@@ -6,7 +6,8 @@
 .note:hover{transform:rotate(0) translateY(-6px)}
 .note h3{font-size:1.7rem;margin-bottom:14px}
 .note p{margin:0}
-.n1{background:var(--mustard)}.n2{background:var(--paper);margin-top:30px}.n3{background:var(--mint)}
+.n1{background:var(--mustard);--rot:-2.2deg}.n2{background:var(--paper);margin-top:30px;--rot:1.4deg}.n3{background:var(--mint);--rot:-1deg}
+.n3 .tape{transform:rotate(4deg)}
 .n2 p{line-height:28px;background:repeating-linear-gradient(transparent 0 27px,rgba(18,133,123,.4) 27px 28px)}
 .n2::before{content:"";position:absolute;left:0;right:0;top:28px;border-top:2px solid var(--tomato)}
 .pin{position:absolute;top:-13px;left:50%;width:26px;height:26px;margin-left:-13px;border-radius:50%;background:var(--teal);border:3px solid var(--ink);box-shadow:inset -4px -4px 0 rgba(0,0,0,.25),2px 4px 0 var(--ink)}

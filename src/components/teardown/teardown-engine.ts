@@ -14,6 +14,7 @@ import {
 } from './teardown-logic';
 import type { PartRow } from './teardown-logic';
 import { trackOnce } from '../../utils/analytics';
+import { clamp } from '../../utils/math';
 
 const ART: Record<string, string> = {
   app: `<svg viewBox="0 0 300 380"><defs><g id="td-row"><rect x="22" y="190" width="256" height="40" rx="6"/><rect class="f-pic" x="32" y="198" width="24" height="24" rx="4"/><path d="M68 204h120M68 216h76"/></g></defs><rect x="22" y="22" width="256" height="34" rx="6"/><circle cx="40" cy="39" r="6"/><path d="M196 39h64"/><rect class="f-pic" x="22" y="70" width="256" height="104" rx="8"/><path d="M22 150l70-44 54 30 46-24 86 40" stroke-dasharray="5 4"/><use href="#td-row"/><use href="#td-row" y="46"/><use href="#td-row" y="92"/><rect x="22" y="338" width="256" height="26" rx="8"/><circle class="f-line" cx="60" cy="351" r="5"/><circle class="f-line" cx="120" cy="351" r="5"/><circle class="f-line" cx="180" cy="351" r="5"/><circle class="f-line" cx="240" cy="351" r="5"/></svg>`,
@@ -36,7 +37,6 @@ const el = <K extends keyof HTMLElementTagNameMap>(tag: K, cls?: string, text?: 
   if (text != null) n.textContent = text;
   return n;
 };
-const clamp = (v: number, a: number, b: number) => Math.min(b, Math.max(a, v));
 // A label from the data, or the default when it is missing or isn't a non-empty string
 const word = (v: unknown, fallback: string) => (typeof v === 'string' && v.trim() !== '' ? v : fallback);
 
@@ -305,7 +305,7 @@ export function mountTeardown(
     notesBox.style.height = narrow ? `${Math.ceil(t1 * Math.max(0, H.x))}px` : '';
 
     // Scale the stack so the flat card and the exploded stack both fit the scene
-    const sw = scene.clientWidth, sh = scene.clientHeight;
+    const sw = scene.clientWidth, sh = scene.clientHeight, W = track.clientWidth;
     const rs = Math.min(sw / 300, sh / 380, 1.2) * 0.94, es = Math.min(sw / 480, sh / 480) * 0.8, s = rs + (es - rs) * t1;
     stackScale = s;
     const dx = narrow ? 0 : (notesBox.offsetWidth + 20) / 2 * (1 - t1); // centre the card until the notes arrive
@@ -320,7 +320,7 @@ export function mountTeardown(
       if (i) n.style.opacity = String(clamp(e * 12, 0, 1));
     });
 
-    const W = track.clientWidth, x = clamp(M.x, 0, 1) * (W - KNOB);
+    const x = clamp(M.x, 0, 1) * (W - KNOB);
     thumb.style.transform = `translateX(${x}px)`;
     fill.style.width = `${x + KNOB / 2}px`;
 
@@ -340,9 +340,11 @@ export function mountTeardown(
     svg.style.visibility = hidden;
     if (narrow) return;
 
+    // Every rect is read before any leader line is written, so the browser lays out once rather than once per row
     const b = stage.getBoundingClientRect();
+    const spots = rows.map((r) => [anchors[r.plate].getBoundingClientRect(), r.note.getBoundingClientRect()] as const);
     rows.forEach((r, i) => {
-      const a = anchors[r.plate].getBoundingClientRect(), n = r.note.getBoundingClientRect(), p = ps[i];
+      const [a, n] = spots[i], p = ps[i];
       const x0 = a.left + a.width / 2 - b.left, y0 = a.top + a.height / 2 - b.top;
       const x1 = n.left - b.left - 4, y1 = n.top - b.top + 11, ex = Math.max(x0 + 14, x1 - 36);
       r.path.setAttribute('d', `M${x0} ${y0}H${ex}L${x1} ${y1}`);
