@@ -15,17 +15,17 @@
         {
           "kind": "interface",
           "title": "What you see",
-          "note": "Feed-based ads that sit in the listening feed, and the SoundCloud Go and Go+ screens that opened a new revenue stream."
+          "note": "I built new ad products in the listening feed and the SoundCloud Go/Go+ screens. Go/Go+ opened a new revenue stream for the company."
         },
         {
           "kind": "app",
           "title": "The app",
-          "note": "The iOS side of SoundCloud Go and Go+: their UI and payment flow, plus a modularized Monetization codebase that sped up feature delivery."
+          "note": "I was the main iOS developer on SoundCloud Go, building the UI and payment infrastructure. I also led the modularization of the Monetization codebase."
         },
         {
           "kind": "services",
           "title": "The services",
-          "note": "The Scala backend for the feed ads, which grew SoundCloud's ad products and sales revenue."
+          "note": "Scala backend for the feed ads, for high throughput and scalability."
         }
       ]
     },
@@ -39,12 +39,12 @@
         {
           "kind": "interface",
           "title": "What you see",
-          "note": "The NOGGIN app: a subscription that took Nickelodeon's brand direct to consumers for the first time."
+          "note": "A subscription-based product that took Nickelodeon's brand direct to consumers for the first time."
         },
         {
           "kind": "app",
           "title": "The app",
-          "note": "An iOS app built around UI. I implemented the dynamic Moose and Zee animations, which react to activity like fast swiping or long idle time, and themed parallax on the episode lists for shows in the home screen's infinite carousel. UIKit Dynamics adds playful touches."
+          "note": "An iOS app built around its UI. I built the Moose and Zee animations, which react to fast swiping or long idle time. I also added themed parallax to the episode lists for the shows in the home screen's infinite carousel, plus a few UIKit Dynamics touches."
         }
       ]
     },
@@ -58,17 +58,17 @@
         {
           "kind": "app",
           "title": "The app",
-          "note": "I led the Apple SSO integration across nine brand products, so signing in stayed seamless for viewers."
+          "note": "Modernization of the tech stack using the latest iOS APIs/SDKs. I led the Apple SSO integration across nine brand products amongst other brand-specific improvements."
         },
         {
           "kind": "services",
           "title": "The services",
-          "note": "Backend for Frontends that cut the impact of third-party downtime and brought recovery from days to hours."
+          "note": "I built Backend for Frontends for the platform. They cut the impact of third-party downtime and took recovery from days to hours."
         },
         {
           "kind": "infrastructure",
           "title": "The infrastructure",
-          "note": "AWS deployment automation and Pact contract tests for faster, safer releases, plus the migration from AWS to Google Cloud and Kubernetes."
+          "note": "Automation of AWS deployments (Infrastructure as Code) and added Pact contract tests, which made releases faster and safer. I also worked on the move from AWS to Google Cloud and Kubernetes."
         }
       ]
     },
@@ -82,17 +82,17 @@
         {
           "kind": "interface",
           "title": "What you see",
-          "note": "An AI stylist that recommends outfits matched to your personal style, built with React Native (Expo)."
+          "note": "An AI stylist that recommends outfits for your personal style, built in React Native (Expo)."
         },
         {
           "kind": "app",
           "title": "The app",
-          "note": "As co-founder and CTO, I led development across the whole product, including the \"Find your style\" onboarding. The Sizing Calculator, built during the NYC Antler accelerator, drove a 27% uptick in organic sign-ups and a 4% purchase conversion in under a week."
+          "note": "I co-founded Peachi as CTO and led the app, including its \"Find your style\" onboarding. The Sizing Calculator, from the NYC Antler accelerator, gave a 27% uptick in organic sign-ups and a 4% purchase conversion in under a week."
         },
         {
           "kind": "services",
           "title": "The services",
-          "note": "A rule-based engine that determines outfits, running on a Python (Flask) backend."
+          "note": "A recommendation engine picks the outfits, and it runs on a Python (Flask) backend."
         }
       ]
     }
