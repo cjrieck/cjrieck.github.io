@@ -10,7 +10,7 @@ export default function Hero() {
           <h1>
             <span className="nametag">
               <span className="top" aria-hidden="true"><b>Hello</b><i>my name is</i></span>
-              <span className="nm">Hi, I'm Clayton</span>
+              <span className="nm">Clayton</span>
             </span>
             <span className="role">Software Engineer &amp;<em>Entrepreneur</em></span>
           </h1>

@@ -15,7 +15,7 @@ const REQUIRED_COPY = [
   // hero
   'Hello',
   'my name is',
-  "Hi, I'm Clayton",
+  'Clayton',
   'Software Engineer &',
   'Entrepreneur',
   'Over a decade of experience developing frontends, backends, teams, and companies. I build high-value, delightful solutions.',
