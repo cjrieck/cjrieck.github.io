@@ -1,29 +1,22 @@
 {
   "files": {
-    "main.css": "/cjrieck.github.io/static/css/main.17c39a1f.css",
-    "main.js": "/cjrieck.github.io/static/js/main.de5e2b21.js",
-    "static/js/787.71e672d5.chunk.js": "/cjrieck.github.io/static/js/787.71e672d5.chunk.js",
-    "static/media/personal-photo.png": "/cjrieck.github.io/static/media/personal-photo.fad0bf127c5f4aec310a.png",
-    "static/media/noggin.png": "/cjrieck.github.io/static/media/noggin.41eb010478fb54dac9a9.png",
-    "static/media/nbc.png": "/cjrieck.github.io/static/media/nbc.6403077fd976c0246725.png",
-    "static/media/soundcloud.png": "/cjrieck.github.io/static/media/soundcloud.d083fa8c5d344b282c5f.png",
-    "static/media/peachi.png": "/cjrieck.github.io/static/media/peachi.1896436ba4b76ff16318.png",
-    "static/media/siriusxm.png": "/cjrieck.github.io/static/media/siriusxm.97e208ab25b599e7046b.png",
-    "static/media/swiftui.png": "/cjrieck.github.io/static/media/swiftui.586a24538377df18fe20.png",
-    "static/media/react-native.png": "/cjrieck.github.io/static/media/react-native.ac34cfa11befbeb3d92d.png",
-    "static/media/oneeleven.png": "/cjrieck.github.io/static/media/oneeleven.583fc866710469979c76.png",
-    "static/media/nickelodeon.png": "/cjrieck.github.io/static/media/nickelodeon.085f7e11a69a41a5d6a7.png",
-    "static/media/swift.png": "/cjrieck.github.io/static/media/swift.d8190fc876244a1d31a4.png",
-    "static/media/credijusto.png": "/cjrieck.github.io/static/media/credijusto.40faf6051d310abe0115.png",
-    "static/media/python.png": "/cjrieck.github.io/static/media/python.7353c34714d95d1751b1.png",
-    "static/media/wework.png": "/cjrieck.github.io/static/media/wework.ab17c871db34c15b6e35.png",
-    "index.html": "/cjrieck.github.io/index.html",
-    "main.17c39a1f.css.map": "/cjrieck.github.io/static/css/main.17c39a1f.css.map",
-    "main.de5e2b21.js.map": "/cjrieck.github.io/static/js/main.de5e2b21.js.map",
-    "787.71e672d5.chunk.js.map": "/cjrieck.github.io/static/js/787.71e672d5.chunk.js.map"
+    "main.css": "/static/css/main.21c3684c.css",
+    "main.js": "/static/js/main.c1bcc238.js",
+    "static/js/787.71e672d5.chunk.js": "/static/js/787.71e672d5.chunk.js",
+    "static/media/siriusxm.png": "/static/media/siriusxm.97e208ab25b599e7046b.png",
+    "static/media/soundcloud.png": "/static/media/soundcloud.d083fa8c5d344b282c5f.png",
+    "static/media/nbc.png": "/static/media/nbc.6403077fd976c0246725.png",
+    "static/media/oneeleven.png": "/static/media/oneeleven.583fc866710469979c76.png",
+    "static/media/nickelodeon.png": "/static/media/nickelodeon.085f7e11a69a41a5d6a7.png",
+    "static/media/credijusto.png": "/static/media/credijusto.40faf6051d310abe0115.png",
+    "static/media/wework.png": "/static/media/wework.ab17c871db34c15b6e35.png",
+    "index.html": "/index.html",
+    "main.21c3684c.css.map": "/static/css/main.21c3684c.css.map",
+    "main.c1bcc238.js.map": "/static/js/main.c1bcc238.js.map",
+    "787.71e672d5.chunk.js.map": "/static/js/787.71e672d5.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.17c39a1f.css",
-    "static/js/main.de5e2b21.js"
+    "static/css/main.21c3684c.css",
+    "static/js/main.c1bcc238.js"
   ]
 }
