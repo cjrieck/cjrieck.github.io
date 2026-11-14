@@ -1,0 +1,17 @@
+/* what a peeled sticker leaves behind: the logo stays readable, like the clean patch on a real lid */
+.sk.peeled{background:rgba(255,255,255,.1);border:2.5px dashed rgba(255,255,255,.55);box-shadow:none;pointer-events:none;transition:none;--y:0px;--s:1}
+.sk.peeled img{filter:brightness(0) invert(1);opacity:.6}
+/* everything that can be peeled: no text selection, long-press callout, double-tap zoom or native image drag getting in the way */
+.sk,.cell img,.loose{touch-action:manipulation;user-select:none;-webkit-user-select:none;-webkit-touch-callout:none}
+.cell img,.loose{-webkit-user-drag:none}
+/* a sticker on the loose: in #hand while held, then stuck to whichever section it was dropped on */
+.loose{position:absolute;margin:0;max-width:none;z-index:50;cursor:grab;transition:none}
+#hand{position:fixed;inset:0;z-index:70;pointer-events:none}
+#hand .loose{will-change:transform}
+.die-wrap{isolation:isolate}.sk.loose{isolation:isolate}
+.die-wrap img{display:block;width:100%;height:100%;pointer-events:none;-webkit-user-drag:none}
+/* holographic foil: wakes up from under your finger while a sticker is peeled, gone once it's stuck down */
+.foil{position:absolute;inset:0;display:none;border-radius:inherit;overflow:hidden;pointer-events:none;mix-blend-mode:multiply;-webkit-mask-size:100% 100%;mask-size:100% 100%}
+.foil i{position:absolute;inset:0;background-image:linear-gradient(115deg,transparent 44%,#fff 50%,transparent 56%),repeating-linear-gradient(115deg,rgba(255,255,255,.45) 0 1px,transparent 1px 4px),linear-gradient(115deg,#ff8fd0,#ffe066,#7ff5bb,#6fd2ff,#bd9bff,#ff8fd0,#ffe066,#7ff5bb,#6fd2ff,#bd9bff);background-size:260% 100%,auto,400% 400%;background-position:var(--gx,0%) 0,0 0,var(--fx,50%) var(--fy,50%);--mask:radial-gradient(circle at var(--px,50%) var(--py,50%),#000 calc(var(--r,0%) - 30%),transparent var(--r,0%));-webkit-mask-image:var(--mask);mask-image:var(--mask)}
+html.holding,html.holding *{cursor:grabbing!important;user-select:none;-webkit-user-select:none}
+.cell img.peeled,.cell:hover img.peeled{opacity:.16;filter:grayscale(1);pointer-events:none;transform:none;transition:none}

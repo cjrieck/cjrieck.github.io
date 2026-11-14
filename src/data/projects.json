@@ -1,0 +1,100 @@
+{
+  "labels": {
+    "whole": "The Product",
+    "parts": "The Parts",
+    "part": "Part"
+  },
+  "projects": [
+    {
+      "id": "soundcloud",
+      "title": "SoundCloud",
+      "summary": "Developed and shipped monetization products including new ad products and SoundCloud Go and Go+",
+      "image": "soundcloud.webp",
+      "imageAlt": "The SoundCloud app on two phones",
+      "layers": [
+        {
+          "kind": "interface",
+          "title": "What you see",
+          "note": "I built new ad products in the listening feed and the SoundCloud Go/Go+ screens. Go/Go+ opened a new revenue stream for the company."
+        },
+        {
+          "kind": "app",
+          "title": "The app",
+          "note": "I was the main iOS developer on SoundCloud Go, building the UI and payment infrastructure. I also led the modularization of the Monetization codebase."
+        },
+        {
+          "kind": "services",
+          "title": "The services",
+          "note": "Scala backend for the feed ads, for high throughput and scalability."
+        }
+      ]
+    },
+    {
+      "id": "noggin",
+      "title": "Noggin",
+      "summary": "Developed and launched a first-to-market subscription streaming service for Nickelodeon revitalizing the Noggin brand",
+      "image": "noggin.webp",
+      "imageAlt": "The Noggin app on a tablet, with mascots peeking over the top",
+      "layers": [
+        {
+          "kind": "interface",
+          "title": "What you see",
+          "note": "A subscription-based product that took Nickelodeon's brand direct to consumers for the first time."
+        },
+        {
+          "kind": "app",
+          "title": "The app",
+          "note": "An iOS app built around its UI. I built the Moose and Zee animations, which react to fast swiping or long idle time. I also added themed parallax to the episode lists for the shows in the home screen's infinite carousel, plus a few UIKit Dynamics touches."
+        }
+      ]
+    },
+    {
+      "id": "nbcuniversal",
+      "title": "NBCUniversal",
+      "summary": "Developed the mobile apps and backend for several NBCU brands including, but not limited to, USA, SyFy, Bravo, E!, and Telemundo",
+      "image": "nbc.webp",
+      "imageAlt": "The USA Network app on a phone and the Bravo Now app on a tablet",
+      "layers": [
+        {
+          "kind": "app",
+          "title": "The app",
+          "note": "Modernization of the tech stack using the latest iOS APIs/SDKs. I led the Apple SSO integration across nine brand products amongst other brand-specific improvements."
+        },
+        {
+          "kind": "services",
+          "title": "The services",
+          "note": "I built Backend for Frontends for the platform. They cut the impact of third-party downtime and took recovery from days to hours."
+        },
+        {
+          "kind": "infrastructure",
+          "title": "The infrastructure",
+          "note": "Automation of AWS deployments (Infrastructure as Code) and added Pact contract tests, which made releases faster and safer. I also worked on the move from AWS to Google Cloud and Kubernetes."
+        }
+      ]
+    },
+    {
+      "id": "peachi",
+      "title": "Peachi",
+      "summary": "First of its kind fashion marketplace utilizing a user's unique style profile to provide outfit inspiration and inspired shopping",
+      "image": "peachi.webp",
+      "imageAlt": "The Peachi app on two phones",
+      "layers": [
+        {
+          "kind": "interface",
+          "title": "What you see",
+          "note": "An AI stylist that recommends outfits for your personal style, built in React Native (Expo)."
+        },
+        {
+          "kind": "app",
+          "title": "The app",
+          "note": "I co-founded Peachi as CTO and led the app, including its \"Find your style\" onboarding. The Sizing Calculator, from the NYC Antler accelerator, gave a 27% uptick in organic sign-ups and a 4% purchase conversion in under a week."
+        },
+        {
+          "kind": "services",
+          "title": "The services",
+          "note": "A recommendation engine picks the outfits, and it runs on a Python (Flask) backend."
+        }
+      ]
+    }
+  ]
+}
