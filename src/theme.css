@@ -22,13 +22,13 @@ main>section{position:relative;padding:96px 0;border-top:3px solid var(--ink)}
 .sh{margin-bottom:52px;max-width:760px}
 .sh h2{font-size:clamp(2.3rem,5.6vw,4.4rem);margin:18px 0 14px;letter-spacing:-.03em}
 .sh p{font-size:1.15rem;margin:0;max-width:34em}
-.btn{display:inline-flex;align-items:center;gap:.5em;font:700 1.05rem/1 var(--body);padding:16px 26px;border:3px solid var(--ink);border-radius:12px;background:var(--tomato);color:var(--ink);text-decoration:none;box-shadow:var(--hard);cursor:pointer;transition:transform .16s cubic-bezier(.3,1.7,.5,1),box-shadow .16s}
-.btn:hover{transform:translate(-2px,-2px);box-shadow:7px 8px 0 var(--ink)}
-.btn:active{transform:translate(5px,6px);box-shadow:0 0 0 var(--ink);transition-duration:.05s}
+.btn{display:inline-flex;align-items:center;gap:.5em;font:700 1.05rem/1 var(--body);padding:16px 26px;border:3px solid var(--ink);border-radius:12px;background:var(--tomato);color:var(--ink);text-decoration:none;box-shadow:var(--hard);cursor:pointer}
 .btn--paper{background:var(--paper)}
 .btn--xl{font-size:1.4rem;padding:20px 40px;border-radius:16px;box-shadow:7px 9px 0 var(--ink)}
-.btn--xl:hover{box-shadow:9px 11px 0 var(--ink)}
-.btn--xl:active{transform:translate(7px,9px)}
+/* pressables move like the logo stickers: outline and hard shadow rise, press and spring back as one piece, so the shadow never detaches */
+.btn,.chips a{transform:translateY(var(--y,0px)) scale(var(--s,1));transition:transform .4s cubic-bezier(.34,1.56,.64,1)}
+@media (hover:hover){.btn:hover,.chips a:hover{--y:-4px;--s:1.05}}
+.btn:active,.chips a:active{--y:0px;--s:.96;transition-duration:.12s}
 .tape{position:absolute;top:-17px;left:50%;width:100px;height:32px;margin-left:-50px;background:rgba(251,241,220,.82);transform:rotate(-3deg);clip-path:polygon(0 0,3% 20%,0 40%,3% 60%,0 80%,3% 100%,100% 100%,97% 80%,100% 60%,97% 40%,100% 20%,97% 0)}
 /* the hero star is inline SVG, so its hard shadow is a filter; the die-cut stickers have theirs baked into the WebP */
 .star{filter:drop-shadow(4px 5px 0 var(--ink))}
