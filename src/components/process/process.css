@@ -8,17 +8,20 @@
 .step:last-child{margin-bottom:0}
 .node{grid-column:2;grid-row:1;justify-self:center;width:24px;height:24px;border-radius:50%;background:var(--paper);border:3px solid var(--ink);z-index:3;transition:background .2s}
 .node.on{background:var(--ink)}
-.ticket{grid-row:1;position:relative;display:grid;grid-template-columns:var(--sw) 1fr;max-width:540px;background:var(--paper);border:3px solid var(--ink);border-radius:12px;box-shadow:var(--hard);transform:rotate(var(--rot));transition:box-shadow .3s}
-.ticket.on{box-shadow:9px 11px 0 var(--ink)}
+/* A ticket is two layers behind its text. The back one is the hard shadow: a whole ink copy of the ticket, nudged down and right. The front one is the ticket: an ink silhouette, a paper face 3px inside it, and a punch hole at each end of the perforation, ringed in ink. The top hole shows cream; the bottom hole stays ink, as if the shadow showed through. The top hole's cream is a whole disc laid over the ticket's edge (its upper half is cream on cream), because cream and ink cut off by the same tilted edge leave an ink hairline across the hole. The shadow is a real shape rather than a box-shadow or drop-shadow: those stop right at the outline, and once the ticket tilts the two soft edges leave a cream hairline between them (Safari does it even with a drop-shadow). The lit step tilts from flat and its shadow grows. */
+.ticket{--nx:calc(var(--sw) + 1.5px);grid-row:1;position:relative;display:grid;grid-template-columns:var(--sw) 1fr;max-width:540px;padding:3px;transform:rotate(0deg) scale(1);transition:transform .5s cubic-bezier(.34,1.56,.64,1)}
+.ticket.on{transform:rotate(var(--rot)) scale(1.02)}
+.ticket::before,.ticket::after{content:"";position:absolute;inset:0;z-index:-1;border-radius:12px}
+.ticket::before{background:var(--ink);translate:5px 6px;transition:translate .3s}
+.ticket.on::before{translate:9px 11px}
+.ticket::after{border:3px solid #0000;background:radial-gradient(circle at var(--nx) 0,var(--ink) 12.5px,#0000 13px) border-box,radial-gradient(circle at var(--nx) 100%,var(--ink) 12.5px,#0000 13px) border-box,repeating-linear-gradient(var(--ink) 0 6px,transparent 6px 11px) calc(var(--sw) - 3px) 0/3px 100% no-repeat padding-box,linear-gradient(90deg,var(--c) var(--sw),var(--paper) 0) no-repeat padding-box,linear-gradient(var(--ink) 0 0) border-box}
 .step:nth-child(odd) .ticket{grid-column:1;justify-self:end}
 .step:nth-child(even) .ticket{grid-column:3;justify-self:start}
-.stub{display:grid;place-items:center;background:var(--c);border-right:3px dashed var(--ink);border-radius:8px 0 0 8px;font:800 2.3rem/1 var(--display)}
+.stub{display:grid;place-items:center;font:800 2.3rem/1 var(--display)}
+.stub::before{content:"";position:absolute;left:calc(var(--nx) - 9.75px);top:-9.75px;width:19.5px;height:19.5px;border-radius:50%;background:var(--cream)}
 .tbody{padding:22px 24px 24px}
 .tbody h3{font-size:1.5rem;margin-bottom:10px}
 .tbody p{margin:0}
-.ticket::before,.ticket::after{content:"";position:absolute;left:calc(var(--sw) - 14.5px);width:26px;height:26px;border-radius:50%;background:var(--cream);border:3px solid var(--ink)}
-.ticket::before{top:-16px;clip-path:inset(50% 0 0 0)}
-.ticket::after{bottom:-16px;clip-path:inset(0 0 50% 0)}
 @media (max-width:760px){
  .steps{--lx:22px;--sw:60px}.step{grid-template-columns:44px 1fr;margin-bottom:34px}
  .node{grid-column:1}.step:nth-child(n) .ticket{grid-column:2;justify-self:stretch;max-width:none}
