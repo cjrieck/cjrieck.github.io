@@ -35,6 +35,5 @@ main>section{position:relative;padding:96px 0;border-top:3px solid var(--ink)}
 
 @media (max-width:760px){
  main>section{padding:68px 0}
- html{scroll-padding-top:calc(42px + var(--nav-gap))}
 }
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{transition:none!important;animation:none!important}}

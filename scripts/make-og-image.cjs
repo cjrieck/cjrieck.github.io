@@ -5,7 +5,7 @@ const { serveBuild, launchBrowser, openPage } = require('./verify/helpers.cjs');
 
 const OUT = path.join(__dirname, '..', 'public', 'og-image.png');
 // The nav bar stays out of the picture and the hero fills the frame exactly
-const FRAME_CSS = '.navwrap { display: none } .hero { padding: 32px 0; min-height: 630px }';
+const FRAME_CSS = '.navfix { display: none } .hero { padding: 32px 0; min-height: 630px }';
 
 async function main() {
   const site = await serveBuild();

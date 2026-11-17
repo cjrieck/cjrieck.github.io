@@ -1,10 +1,21 @@
-/* nav: a strip of label tape */
-/* The breathing room is the sticky offset, not a margin: a margin here collapsed out of the zero-height wrapper, which shoved the whole page down and left the nav flush with the top edge once stuck */
-.navwrap{position:sticky;top:var(--nav-gap);z-index:60;height:0}
-/* Whatever scrolls up into the gap above the nav melts into a soft wash of its own colors. The blur is full strength across the gap and fades out below it, so only the sides of the bar on wide screens ever show it. */
-.navwrap::before{content:"";position:absolute;left:0;right:0;top:calc(var(--nav-gap) * -1);height:calc(var(--nav-gap) + 36px);pointer-events:none;-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);-webkit-mask-image:linear-gradient(#000 var(--nav-gap),transparent);mask-image:linear-gradient(#000 var(--nav-gap),transparent)}
-.nav{position:relative;width:min(1180px,100% - 24px);margin:0 auto;display:flex;align-items:center;gap:10px 14px;background:var(--ink);color:var(--cream);border:3px solid var(--cream);border-radius:10px;padding:8px 10px;box-shadow:0 0 0 2.5px var(--ink),5px 6px 0 2.5px var(--ink)}
-.nav::after{content:"";position:absolute;inset:3px;border:1.5px dashed rgba(251,241,220,.28);border-radius:6px;pointer-events:none}
+/* nav: a strip of label tape that folds into a menu button as the page scrolls */
+/* Near the top of the page nothing scrolls under the iPhone status bar, so Safari fills that strip from the body's background (checked in the iOS 26.5 simulator: setting it on html alone is not enough). The body is ink (for the footer and the bottom bar), so while the page is near its top both html and body are the hero's mustard instead; nav.tsx toggles this class. Further down, page content shows through the strip and the ink canvas only appears past the end of the page. */
+html.at-top,html.at-top body{background-color:var(--mustard)}
+/* The header is fixed. --p is the scroll progress (0 = full strip, 1 = menu button; it stays 0 on screens wider than a phone); --ph is the strip's natural height, written by nav.tsx; --pw is the strip's width. The wrapper is a size container so --pw can use its width. */
+@property --p{syntax:"<number>";inherits:true;initial-value:0}
+/* On phones, browsers with scroll-driven animations (nav.tsx sets data-scroll) follow the page's scroll position in CSS, so the header never lags behind the page the way a scroll listener does. The curve is smoothstep, the same ease the listener fallback uses; the range is MORPH_DISTANCE in nav.tsx. Everywhere else nav.tsx writes --p itself. */
+@keyframes morph{from{--p:0}to{--p:1}}
+@media (max-width:760px){
+ .navfix[data-scroll=css]{animation-name:morph;animation-timing-function:cubic-bezier(.3333,0,.6667,1);animation-fill-mode:both;animation-timeline:scroll(root);animation-range:0 140px}
+}
+.navfix{position:fixed;top:var(--nav-gap);left:0;right:0;z-index:60;pointer-events:none;container-type:inline-size;--p:0;--ph:56px;--pw:min(1180px,100cqw - 24px)}
+/* the box shrinks from the centred strip to a 52px square in the top-right corner */
+.navbox{position:relative;pointer-events:auto;margin-left:auto;margin-right:calc((100% - var(--pw)) / 2 * (1 - var(--p)) + 12px * var(--p));width:calc(var(--pw) * (1 - var(--p)) + 52px * var(--p));height:calc((var(--ph) + 6px) * (1 - var(--p)) + 52px * var(--p));background:var(--ink);color:var(--cream);border:3px solid var(--cream);border-radius:10px;box-shadow:0 0 0 2.5px var(--ink),5px 6px 0 2.5px var(--ink)}
+.navbox::after,.menusheet::after{content:"";position:absolute;inset:3px;border:1.5px dashed rgba(251,241,220,.28);border-radius:6px;pointer-events:none}
+/* the strip keeps its full width and is cropped by the shrinking box while it fades out */
+.navclip{position:absolute;inset:0;overflow:hidden;border-radius:7px;opacity:calc(1 - var(--p) * 2.5)}
+.navfix[data-compact=true] .navclip{visibility:hidden}
+.nav{position:absolute;top:0;right:0;width:calc(var(--pw) - 6px);display:flex;align-items:center;gap:10px 14px;padding:8px 10px}
 .nav a:focus-visible{outline-color:var(--mustard)}
 .nav .mono{font:800 1.25rem/1 var(--display);background:var(--mustard);color:var(--ink);border-radius:6px;padding:6px 10px 5px;text-decoration:none}
 .nav ul{display:flex;gap:2px;list-style:none;margin:0 auto;padding:0}
@@ -20,3 +31,29 @@
  .nav{flex-wrap:wrap}.nav ul{order:3;width:100%;justify-content:space-between;margin:0}.nav .btn{margin-left:auto}
  .nav li a{padding:7px 6px;font-size:.88rem}
 }
+/* the menu button fades in over the last of the shrink */
+.menu-btn{position:absolute;inset:0;margin:0;padding:0;border:0;border-radius:7px;background:none;cursor:pointer;opacity:calc((var(--p) - .6) * 2.5)}
+.navfix[data-compact=false] .menu-btn{visibility:hidden}
+.menu-btn:focus-visible{outline-color:var(--mustard)}
+/* three bars that fold into an X while the menu is open */
+.bars,.bars::before,.bars::after{position:absolute;left:50%;top:50%;width:22px;height:3px;margin:-1.5px 0 0 -11px;border-radius:2px;background:var(--cream);transition:transform .3s cubic-bezier(.34,1.56,.64,1),background-color .2s}
+.bars::before,.bars::after{content:"";left:0;top:0;margin:0}
+.bars::before{transform:translateY(-7px)}
+.bars::after{transform:translateY(7px)}
+.navfix[data-open=true] .bars{background:transparent}
+.navfix[data-open=true] .bars::before{transform:rotate(45deg)}
+.navfix[data-open=true] .bars::after{transform:rotate(-45deg)}
+/* the sheet is always rendered so it can animate; closed, it is invisible and out of the tab order */
+.menusheet{position:absolute;top:calc(100% + 17px);right:-3px;width:min(240px,calc(100vw - 24px));padding:10px;background:var(--ink);color:var(--cream);border:3px solid var(--cream);border-radius:10px;box-shadow:0 0 0 2.5px var(--ink),5px 6px 0 2.5px var(--ink);transform-origin:100% 0;transition:transform .35s cubic-bezier(.34,1.56,.64,1),opacity .2s,visibility 0s}
+.navfix[data-open=false] .menusheet{transform:translateY(-10px) scale(.86);opacity:0;visibility:hidden;pointer-events:none;transition:transform .2s,opacity .15s,visibility 0s .2s}
+.menusheet ul{position:relative;display:grid;gap:2px;list-style:none;margin:0;padding:0}
+.menusheet li{transition:transform .35s cubic-bezier(.34,1.56,.64,1),opacity .25s}
+.navfix[data-open=false] .menusheet li{transform:translateY(-6px);opacity:0}
+.menusheet li:nth-child(2){transition-delay:.03s}.menusheet li:nth-child(3){transition-delay:.06s}.menusheet li:nth-child(4){transition-delay:.09s}.menusheet li:nth-child(5){transition-delay:.12s}.menusheet li:nth-child(6){transition-delay:.15s}
+.menusheet li a:not(.btn){display:block;padding:13px 14px;border-radius:5px;text-decoration:none;font:600 1rem/1 var(--body);color:var(--cream)}
+.menusheet li a:not(.btn):not([aria-current]):hover{background:rgba(251,241,220,.18)}
+.menusheet li a[aria-current]{background:var(--cream);color:var(--ink)}
+.menusheet a:focus-visible{outline-color:var(--mustard)}
+/* Let's Talk: plain orange, no outline or shadow, so it has room to breathe */
+.menusheet-cta{margin-top:8px}
+.menusheet-cta .btn{display:flex;justify-content:center;padding:14px 16px;font-size:1rem;border:0;border-radius:8px;box-shadow:none}
